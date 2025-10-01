@@ -23,7 +23,7 @@ repository               : "gordondzwilliams.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/GordonWilliams_DukeNicholasSchoolPhD_011525_IMG_9855_NR_LrCC.jpg"
+  avatar           : "GordonWilliams_DukeNicholasSchoolPhD_011525_IMG_9855_NR_LrCC.jpg"
   name             : "Gordon D.Z. Williams"
   pronouns         : # example: "she/her"  
   bio              : "PhD Candidate - Environmental/Isotope Geochemistry"
