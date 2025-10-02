@@ -88,19 +88,45 @@ order: 10
   <div class="gallery-grid">
 
     <figure>
-      <img src="/images/SDU_BlueGlow.jpg" alt="Blue glow on Salar de Uyuni">
-      <figcaption>Figure 1. Blue glow on the Salar de Uyuni during brine sampling campaign.</figcaption>
+      <img src="/images/SDU/SDU_BlueGlow.jpg" alt="Blue glow on Salar de Uyuni">
+      <figcaption>Salar de Uyuni.</figcaption>
     </figure>
 
     <figure>
-      <img src="/images/SDU_Ponds.jpg" alt="Evaporation ponds at Salar de Uyuni">
-      <figcaption>Figure 2. Sequential evaporation ponds used in pilot-scale lithium extraction.</figcaption>
+      <img src="/images/SDU/BlackWhiteSalar.jpg" alt="Evaporation ponds at Salar de Uyuni">
+      <figcaption>Extracting shallow brine samples from beneath the salt crust.</figcaption>
     </figure>
 
     <figure>
-      <img src="/images/SDU_FieldTeam.jpg" alt="Field team sampling brines">
-      <figcaption>Figure 3. Field team collecting brine samples for isotopic and elemental analyses.</figcaption>
+      <img src="/images/SDU/SamplingDissolutionPit.jpeg" alt="Field team sampling brines">
+      <figcaption>Sampling a natural dissolution pit in the salt crust.</figcaption>
     </figure>
+    
+    <figure>
+      <img src="/images/SDU/SamplingEvapPond.jpeg" alt="Field team sampling brines">
+      <figcaption>Sampling an industrial evaporation pond.</figcaption>
+    </figure>
+    
+    <figure>
+      <img src="/images/SDU/BikeSampling.jpg" alt="Field team sampling brines">
+      <figcaption>Biking out to collect samples in the mud.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="/images/SDU/Llamas.jpg" alt="Field team sampling brines">
+      <figcaption>Llamas</figcaption>
+    </figure>
+    
+    <figure>
+      <img src="/images/SDU/Incahuasi.jpg" alt="Field team sampling brines">
+      <figcaption>View from Incahuasi "Island"</figcaption>
+    </figure>
+        
+    <figure>
+      <img src="/images/SDU/EveningHorizon.jpg" alt="Field team sampling brines">
+      <figcaption>Salar de Uyuni</figcaption>
+    </figure>
+    
 
   </div> <!-- /.gallery-grid -->
 
