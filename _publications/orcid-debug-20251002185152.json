@@ -1,0 +1,342 @@
+[
+  {
+    "last-modified-date": {
+      "value": 1748026078487
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1126/sciadv.adw3268",
+          "external-id-normalized": {
+            "value": "10.1126/sciadv.adw3268",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1126/sciadv.adw3268"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 184593751,
+        "created-date": {
+          "value": 1747960008852
+        },
+        "last-modified-date": {
+          "value": 1747960008852
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0003-1003-360X",
+            "path": "0000-0003-1003-360X",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "AAAS - Science"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "The Role of Boron in Controlling the pH of Lithium Brines"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1126/sciadv.adw3268",
+              "external-id-normalized": {
+                "value": "10.1126/sciadv.adw3268",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1126/sciadv.adw3268"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://www.science.org/doi/10.1126/sciadv.adw3268"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "05"
+          },
+          "day": {
+            "value": "23"
+          }
+        },
+        "journal-title": {
+          "value": "Science Advances"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/184593751",
+        "display-index": "1"
+      },
+      {
+        "put-code": 184649350,
+        "created-date": {
+          "value": 1748026078487
+        },
+        "last-modified-date": {
+          "value": 1748026078487
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "The role of boron in controlling the pH of lithium brines"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1126/sciadv.adw3268",
+              "external-id-normalized": {
+                "value": "10.1126/sciadv.adw3268",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1126/sciadv.adw3268"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1126/sciadv.adw3268"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "05"
+          },
+          "day": {
+            "value": "23"
+          }
+        },
+        "journal-title": {
+          "value": "Science Advances"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/184649350",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1739264679648
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1021/acs.estlett.4c01124",
+          "external-id-normalized": {
+            "value": "10.1021/acs.estlett.4c01124",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1021/acs.estlett.4c01124"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 176017666,
+        "created-date": {
+          "value": 1737136589643
+        },
+        "last-modified-date": {
+          "value": 1739264679648
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Quality of Wastewater from Lithium-Brine Mining"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1021/acs.estlett.4c01124",
+              "external-id-normalized": {
+                "value": "10.1021/acs.estlett.4c01124",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1021/acs.estlett.4c01124"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1021/acs.estlett.4c01124"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "02"
+          },
+          "day": {
+            "value": "11"
+          }
+        },
+        "journal-title": {
+          "value": "Environmental Science & Technology Letters"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/176017666",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1759156691190
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1039/D5VA00103J",
+          "external-id-normalized": {
+            "value": "10.1039/d5va00103j",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1039/D5VA00103J"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 193030273,
+        "created-date": {
+          "value": 1759156691190
+        },
+        "last-modified-date": {
+          "value": 1759156691190
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis elegans"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1039/D5VA00103J",
+              "external-id-normalized": {
+                "value": "10.1039/d5va00103j",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1039/D5VA00103J"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1039/D5VA00103J"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": null,
+          "day": null
+        },
+        "journal-title": {
+          "value": "Environmental Science: Advances"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/193030273",
+        "display-index": "1"
+      }
+    ]
+  }
+]
