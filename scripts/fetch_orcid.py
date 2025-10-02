@@ -1,19 +1,38 @@
 #!/usr/bin/env python3
 # scripts/fetch_orcid.py
-# Aggressive extraction + detailed-work fetch for contributors
-# Requires: python3, requests
+# Full ORCID fetcher with CrossRef author preference and robust contributor extraction
+#
+# Requirements: python3, requests
+#
+# Environment:
+# - ORCID_CLIENT_ID (secret)
+# - ORCID_CLIENT_SECRET (secret)
+# - optional CROSSREF_MAILTO (for polite CrossRef User-Agent)
 
-import os, sys, requests, json, re
+import os
+import sys
+import json
+import re
+import time
+import urllib.parse
 from pathlib import Path
 from datetime import datetime
 
+import requests
+
+# ----------------------- CONFIG -----------------------
 ORCID = "0000-0002-9076-9635"
-CLIENT_ID = os.environ.get("ORCID_CLIENT_ID")
-CLIENT_SECRET = os.environ.get("ORCID_CLIENT_SECRET")
 OUT_DIR = Path("_publications")
 ORCID_TOKEN_URL = "https://orcid.org/oauth/token"
 ORCID_RECORD_URL_TEMPLATE = "https://pub.orcid.org/v3.0/{orcid}/record"
 ORCID_WORK_URL_TEMPLATE = "https://pub.orcid.org/v3.0/{orcid}/work/{put_code}"
+# polite pause between CrossRef requests (seconds) - small to avoid throttling
+CROSSREF_SLEEP = 0.12
+# ------------------------------------------------------
+
+CLIENT_ID = os.environ.get("ORCID_CLIENT_ID")
+CLIENT_SECRET = os.environ.get("ORCID_CLIENT_SECRET")
+CROSSREF_MAILTO = os.environ.get("CROSSREF_MAILTO") or "gordondzwilliams.github.io@example.com"
 
 def fail(msg, code=1):
     print("ERROR:", msg, file=sys.stderr)
@@ -24,7 +43,7 @@ if not CLIENT_ID or not CLIENT_SECRET:
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# --- helpers (normalize, filename, heuristics) --------------------------------
+# ----------------------- Helpers -----------------------
 def get_token():
     data = {
         "client_id": CLIENT_ID,
@@ -33,10 +52,13 @@ def get_token():
         "scope": "/read-public"
     }
     headers = {"Accept": "application/json"}
-    r = requests.post(ORCID_TOKEN_URL, data=data, headers=headers, timeout=30)
+    try:
+        r = requests.post(ORCID_TOKEN_URL, data=data, headers=headers, timeout=30)
+    except Exception as e:
+        fail(f"Token request failed: {e}")
     if r.status_code != 200:
         print("Token response:", r.status_code, r.text)
-        fail("Failed to obtain token from ORCID.")
+        fail("Failed to obtain token from ORCID. Check client id/secret and that they are valid for the Public API.")
     body = r.json()
     token = body.get("access_token")
     if not token:
@@ -55,12 +77,14 @@ def normalize_to_string(x):
     if isinstance(x, dict):
         if "value" in x and isinstance(x["value"], str):
             return x["value"]
+        # check common nested keys
         for k in ("title", "short-title", "translated-title", "credit-name", "given-names", "family-name", "contributor-name", "name"):
             v = x.get(k)
             if isinstance(v, str):
                 return v
             if isinstance(v, dict) and isinstance(v.get("value"), str):
                 return v.get("value")
+        # fallback: first string child
         for val in x.values():
             if isinstance(val, str):
                 return val
@@ -89,17 +113,18 @@ def looks_like_name(s):
     if not s or not isinstance(s, str):
         return False
     s = s.strip()
-    if len(s) > 80:
+    if len(s) > 90:
         return False
     if "http" in s or "doi.org" in s or "@" in s:
         return False
+    # require at least a space (given + family) OR comma (family, given)
     if " " in s and re.search(r"[A-Za-z]", s):
-        if re.search(r"\b(dept|department|univ|university|institute|school|college|laboratory|lab)\b", s.lower()):
+        if re.search(r"\b(dept|department|univ|university|institute|school|college|laboratory|lab|centre|center)\b", s.lower()):
             return False
         if len(s.split()) > 6:
             return False
         return True
-    if "," in s and re.search(r"[A-Za-z]", s) and len(s) < 80:
+    if "," in s and re.search(r"[A-Za-z]", s) and len(s) < 90:
         return True
     return False
 
@@ -133,7 +158,7 @@ def deep_collect_strings(obj, max_found=50):
             out.append(s); seen.add(s)
     return out
 
-# --- contributor extraction helpers ------------------------------------------
+# ----------------------- contributor extraction -----------------------
 def extract_contrib_name(c):
     if not isinstance(c, dict):
         return None
@@ -163,6 +188,7 @@ def extract_contrib_name(c):
 
 def find_authors_targets(summary, item):
     authors = []
+    # summary-level contributors
     if summary and isinstance(summary, dict) and summary.get("contributors"):
         cont = summary.get("contributors")
         entries = ensure_list(cont.get("contributor") if isinstance(cont, dict) and "contributor" in cont else cont)
@@ -170,6 +196,7 @@ def find_authors_targets(summary, item):
             n = extract_contrib_name(e) or (extract_contrib_name(e.get("contributor")) if isinstance(e, dict) and e.get("contributor") else None)
             if n:
                 authors.append(n)
+    # item.work contributors
     if not authors:
         work_obj = item.get("work") if isinstance(item, dict) else None
         if work_obj and isinstance(work_obj, dict) and work_obj.get("contributors"):
@@ -179,21 +206,61 @@ def find_authors_targets(summary, item):
                 n = extract_contrib_name(e)
                 if n:
                     authors.append(n)
-    if not authors:
-        if item and isinstance(item, dict) and item.get("contributors"):
-            cont = item.get("contributors")
-            entries = ensure_list(cont.get("contributor") if isinstance(cont, dict) and "contributor" in cont else cont)
-            for e in entries:
-                n = extract_contrib_name(e)
-                if n:
-                    authors.append(n)
+    # item-level contributors
+    if not authors and item and isinstance(item, dict) and item.get("contributors"):
+        cont = item.get("contributors")
+        entries = ensure_list(cont.get("contributor") if isinstance(cont, dict) and "contributor" in cont else cont)
+        for e in entries:
+            n = extract_contrib_name(e)
+            if n:
+                authors.append(n)
+    # dedupe preserving order
     seen = set(); out=[]
     for a in authors:
         if a not in seen:
             out.append(a); seen.add(a)
     return out
 
-# --- parse group item and attempt detailed work fetch when needed -------------
+# ----------------------- CrossRef lookup -----------------------
+def fetch_crossref_authors(doi, mailto=None):
+    if not doi:
+        return []
+    try:
+        doi_norm = doi.strip()
+        if doi_norm.lower().startswith("http"):
+            doi_norm = doi_norm.split("doi.org/")[-1]
+        doi_enc = urllib.parse.quote(doi_norm, safe='')
+        url = f"https://api.crossref.org/works/{doi_enc}"
+        headers = {"Accept": "application/json",
+                   "User-Agent": f"gordondzwilliams.github.io (mailto:{mailto or CROSSREF_MAILTO})"}
+        r = requests.get(url, headers=headers, timeout=20)
+        # be polite
+        time.sleep(CROSSREF_SLEEP)
+        if r.status_code != 200:
+            print(f"CrossRef returned {r.status_code} for DOI {doi}")
+            return []
+        data = r.json()
+        msg = data.get("message", {})
+        authors = msg.get("author", []) or []
+        out = []
+        for a in authors:
+            given = a.get("given") or ""
+            family = a.get("family") or ""
+            name = a.get("name") or ""
+            if given and family:
+                out.append(f"{given} {family}")
+            elif name:
+                out.append(name)
+            elif given:
+                out.append(given)
+            elif family:
+                out.append(family)
+        return out
+    except Exception as e:
+        print(f"CrossRef fetch error for {doi}: {e}")
+        return []
+
+# ----------------------- core parsing & detailed fetch -----------------------
 def parse_group_item_with_details(item, i, headers):
     summaries = ensure_list(item.get("work-summary") or [])
     summary = summaries[0] if summaries else item if isinstance(item, dict) else {}
@@ -227,12 +294,12 @@ def parse_group_item_with_details(item, i, headers):
         elif id_type in ("url","uri") and not url:
             url = normalize_to_string((e.get("external-id-url") or {}).get("value") or e.get("external-id-value"))
 
-    # targeted extraction
+    # authors: targeted extraction
     authors = find_authors_targets(summary, item)
-    used_deep = False
     used_detailed = False
+    used_deep = False
 
-    # If no authors found, try fetching detailed work records by put-code
+    # if no authors found, fetch detail for each summary put-code and check contributors
     if not authors and summaries:
         for s in summaries:
             put = s.get("put-code") or s.get("put_code") or None
@@ -245,8 +312,6 @@ def parse_group_item_with_details(item, i, headers):
                 print(f"Could not fetch detailed work {put}: {e}")
                 continue
             if r.status_code != 200:
-                # skip non-200 details
-                # print short debug
                 print(f"Detailed work {put} returned {r.status_code}")
                 continue
             try:
@@ -254,14 +319,12 @@ def parse_group_item_with_details(item, i, headers):
             except Exception:
                 print(f"Detailed work {put} response not JSON")
                 continue
-            # The detailed work JSON often contains 'contributors' (object with contributor list)
             cont_block = work_json.get("contributors") or {}
             entries = []
             if isinstance(cont_block, dict) and "contributor" in cont_block:
                 entries = ensure_list(cont_block.get("contributor"))
             elif cont_block:
                 entries = ensure_list(cont_block)
-            # try to extract names
             for c in entries:
                 name = extract_contrib_name(c)
                 if name and name not in authors:
@@ -271,7 +334,7 @@ def parse_group_item_with_details(item, i, headers):
                 print(f"Detailed work {put} provided authors: {authors}")
                 break
 
-    # aggressive fallback: deep scan
+    # aggressive fallback: deep scan of item json
     if not authors:
         candidates = deep_collect_strings(item)
         if candidates:
@@ -298,6 +361,7 @@ def parse_group_item_with_details(item, i, headers):
         "diag": diag
     }
 
+# ----------------------- markdown writer -----------------------
 def mk_markdown(parsed, idx):
     slug = safe_filename(parsed.get("title")) or f"publication-{idx}-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
     fname_prefix = (parsed.get('year') or '')[:4] or 'nodate'
@@ -324,6 +388,7 @@ def mk_markdown(parsed, idx):
     body = parsed["abstract"] + "\n" if parsed["abstract"] else ""
     return filename, fm + body
 
+# ----------------------- main ----------------------------------------------
 def main():
     print("Starting ORCID fetch for", ORCID)
     token = get_token()
@@ -339,7 +404,7 @@ def main():
         print("activities-summary snippet:", json.dumps(data.get("activities-summary", {}), indent=2)[:2000])
         fail("No works found in ORCID record.")
     written = []
-    # write debug snippet (first few groups)
+    # debug snippet for first groups
     try:
         debug_file = OUT_DIR / f"orcid-debug-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}.json"
         with open(debug_file, "w", encoding="utf-8") as fh:
@@ -353,16 +418,28 @@ def main():
         parsed = parse_group_item_with_details(item, i, headers)
         print(f"[{i}] title='{parsed['title'][:120]}' authors_found={len(parsed['authors'])} diag={parsed['diag']}")
         if parsed['authors']:
-            print(f"    authors: {parsed['authors']}")
+            print(f"    authors (from ORCID/detail/deep): {parsed['authors']}")
         else:
             print("    authors: (none found by script)")
+
+        # Prefer CrossRef authors when DOI exists
+        if parsed.get("doi"):
+            crossref_auths = fetch_crossref_authors(parsed["doi"], mailto=CROSSREF_MAILTO)
+            if crossref_auths:
+                print(f"    Using CrossRef authors for DOI {parsed['doi']}: {crossref_auths}")
+                parsed['authors'] = crossref_auths
+            else:
+                print(f"    CrossRef had no authors for DOI {parsed['doi']}, keeping ORCID-derived authors.")
+        else:
+            print("    No DOI present; using ORCID-derived authors (if any).")
+
         filename, content = mk_markdown(parsed, i)
         with open(filename, "w", encoding="utf-8") as fh:
             fh.write(content)
         written.append(str(filename))
         print("WROTE", filename)
 
-    # timestamp file so commit always occurs
+    # write timestamp marker so commits always happen
     try:
         ts_file = OUT_DIR / ".fetched_at"
         with open(ts_file, "w", encoding="utf-8") as fh:
