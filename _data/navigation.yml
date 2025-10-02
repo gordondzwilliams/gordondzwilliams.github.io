@@ -9,14 +9,12 @@
 main:
   - title: "Home"
     url: /
-
   - title: "Publications"
     url: /publications/
-
+  #- title: "Research"
+  #  url: /research/
   - title: "CV"
-    url: /cv/
-    target: _blank
-    rel: noopener
+    url: /files/Williams_Gordon_CV.pdf
 
   # - title: "Talks"
   #   url: /talks/
