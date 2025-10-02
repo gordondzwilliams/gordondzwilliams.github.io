@@ -16,16 +16,36 @@
 
 <!-- end custom head snippets -->
 
-<!-- Force CV link to open in a new tab -->
+<!-- Force CV (and any PDF in the nav) to open in a new tab -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var links = document.querySelectorAll('nav a, .site-nav a, .masthead a, .greedy-nav a');
-  links.forEach(function (a) {
-    if (!a || !a.href) return;
-    if (a.href.endsWith('/files/Williams_Gordon_CV.pdf')) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener');
-    }
-  });
-});
+(function() {
+  function retargetPdfLinks() {
+    // Grab common nav containers used by AcademicPages/Minimal Mistakes
+    var links = document.querySelectorAll('nav a, .site-nav a, .masthead a, .greedy-nav a, .visible-links a');
+    links.forEach(function(a) {
+      if (!a || !a.href) return;
+
+      // Normalize for robust matching
+      var href = a.href;                    // absolute URL
+      var pathname = a.pathname || "";      // path part if available
+
+      // Match your specific CV path OR any .pdf link in the nav
+      var isCV = href.indexOf('/files/Williams_Gordon_CV.pdf') !== -1 ||
+                 pathname.indexOf('/files/Williams_Gordon_CV.pdf') !== -1;
+      var isPDF = /\.pdf(\?|$)/i.test(href) || /\.pdf(\?|$)/i.test(pathname);
+
+      if (isCV || isPDF) {
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener');
+      }
+    });
+  }
+
+  // Run after everything is laid out (some themes build nav dynamically)
+  window.addEventListener('load', retargetPdfLinks);
+
+  // Also observe nav changes (e.g., greedy-nav collapsing/expanding)
+  var observer = new MutationObserver(retargetPdfLinks);
+  observer.observe(document.documentElement, { subtree: true, childList: true });
+})();
 </script>
