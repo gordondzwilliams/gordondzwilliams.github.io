@@ -15,3 +15,17 @@
 <meta name="theme-color" content="#ffffff"/>
 
 <!-- end custom head snippets -->
+
+<!-- Force CV link to open in a new tab -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var links = document.querySelectorAll('nav a, .site-nav a, .masthead a, .greedy-nav a');
+  links.forEach(function (a) {
+    if (!a || !a.href) return;
+    if (a.href.endsWith('/files/Williams_Gordon_CV.pdf')) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+    }
+  });
+});
+</script>
