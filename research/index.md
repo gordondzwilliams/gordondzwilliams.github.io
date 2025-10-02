@@ -6,7 +6,9 @@ permalink: /research/
 
 <!-- ✍️ Edit this intro text anytime -->
 <p>
-My research focuses on X/Y/Z... (replace this with your own description).
+My research broadly focusses on the geochemistry and environmental impacts of lithium deposits and mining them. This includes work in (1) the Carolina Tin-Spodumene Belt of North Carolina where hard-rock lithium deposits occur, investigating the natural and mining related water-quality impacts to streams and groundwater throughout a legacy mining region, and (2) the Salar de Uyuni in Bolivia which is the largest salt flat in the world and hosts a massive lithium brine resource that is currently under development.
+Please click the images below for more information on each project.
+
 </p>
 
 <style>
