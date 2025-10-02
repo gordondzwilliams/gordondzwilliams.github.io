@@ -15,6 +15,7 @@ authors:
   - "Michael R. Sandstrom"
   - "Avner Vengosh"
 year: "2023"
+journal: "Chemical Geology"
 doi: "10.1016/j.chemgeo.2023.121715"
 ---
 

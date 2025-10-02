@@ -9,6 +9,7 @@ authors:
   - "Robert C. Hill"
   - "Avner Vengosh"
 year: "2024"
+journal: "Science of The Total Environment"
 doi: "10.1016/j.scitotenv.2024.177281"
 ---
 

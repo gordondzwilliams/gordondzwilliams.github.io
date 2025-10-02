@@ -11,6 +11,7 @@ authors:
   - "Yemane Asmerom"
   - "Avner Vengosh"
 year: "2024"
+journal: "Chemical Geology"
 doi: "10.1016/j.chemgeo.2024.122214"
 ---
 

@@ -11,6 +11,7 @@ authors:
   - "Avner Vengosh"
   - "Joel N. Meyer"
 year: "2025"
+journal: "Environmental Science: Advances"
 doi: "10.1039/D5VA00103J"
 ---
 

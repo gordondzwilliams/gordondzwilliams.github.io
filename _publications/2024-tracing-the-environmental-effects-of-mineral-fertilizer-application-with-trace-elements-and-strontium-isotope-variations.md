@@ -13,6 +13,7 @@ authors:
   - "Anjali Singh"
   - "Avner Vengosh"
 year: "2024"
+journal: "Environmental Science & Technology Letters"
 doi: "10.1021/acs.estlett.4c00170"
 ---
 

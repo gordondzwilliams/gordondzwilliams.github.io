@@ -9,6 +9,7 @@ authors:
   - "Rachel Coyte"
   - "Gary S. Dwyer"
 year: "2023"
+journal: "Science of the Total Environment"
 doi: "10.1016/j.scitotenv.2023.161878"
 ---
 

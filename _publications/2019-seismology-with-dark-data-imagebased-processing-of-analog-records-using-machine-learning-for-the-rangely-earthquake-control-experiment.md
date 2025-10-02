@@ -10,6 +10,7 @@ authors:
   - "Dustin Schroeder"
   - "Justin Rubinstein"
 year: "2019"
+journal: "Seismological Research Letters"
 doi: "10.1785/0220180298"
 ---
 
