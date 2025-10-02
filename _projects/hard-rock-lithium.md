@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Water Quality Impacts of Hrad-Rock Lithium Mining
-excerpt: Legacy pegmatite mine insights and modern risk assessment.
+excerpt: Hard-Rock Lithium Deposits and Water Geochemistry
 image: /images/HallmanBeam1.jpg
 order: 9
 ---
