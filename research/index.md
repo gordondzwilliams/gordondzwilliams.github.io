@@ -3,16 +3,27 @@ layout: default
 title: Research
 permalink: /research/
 ---
-## Research
-<!-- ✍️ Edit this intro text anytime -->
-<p>
-My research broadly focusses on the geochemistry and environmental impacts of lithium deposits and mining them. This includes work in (1) the Carolina Tin-Spodumene Belt of North Carolina which hosts hard-rock lithium deposits, where I investigate the natural and mining related water-quality impacts to streams and groundwater throughout a legacy mining region, and (2) the Salar de Uyuni in Bolivia which is the largest salt flat in the world and hosts a massive lithium brine resource that is currently under development where I investigate the geochemistry and geochemical evolution of brines and the potential water-quality impacts of mining them.
-</p>
-<p>
-Please click the images below for more information on each project!
-</p>
 
 <style>
+/* Add spacing so content isn’t flush with screen edges */
+.page-content {
+  max-width: 900px;   /* keeps text in a nice readable width */
+  margin: 0 auto;     /* centers the content */
+  padding: 0 20px;    /* adds space on left/right */
+}
+</style>
+
+<div class="page-content">
+  ## Research
+  <!-- ✍️ Edit this intro text anytime -->
+
+  <p>
+    My research broadly focusses on the geochemistry and environmental impacts of lithium deposits and mining them. This includes work in (1) the Carolina Tin-Spodumene Belt of North Carolina which hosts hard-rock lithium deposits, where I investigate the natural and mining related water-quality impacts to streams and groundwater throughout a legacy mining region, and (2) the Salar de Uyuni in Bolivia which is the largest salt flat in the world and hosts a massive lithium brine resource that is currently under development where I investigate the geochemistry and geochemical evolution of brines and the potential water-quality impacts of mining them.
+  </p>
+
+  <p>Please click the images below for more information on each project!</p>
+
+  <style>
   /* Simple, theme-friendly project grid */
   .project-grid {
     display: grid;
@@ -42,14 +53,25 @@ Please click the images below for more information on each project!
     display: block;
     background: #f4f4f4;
   }
-  .project-card__body { padding: .85rem 1rem 1rem; }
-  .project-card__title { margin: 0 0 .25rem; font-size: 1.05rem; font-weight: 700; }
-  .project-card__desc { margin: 0; color: #444; font-size: .95rem; line-height: 1.35; }
-</style>
+  .project-card__body {
+    padding: .85rem 1rem 1rem;
+  }
+  .project-card__title {
+    margin: 0 0 .25rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .project-card__desc {
+    margin: 0;
+    color: #444;
+    font-size: .95rem;
+    line-height: 1.35;
+  }
+  </style>
 
-<div class="project-grid">
-  {% assign projs = site.projects | sort: "order" | reverse %}
-  {% for p in projs %}
+  <div class="project-grid">
+    {% assign projs = site.projects | sort: "order" | reverse %}
+    {% for p in projs %}
     <a class="project-card" href="{{ p.url | relative_url }}">
       {% if p.image %}
         <img class="project-card__img" src="{{ p.image | relative_url }}" alt="{{ p.title }} cover">
@@ -65,5 +87,6 @@ Please click the images below for more information on each project!
         {% endif %}
       </div>
     </a>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
