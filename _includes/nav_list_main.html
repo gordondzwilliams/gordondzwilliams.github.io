@@ -1,0 +1,20 @@
+<nav id="site-nav" class="greedy-nav">
+  <button class="greedy-nav__toggle hidden" type="button">
+    <span class="visually-hidden">Toggle menu</span>
+    <div class="navicon"></div>
+  </button>
+
+  <ul class="visible-links">
+    {% for link in site.data.navigation.main %}
+      <li class="masthead__menu-item">
+        <a href="{{ link.url | relative_url }}"
+           {% if link.target %}target="{{ link.target }}"{% endif %}
+           {% if link.rel %}rel="{{ link.rel }}"{% endif %}>
+          {{ link.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <ul class="hidden-links hidden"></ul>
+</nav>
