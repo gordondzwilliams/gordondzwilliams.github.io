@@ -29,6 +29,7 @@ main:
   - title: "CV"
     # url: /cv/
     url: /files/Williams_Gordon_CV.pdf
+    external: true
     
   # - title: "CV"
   #   url: /cv-json/
