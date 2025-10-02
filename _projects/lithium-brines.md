@@ -83,6 +83,7 @@ order: 10
   </p>
 
   <h2>Photos from the Field</h2>
+  <p>click to expand</p>
 
   <!-- Responsive gallery: add as many <figure> blocks as you want -->
   <div class="gallery-grid">
