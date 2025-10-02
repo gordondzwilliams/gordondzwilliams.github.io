@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# scripts/fetch_orcid.py (fixed: handle dict-type titles safely)
-# Requires: python3, requests, python-dateutil
+# scripts/fetch_orcid.py (improved author extraction)
+# Requires: python3, requests
 
 import os, sys, requests, json, re
 from pathlib import Path
@@ -30,33 +30,19 @@ def get_token():
         "scope": "/read-public"
     }
     headers = {"Accept": "application/json"}
-    try:
-        r = requests.post(ORCID_TOKEN_URL, data=data, headers=headers, timeout=30)
-    except Exception as e:
-        fail(f"Token request failed to connect: {e}")
+    r = requests.post(ORCID_TOKEN_URL, data=data, headers=headers, timeout=30)
     if r.status_code != 200:
-        print("Token request returned status", r.status_code)
-        print("Token response body:", r.text)
-        fail("Failed to obtain token from ORCID. Check client id/secret and that they are valid for the Public API.")
-    try:
-        body = r.json()
-    except Exception:
-        print("Token response (non-json):", r.text)
-        fail("Token response was not JSON.")
+        print("Token response:", r.status_code, r.text)
+        fail("Failed to obtain token from ORCID.")
+    body = r.json()
     token = body.get("access_token")
     if not token:
-        print("Token response JSON:", json.dumps(body, indent=2))
+        print("Token JSON:", json.dumps(body, indent=2))
         fail("No access_token in ORCID response.")
     print("Successfully obtained ORCID token (expires_in: {})".format(body.get("expires_in")))
     return token
 
 def normalize_to_string(x):
-    """
-    Robustly coerce various ORCID fields to a plain string.
-    - If x is a string, return it.
-    - If x is a dict, try common subkeys (value, title/title/value, etc).
-    - Otherwise return empty string.
-    """
     if x is None:
         return ""
     if isinstance(x, str):
@@ -64,67 +50,87 @@ def normalize_to_string(x):
     if isinstance(x, (int, float)):
         return str(x)
     if isinstance(x, dict):
-        # common places ORCID stores textual value
-        # Try nested patterns in order of common occurrence.
-        candidates = []
-        # direct common keys
-        for k in ("value", "title", "short-title", "subtitle", "translated-title"):
-            v = x.get(k) if isinstance(x.get(k), (str, dict)) else None
+        # common nested patterns
+        # try direct 'value'
+        if "value" in x and isinstance(x["value"], str):
+            return x["value"]
+        # try title.title.value pattern
+        t = x.get("title") or x.get("translated-title") or x.get("short-title")
+        if isinstance(t, dict) and isinstance(t.get("value"), str):
+            return t.get("value")
+        # try flattening common subkeys
+        for k in ("title", "short-title", "translated-title", "subtitle"):
+            v = x.get(k)
             if isinstance(v, str):
-                candidates.append(v)
-            elif isinstance(v, dict):
-                # dive one level to look for 'value'
-                vv = v.get("value")
-                if isinstance(vv, str):
-                    candidates.append(vv)
-        # also check for deeper nested title.title.value pattern
-        try:
-            t = x.get("title", {})
-            if isinstance(t, dict):
-                inner = t.get("title", {})
-                if isinstance(inner, dict):
-                    vv = inner.get("value")
-                    if isinstance(vv, str):
-                        candidates.append(vv)
-        except Exception:
-            pass
-        # Last resort, join any string-like fields
-        for key, val in x.items():
+                return v
+            if isinstance(v, dict) and isinstance(v.get("value"), str):
+                return v.get("value")
+        # fallback: find first string child value
+        for val in x.values():
             if isinstance(val, str):
-                candidates.append(val)
-            elif isinstance(val, dict) and isinstance(val.get("value"), str):
-                candidates.append(val.get("value"))
-        if candidates:
-            return candidates[0]
+                return val
+            if isinstance(val, dict) and isinstance(val.get("value"), str):
+                return val.get("value")
         return ""
-    # fallback: try str()
+    # otherwise
     try:
         return str(x)
     except Exception:
         return ""
 
 def safe_filename(s):
-    # ensure s is a string first
     s = normalize_to_string(s) or ""
     s = re.sub(r"[^\w\s-]", "", s).strip().lower()
     s = re.sub(r"[\s_-]+", "-", s)
     return s[:200] or ""
 
-def parse_work_summary(ws):
-    # ws may be None or missing many fields; handle safely
-    if not isinstance(ws, dict):
-        ws = {}
+def extract_authors_from_contribs(contribs):
+    """Normalize contributors block (which may be list or dict)."""
+    authors = []
+    if not contribs:
+        return authors
+    if isinstance(contribs, dict):
+        contribs = [contribs]
+    for c in contribs:
+        if not isinstance(c, dict):
+            continue
+        # credit-name
+        name = ""
+        if c.get("credit-name"):
+            name = normalize_to_string(c.get("credit-name"))
+        # ORCID sometimes nests credit-name as {"value": "..."}
+        if not name and isinstance(c.get("credit-name"), dict):
+            name = normalize_to_string(c.get("credit-name").get("value") if isinstance(c.get("credit-name"), dict) else None)
+        # given/family fallback
+        if not name:
+            given = normalize_to_string((c.get("given-names") or {}).get("value") if c.get("given-names") else None)
+            family = normalize_to_string((c.get("family-name") or {}).get("value") if c.get("family-name") else None)
+            if given or family:
+                name = " ".join([p for p in [given, family] if p])
+        # contributor name key sometimes different
+        if not name and c.get("contributor-name"):
+            name = normalize_to_string(c.get("contributor-name"))
+        if name:
+            authors.append(name)
+    return authors
 
-    # title: robust extraction using normalize_to_string
+def parse_work_summary(summary, item_fallback=None):
+    """
+    summary: the work-summary dictionary (or fallback)
+    item_fallback: the group-level item (the parent) to search for contributors if needed
+    """
+    if not isinstance(summary, dict):
+        summary = {}
+
+    # title
     title_raw = None
-    # try multiple places commonly used in ORCID payloads
-    title_raw = (ws.get("work-title") or {}).get("title") if ws.get("work-title") else None
-    if not title_raw:
-        title_raw = ws.get("title") or ws.get("short-title") or ws.get("title", None)
+    if summary.get("work-title"):
+        title_raw = (summary.get("work-title") or {}).get("title") or summary.get("work-title")
+    title_raw = title_raw or summary.get("title") or summary.get("short-title") or ""
     title = normalize_to_string(title_raw) or "Untitled"
 
-    # publication date -> produce YYYY-MM-DD string if possible
-    pubdate = ws.get("publication-date") or {}
+    # publication date
+    pubdate = summary.get("publication-date") or {}
     year = None
     if isinstance(pubdate, dict) and pubdate:
         y = normalize_to_string((pubdate.get("year") or {}).get("value") if pubdate.get("year") else None)
@@ -136,7 +142,7 @@ def parse_work_summary(ws):
     # external ids
     doi = None
     url = None
-    ext_ids = ws.get("external-ids", {}).get("external-id", []) or []
+    ext_ids = (summary.get("external-ids") or {}).get("external-id", []) or []
     if isinstance(ext_ids, dict):
         ext_ids = [ext_ids]
     for e in ext_ids:
@@ -148,28 +154,28 @@ def parse_work_summary(ws):
         elif id_type in ("url", "uri") and not url:
             url = normalize_to_string((e.get("external-id-url") or {}).get("value") or e.get("external-id-value"))
 
-    # authors/contributors
+    # authors: try summary->contributors, then fallback to item-level contributors, then to other fields
     authors = []
-    contribs = ws.get("contributors", {}).get("contributor", []) or []
-    if isinstance(contribs, dict):
-        contribs = [contribs]
-    for c in contribs:
-        if not isinstance(c, dict):
-            continue
-        name = ""
-        if c.get("credit-name"):
-            name = normalize_to_string((c.get("credit-name") or {}).get("value") if isinstance(c.get("credit-name"), dict) else c.get("credit-name"))
-        if not name:
-            # fallback to given/family structure
-            given = normalize_to_string((c.get("given-names") or {}).get("value") if c.get("given-names") else None)
-            family = normalize_to_string((c.get("family-name") or {}).get("value") if c.get("family-name") else None)
-            if given or family:
-                name = " ".join([p for p in [given, family] if p])
-        if name:
-            authors.append(name)
+    # typical path in summary:
+    if summary.get("contributors"):
+        contributors = (summary.get("contributors") or {}).get("contributor") or summary.get("contributors")
+        authors = extract_authors_from_contribs(contributors)
+
+    # fallback: group-level contributors (item_fallback might contain them)
+    if not authors and item_fallback:
+        # item_fallback can be the group object that sometimes contains 'contributors'
+        # Try several likely places:
+        if item_fallback.get("contributors"):
+            authors = extract_authors_from_contribs(item_fallback.get("contributors").get("contributor") or item_fallback.get("contributors"))
+        # sometimes contributors live under item_fallback['work'] or item_fallback['work']['contributors']
+        if not authors and item_fallback.get("work", {}).get("contributors"):
+            authors = extract_authors_from_contribs(item_fallback.get("work", {}).get("contributors").get("contributor") or item_fallback.get("work", {}).get("contributors"))
+
+    # last resort: try top-level person info? (not likely per-work)
+    # keep authors possibly empty
 
     # abstract/description
-    abstract = normalize_to_string(ws.get("short-description") or ws.get("description") or "")
+    abstract = normalize_to_string(summary.get("short-description") or summary.get("description") or "")
 
     return {
         "title": title,
@@ -181,11 +187,12 @@ def parse_work_summary(ws):
     }
 
 def mk_markdown(item, idx):
+    # item is a group entry; prefer the first work-summary for metadata
     summaries = item.get("work-summary", []) or []
     if isinstance(summaries, dict):
         summaries = [summaries]
     summary = summaries[0] if summaries else item if isinstance(item, dict) else {}
-    parsed = parse_work_summary(summary)
+    parsed = parse_work_summary(summary, item_fallback=item)
     slug = safe_filename(parsed.get("title")) or f"publication-{idx}-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
     fname_prefix = (parsed.get('year') or '')[:4] or 'nodate'
     filename = OUT_DIR / f"{fname_prefix}-{slug}.md"
@@ -213,27 +220,18 @@ def mk_markdown(item, idx):
 def main():
     print("Starting ORCID fetch for", ORCID)
     token = get_token()
-    headers = {"Accept":"application/json", "Authorization": f"Bearer {token}"}
+    headers = {"Accept": "application/json", "Authorization": f"Bearer {token}"}
     url = ORCID_RECORD_URL_TEMPLATE.format(orcid=ORCID)
-    try:
-        r = requests.get(url, headers=headers, timeout=30)
-    except Exception as e:
-        fail(f"Failed to GET ORCID record: {e}")
+    r = requests.get(url, headers=headers, timeout=30)
     if r.status_code != 200:
-        print("Record request returned status", r.status_code)
-        print("Record response body:", r.text[:4000])
-        fail("Failed to fetch ORCID record. Check ORCID API availability and token.")
-    try:
-        data = r.json()
-    except Exception:
-        print("Record response (non-json):", r.text[:4000])
-        fail("ORCID record response was not JSON.")
+        print("Record response:", r.status_code, r.text[:2000])
+        fail("Failed to fetch ORCID record.")
+    data = r.json()
     print("ORCID record top-level keys:", list(data.keys()))
     works_group = data.get("activities-summary", {}).get("works", {}).get("group", []) or []
     if not works_group:
-        print("No works found in activities-summary. Dumping activities-summary snippet (for debugging):")
-        print(json.dumps(data.get("activities-summary", {}) , indent=2)[:8000])
-        fail("No works found in ORCID record; nothing to write.")
+        print("activities-summary snippet:", json.dumps(data.get("activities-summary", {}), indent=2)[:2000])
+        fail("No works found in ORCID record.")
     written = []
     for i, item in enumerate(works_group):
         filename, content = mk_markdown(item, i)
