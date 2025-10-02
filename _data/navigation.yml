@@ -27,8 +27,7 @@ main:
   #  url: /year-archive/
     
 - title: "CV"
-  url: https://gordondzwilliams.github.io/files/Williams_Gordon_CV.pdf
-  external: true
+  url: /files/Williams_Gordon_CV.pdf
     
   # - title: "CV"
   #   url: /cv-json/
