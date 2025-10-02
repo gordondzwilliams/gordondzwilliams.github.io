@@ -8,7 +8,17 @@ permalink: /publications/
 <ul>
   {% for p in pubs %}
     <li>
-      <a href="{{ p.url }}">{{ p.title }}</a>
+      {% if p.doi %}
+        <a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">
+          {{ p.title }}
+        </a>
+      {% elsif p.url %}
+        <a href="{{ p.url }}" target="_blank" rel="noopener">
+          {{ p.title }}
+        </a>
+      {% else %}
+        <a href="{{ p.url }}">{{ p.title }}</a>
+      {% endif %}
       {% if p.authors %} — {{ p.authors | join: ", " }}{% endif %}
       {% if p.year %} ({{ p.year }}){% endif %}
     </li>
