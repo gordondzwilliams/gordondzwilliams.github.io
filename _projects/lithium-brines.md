@@ -82,7 +82,7 @@ order: 10
     To explain the observed pH decrease in the evaporation ponds, we applied a suite of geochemical tools, including boron isotopes (δ<sup>11</sup>B), geochemical modeling, and elemental analyses. Our results demonstrate that pH decline is controlled by boron speciation, which governs brine alkalinity and therefore controls brine pH. Extending this work, we compiled a large dataset of global lithium-rich brines and showed that the same process occurs throughout the Lithium Triangle and in Tibetan Plateau brines as well (see our <a href="https://doi.org/10.1126/sciadv.adw3268" target="_blank" rel="noopener">Science Advances</a> article).
   </p>
 
-  <h2>Gallery</h2>
+  <h2>Photos from the Field</h2>
 
   <!-- Responsive gallery: add as many <figure> blocks as you want -->
   <div class="gallery-grid">
@@ -130,4 +130,43 @@ order: 10
 
   </div> <!-- /.gallery-grid -->
 
+  <!-- Lightbox overlay element -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Full size image">
+  </div>
+
 </div> <!-- /.page-content -->
+
+<style>
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+</style>
+
+<script>
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+  img.addEventListener('click', () => {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'flex';
+    lightbox.querySelector('img').src = img.src;
+  });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
+</script>
+
