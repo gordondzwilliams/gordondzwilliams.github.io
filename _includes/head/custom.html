@@ -16,34 +16,22 @@
 
 <!-- end custom head snippets -->
 
-<!-- Open CV (and only CV) in a new tab by intercepting the click -->
+<!-- Open CV (and any PDF in the nav) in a new tab by intercepting the click -->
 <script>
-/* We use event delegation so it works with any theme nav (including greedy-nav)
-   and we do it on click so browsers treat it as a user gesture (no popup block). */
 document.addEventListener('click', function (e) {
   var a = e.target.closest('a');
-  if (!a) return;
+  if (!a || !a.href) return;
 
-  // Resolve absolute URL and pathname for robust matching
-  try {
-    var url = new URL(a.href, window.location.origin);
-  } catch (err) {
-    return; // not a normal link
-  }
+  try { var url = new URL(a.href, window.location.origin); } catch (err) { return; }
 
-  // Match your exact CV PDF (regardless of absolute/relative URL or query string)
-  var isCvPdf = url.pathname.endsWith('/files/Williams_Gordon_CV.pdf');
+  // Match PDFs (with or without query strings)
+  var isPDF = /\.pdf(\?|$)/i.test(url.pathname) || /\.pdf(\?|$)/i.test(a.getAttribute('href') || '');
 
-  if (isCvPdf) {
+  if (isPDF) {
     e.preventDefault();
-    e.stopPropagation(); // ensure theme JS doesn't override
-
-    // Build the CV URL using Jekyll's relative_url (handles baseurl)
-    var cvPdf = "{{ '/files/Williams_Gordon_CV.pdf' | relative_url }}";
-
-    // Open in a new tab (user gesture = allowed)
-    window.open(cvPdf, '_blank', 'noopener');
+    e.stopPropagation();
+    window.open(a.href, '_blank', 'noopener');
     return false;
   }
-}, true); // capture phase so we run before other handlers
+}, true); // capture phase so we beat theme handlers
 </script>
