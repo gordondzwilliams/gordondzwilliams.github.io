@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # scripts/fetch_orcid.py
-# Full ORCID fetcher with CrossRef author preference and robust contributor extraction
+# ORCID fetcher with CrossRef preference and journal extraction
 #
 # Requirements: python3, requests
 #
@@ -26,7 +26,7 @@ OUT_DIR = Path("_publications")
 ORCID_TOKEN_URL = "https://orcid.org/oauth/token"
 ORCID_RECORD_URL_TEMPLATE = "https://pub.orcid.org/v3.0/{orcid}/record"
 ORCID_WORK_URL_TEMPLATE = "https://pub.orcid.org/v3.0/{orcid}/work/{put_code}"
-# polite pause between CrossRef requests (seconds) - small to avoid throttling
+# polite pause between CrossRef requests (seconds)
 CROSSREF_SLEEP = 0.12
 # ------------------------------------------------------
 
@@ -234,7 +234,6 @@ def fetch_crossref_authors(doi, mailto=None):
         headers = {"Accept": "application/json",
                    "User-Agent": f"gordondzwilliams.github.io (mailto:{mailto or CROSSREF_MAILTO})"}
         r = requests.get(url, headers=headers, timeout=20)
-        # be polite
         time.sleep(CROSSREF_SLEEP)
         if r.status_code != 200:
             print(f"CrossRef returned {r.status_code} for DOI {doi}")
@@ -260,6 +259,34 @@ def fetch_crossref_authors(doi, mailto=None):
         print(f"CrossRef fetch error for {doi}: {e}")
         return []
 
+def fetch_crossref_container_title(doi, mailto=None):
+    """Return the CrossRef container-title (journal) or empty."""
+    if not doi:
+        return ""
+    try:
+        doi_norm = doi.strip()
+        if doi_norm.lower().startswith("http"):
+            doi_norm = doi_norm.split("doi.org/")[-1]
+        doi_enc = urllib.parse.quote(doi_norm, safe='')
+        url = f"https://api.crossref.org/works/{doi_enc}"
+        headers = {"Accept": "application/json",
+                   "User-Agent": f"gordondzwilliams.github.io (mailto:{mailto or CROSSREF_MAILTO})"}
+        r = requests.get(url, headers=headers, timeout=20)
+        time.sleep(CROSSREF_SLEEP)
+        if r.status_code != 200:
+            return ""
+        data = r.json()
+        msg = data.get("message", {})
+        cont = msg.get("container-title") or msg.get("short-container-title") or []
+        if isinstance(cont, list) and cont:
+            return cont[0]
+        if isinstance(cont, str) and cont:
+            return cont
+        return ""
+    except Exception as e:
+        print(f"CrossRef container fetch error for {doi}: {e}")
+        return ""
+
 # ----------------------- core parsing & detailed fetch -----------------------
 def parse_group_item_with_details(item, i, headers):
     summaries = ensure_list(item.get("work-summary") or [])
@@ -281,7 +308,7 @@ def parse_group_item_with_details(item, i, headers):
         if y:
             year = f"{y}-{m or '01'}-{d or '01'}"
 
-    # external ids
+    # external ids (DOI / url)
     doi = None; url = None
     ext_ids = (summary.get("external-ids") or {}).get("external-id", []) or (item.get("external-ids") or {}).get("external-id", []) or []
     ext_ids = ensure_list(ext_ids)
@@ -294,12 +321,19 @@ def parse_group_item_with_details(item, i, headers):
         elif id_type in ("url","uri") and not url:
             url = normalize_to_string((e.get("external-id-url") or {}).get("value") or e.get("external-id-value"))
 
+    # journal/title source (try summary first, then item)
+    journal = None
+    if summary.get("journal-title"):
+        journal = normalize_to_string(summary.get("journal-title"))
+    if not journal and item.get("journal-title"):
+        journal = normalize_to_string(item.get("journal-title"))
+
     # authors: targeted extraction
     authors = find_authors_targets(summary, item)
     used_detailed = False
     used_deep = False
 
-    # if no authors found, fetch detail for each summary put-code and check contributors
+    # if no authors found, fetch detail for each summary put-code and check contributors (also check detailed journal)
     if not authors and summaries:
         for s in summaries:
             put = s.get("put-code") or s.get("put_code") or None
@@ -319,6 +353,7 @@ def parse_group_item_with_details(item, i, headers):
             except Exception:
                 print(f"Detailed work {put} response not JSON")
                 continue
+            # extract contributors if present
             cont_block = work_json.get("contributors") or {}
             entries = []
             if isinstance(cont_block, dict) and "contributor" in cont_block:
@@ -329,6 +364,12 @@ def parse_group_item_with_details(item, i, headers):
                 name = extract_contrib_name(c)
                 if name and name not in authors:
                     authors.append(name)
+            # try to get journal from the detailed work JSON (common key: 'journal-title')
+            if not journal:
+                if work_json.get("journal-title"):
+                    journal = normalize_to_string(work_json.get("journal-title"))
+                elif isinstance(work_json.get("work"), dict) and work_json["work"].get("journal-title"):
+                    journal = normalize_to_string(work_json["work"].get("journal-title"))
             if authors:
                 used_detailed = True
                 print(f"Detailed work {put} provided authors: {authors}")
@@ -356,6 +397,7 @@ def parse_group_item_with_details(item, i, headers):
         "year": year,
         "doi": doi,
         "url": url,
+        "journal": journal,
         "authors": authors,
         "abstract": abstract.strip(),
         "diag": diag
@@ -371,6 +413,7 @@ def mk_markdown(parsed, idx):
         "title": parsed["title"],
         "authors": parsed["authors"],
         "year": (parsed["year"][:4] if parsed["year"] else None),
+        "journal": parsed.get("journal"),
         "doi": parsed["doi"],
         "url": parsed["url"],
     }
@@ -422,12 +465,17 @@ def main():
         else:
             print("    authors: (none found by script)")
 
-        # Prefer CrossRef authors when DOI exists
+        # Prefer CrossRef authors and journal when DOI exists
         if parsed.get("doi"):
             crossref_auths = fetch_crossref_authors(parsed["doi"], mailto=CROSSREF_MAILTO)
             if crossref_auths:
                 print(f"    Using CrossRef authors for DOI {parsed['doi']}: {crossref_auths}")
                 parsed['authors'] = crossref_auths
+                # prefer CrossRef container-title for journal if we don't already have one
+                if not parsed.get("journal"):
+                    cr_journal = fetch_crossref_container_title(parsed["doi"], mailto=CROSSREF_MAILTO)
+                    if cr_journal:
+                        parsed["journal"] = cr_journal
             else:
                 print(f"    CrossRef had no authors for DOI {parsed['doi']}, keeping ORCID-derived authors.")
         else:
