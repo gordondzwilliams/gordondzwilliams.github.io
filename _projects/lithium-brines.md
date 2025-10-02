@@ -2,7 +2,7 @@
 layout: default
 title: Lithium Brine Geochemistry
 excerpt: How boron controls pH in lithium brines and why it matters.
-image: /images/projects/SDU_BlueGlow.jpg   # put this image in /images/projects/
+image: /images/SDU_BlueGlow.jpg   # put this image in /images/projects/
 order: 10                                    # higher = shown earlier (optional)
 ---
 
