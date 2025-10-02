@@ -89,27 +89,27 @@ order: 10
 
     <figure>
       <img src="/images/SDU/SDU_BlueGlow.jpg" alt="Blue glow on Salar de Uyuni">
-      <figcaption>Salar de Uyuni.</figcaption>
+      <figcaption>Salar de Uyuni</figcaption>
     </figure>
 
     <figure>
       <img src="/images/SDU/BlackWhiteSalar.jpg" alt="Evaporation ponds at Salar de Uyuni">
-      <figcaption>Extracting shallow brine samples from beneath the salt crust.</figcaption>
+      <figcaption>Extracting shallow brine samples from beneath the salt crust</figcaption>
     </figure>
 
     <figure>
       <img src="/images/SDU/SamplingDissolutionPit.jpeg" alt="Field team sampling brines">
-      <figcaption>Sampling a natural dissolution pit in the salt crust.</figcaption>
+      <figcaption>Sampling a natural dissolution pit in the salt crust</figcaption>
     </figure>
     
     <figure>
       <img src="/images/SDU/SamplingEvapPond.jpeg" alt="Field team sampling brines">
-      <figcaption>Sampling an industrial evaporation pond.</figcaption>
+      <figcaption>Sampling an industrial evaporation pond</figcaption>
     </figure>
     
     <figure>
       <img src="/images/SDU/BikeSampling.jpg" alt="Field team sampling brines">
-      <figcaption>Biking out to collect samples in the mud.</figcaption>
+      <figcaption>Biking out to collect samples in the mud</figcaption>
     </figure>
 
     <figure>
