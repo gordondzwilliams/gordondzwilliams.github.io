@@ -29,7 +29,8 @@ main:
   - title: "CV"
     # url: /cv/
     url: /files/Williams_Gordon_CV.pdf
-    external: true
+    target: _blank
+    rel: noopener
     
   # - title: "CV"
   #   url: /cv-json/
