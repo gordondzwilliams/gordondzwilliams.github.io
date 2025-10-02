@@ -187,3 +187,61 @@ def mk_markdown(item, idx):
     summary = summaries[0] if summaries else item if isinstance(item, dict) else {}
     parsed = parse_work_summary(summary)
     slug = safe_filename(parsed.get("title")) or f"publication-{idx}-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
+    fname_prefix = (parsed.get('year') or '')[:4] or 'nodate'
+    filename = OUT_DIR / f"{fname_prefix}-{slug}.md"
+    front = {
+        "layout": "publication",
+        "title": parsed["title"],
+        "authors": parsed["authors"],
+        "year": (parsed["year"][:4] if parsed["year"] else None),
+        "doi": parsed["doi"],
+        "url": parsed["url"],
+    }
+    fm = "---\n"
+    for k,v in front.items():
+        if v is None: continue
+        if isinstance(v, list):
+            fm += f"{k}:\n"
+            for elem in v:
+                fm += f"  - \"{elem}\"\n"
+        else:
+            fm += f"{k}: \"{v}\"\n"
+    fm += "---\n\n"
+    body = parsed["abstract"] + "\n" if parsed["abstract"] else ""
+    return filename, fm + body
+
+def main():
+    print("Starting ORCID fetch for", ORCID)
+    token = get_token()
+    headers = {"Accept":"application/json", "Authorization": f"Bearer {token}"}
+    url = ORCID_RECORD_URL_TEMPLATE.format(orcid=ORCID)
+    try:
+        r = requests.get(url, headers=headers, timeout=30)
+    except Exception as e:
+        fail(f"Failed to GET ORCID record: {e}")
+    if r.status_code != 200:
+        print("Record request returned status", r.status_code)
+        print("Record response body:", r.text[:4000])
+        fail("Failed to fetch ORCID record. Check ORCID API availability and token.")
+    try:
+        data = r.json()
+    except Exception:
+        print("Record response (non-json):", r.text[:4000])
+        fail("ORCID record response was not JSON.")
+    print("ORCID record top-level keys:", list(data.keys()))
+    works_group = data.get("activities-summary", {}).get("works", {}).get("group", []) or []
+    if not works_group:
+        print("No works found in activities-summary. Dumping activities-summary snippet (for debugging):")
+        print(json.dumps(data.get("activities-summary", {}) , indent=2)[:8000])
+        fail("No works found in ORCID record; nothing to write.")
+    written = []
+    for i, item in enumerate(works_group):
+        filename, content = mk_markdown(item, i)
+        with open(filename, "w", encoding="utf-8") as fh:
+            fh.write(content)
+        written.append(str(filename))
+        print("WROTE", filename)
+    print(f"Wrote {len(written)} publication files to {OUT_DIR}")
+
+if __name__ == "__main__":
+    main()
