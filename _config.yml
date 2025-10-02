@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # Currently available options are "default", "air"
+site_theme               : "default" # you can keep this custom var if you use it elsewhere
 title                    : "Gordon D.Z. Williams, Duke University"
 title_separator          : "-"
 name                     : &name "Gordon Williams"
@@ -17,10 +17,11 @@ url                      : https://gordondzwilliams.github.io
 baseurl                  : ""
 repository               : "gordondzwilliams.github.io"
 
-# 🔽 ADD THIS LINE (switch to AcademicPages, which sits on Minimal Mistakes)
-remote_theme             : academicpages/academicpages
+# ✅ Use Minimal Mistakes as the remote theme
+remote_theme             : "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin    : "default"  # or "air" if you prefer
 
-# 🔽 ENSURE THESE PLUGINS ARE PRESENT (keep any others you already have)
+# ✅ Allowed plugins for GitHub Pages
 plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
@@ -28,6 +29,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-redirect-from
+
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
