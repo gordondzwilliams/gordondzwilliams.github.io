@@ -6,7 +6,7 @@ permalink: /research/
 ## Research
 <!-- ✍️ Edit this intro text anytime -->
 <p>
-My research broadly focusses on the geochemistry and environmental impacts of lithium deposits and mining them. This includes work in (1) the Carolina Tin-Spodumene Belt of North Carolina where hard-rock lithium deposits occur, investigating the natural and mining related water-quality impacts to streams and groundwater throughout a legacy mining region, and (2) the Salar de Uyuni in Bolivia which is the largest salt flat in the world and hosts a massive lithium brine resource that is currently under development.
+My research broadly focusses on the geochemistry and environmental impacts of lithium deposits and mining them. This includes work in (1) the Carolina Tin-Spodumene Belt of North Carolina which hosts hard-rock lithium deposits, where I investigate the natural and mining related water-quality impacts to streams and groundwater throughout a legacy mining region, and (2) the Salar de Uyuni in Bolivia which is the largest salt flat in the world and hosts a massive lithium brine resource that is currently under development where I investigate the geochemistry and geochemical evolution of brines and the potential water-quality impacts of mining them.
 </p>
 <p>
 Please click the images below for more information on each project!
