@@ -14,8 +14,8 @@ permalink: /research/
 </style>
 
 <div class="page-content">
+  <h2>Research</h2>
   
-## Research
   <!-- ✍️ Edit this intro text anytime -->
 
   <p>
