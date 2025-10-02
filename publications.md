@@ -4,6 +4,14 @@ title: Publications
 permalink: /publications/
 ---
 
+<style>
+  .pub-wrapper { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+  .pub-year { margin-top: 2rem; margin-bottom: 0.5rem; font-weight: bold; }
+  .pub-list { margin-top: 0; padding-left: 1.2rem; }
+  .pub-list li { margin: 0.4rem 0; }
+</style>
+
+<div class="pub-wrapper">
 {% assign pubs = site.publications | sort:"year" | reverse %}
 {% assign current_year = "" %}
 
@@ -32,3 +40,4 @@ permalink: /publications/
 </li>
 {% endfor %}
 </ul>
+</div>
