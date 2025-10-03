@@ -68,7 +68,7 @@ order: 9
   <!-- Use HTML headings inside an HTML wrapper so they render correctly -->
   <h1>Hard-Rock Lithium Deposits and Water-Quality</h1>
 
-  <h2>Under Construction</h2>
+  <h2>Page Under Construction</h2>
  
 
   <h2>Photos from the Field</h2>
