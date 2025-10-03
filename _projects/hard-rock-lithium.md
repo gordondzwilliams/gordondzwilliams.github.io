@@ -125,5 +125,3 @@ document.getElementById('lightbox').addEventListener('click', () => {
 });
 </script>
 
-### Gallery
-<img src="/images/HallmanBeam1.jpg" alt="Figure 1" style="max-width:100%; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,.12);" />
