@@ -127,6 +127,11 @@ order: 10
       <img src="/images/SDU/EveningHorizon.jpg" alt="Field team sampling brines">
       <figcaption>Salar de Uyuni</figcaption>
     </figure>
+
+    <figure>
+      <img src="/images/SDU/HannahCoipasa.jpg" alt="Field team sampling brines">
+      <figcaption>Sampling Salar de Coipasa</figcaption>
+    </figure>
     
 
   </div> <!-- /.gallery-grid -->
