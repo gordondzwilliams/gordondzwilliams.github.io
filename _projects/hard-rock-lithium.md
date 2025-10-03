@@ -74,8 +74,9 @@ Hard-rock lithium deposits, known as Lithium-Cesium-Tantalum (LCT) pegmatites, a
 In North Carolina, the Carolina Tin-Spodumene Belt (TSB) is just outside of Charlotte, NC and hosts one of the largest LCT pegmatite resources. From the 1950s through the late 1980s, the TSB was among the world’s most productive lithium mining regions. Although mining has since ceased, legacy open-pit operations remain which have since filled with water forming pit lakes.
 </p>
 <p>
-My work investigates water quality across the TSB, with a focus on developing geochemical tracers to distinguish natural processes from mining-related impacts. Our research so far indicates that low-abundance phosphate minerals in the LCT pegmatites may play an important role in regulating water chemistry during mining. We also found that lithium, rubidium, and cesium concentrations are consistently elevated in both groundwater and surface waters throughout the TSB, reflecting both the natural and mining related influence of these pegmatites on nearby water resources. Check out our [Science of the Total Environment](https://doi.org/10.1016/j.scitotenv.2024.177281) article that discusses some of our early results.
-</p> 
+My work investigates water quality across the TSB, with a focus on developing geochemical tracers to distinguish natural processes from mining-related impacts. Our research so far indicates that low-abundance phosphate minerals in the LCT pegmatites may play an important role in regulating water chemistry during mining. We also found that lithium, rubidium, and cesium concentrations are consistently elevated in both groundwater and surface waters throughout the TSB, reflecting both the natural and mining related influence of these pegmatites on nearby water resources. Check out our <a href="https://doi.org/10.1016/j.scitotenv.2024.177281" target="_blank" rel="noopener">Science of the Total Environment</a> article that discusses some of our early results.
+</p>
+
  
 
   <h2>Photos from the Field</h2>
