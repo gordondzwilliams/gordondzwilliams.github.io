@@ -87,7 +87,27 @@ My work investigates water quality across the TSB, with a focus on developing ge
 
     <figure>
       <img src="/images/HallmanBeam1.jpg" alt="Blue glow on Salar de Uyuni">
-      <figcaption>Aerial Image of the Hallman-Beam Mine in the Carolina Tin-Spodumene Belt</figcaption>
+      <figcaption>Aerial Image of the Hallman-Beam Mine & Pit Lake</figcaption>
+    </figure>
+    
+    <figure>
+      <img src="/images/TSB/KMM_Pit_High.jpg" alt="Blue glow on Salar de Uyuni">
+      <figcaption>Kings Mountain Mine Pit Lake </figcaption>
+    </figure>
+    
+    <figure>
+      <img src="/images/TSB/TSB_SamplingG.jpg" alt="Blue glow on Salar de Uyuni">
+      <figcaption>Water Sampling in the TSB</figcaption>
+    </figure>
+    
+    <figure>
+      <img src="/images/TSB/TSB_SamplingM.jpg" alt="Blue glow on Salar de Uyuni">
+      <figcaption>Water Sampling in the TSB</figcaption>
+    </figure>
+        
+    <figure>
+      <img src="/images/TSB/KMM_PegSmithsonian.jpg" alt="Blue glow on Salar de Uyuni">
+      <figcaption>Spodumene pegamtite from the TSB in the Smithsonian Museaum. The pegmatite is intruded into a granite.</figcaption>
     </figure>
     
 
