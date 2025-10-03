@@ -6,8 +6,13 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am an environmental and isotope geochemist, currently a PhD candidate in the [Vengosh Lab](https://sites.nicholas.duke.edu/avnervengosh) at Duke University.
+I am a geochemist broadly interested in how Earth’s resources form and how extracting them impacts our environment. My research focuses on the geochemistry of lithium deposits, from brine systems in Bolivia’s Salar de Uyuni to hard-rock deposits in North Carolina’s Carolina Tin-Spodumene Belt, with an emphasis on water quality and sustainability.
 
-My research focuses on lithium, a critical element for the clean energy transition. I study how lithium-brine deposits form and evolve, and how the extraction of lithium-brines and hard-rock pegmatites impacts water quality and the environment. By combining fieldwork and laboratory geochemistry, my work aims to advance understanding of Earth processes while supporting more sustainable approaches to resource development.
+What motivates me is understanding the trade-offs of the energy transition. Lithium is central to renewable technologies, but its extraction can create new challenges for water quality. By studying the geochemical processes that control these systems, I aim to better quantify potential impacts and contribute to more sustainable resource development. I approach this through a combination of fieldwork, laboratory analyses, and geochemical modeling.
+
+Beyond research, I enjoy teaching and mentoring students in both field and laboratory settings. Fieldwork is one of my favorite parts of Earth Science: whether sampling brines in the high-altitude salt flats of the Andes, working with communities to assess water resources, or leading student field trips, I feel at my best when outdoors.
+
+I am currently a PhD candidate in the [Vengosh Lab](https://sites.nicholas.duke.edu/avnervengosh) at Duke University.
+
 
 
