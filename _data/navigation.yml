@@ -11,8 +11,8 @@ main:
     url: /
   - title: "Publications"
     url: /publications/
-  #- title: "Research"
-  #  url: /research/
+  - title: "Research"
+    url: /research/
   - title: "CV"
     url: /files/Williams_Gordon_CV.pdf
     target: _blank
