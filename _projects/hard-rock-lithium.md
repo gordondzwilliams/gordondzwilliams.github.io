@@ -107,7 +107,7 @@ My work investigates water quality across the TSB, with a focus on developing ge
         
     <figure>
       <img src="/images/TSB/KMM_PegSmithsonian.jpg" alt="Blue glow on Salar de Uyuni">
-      <figcaption>Spodumene pegamtite from the TSB in the Smithsonian Museaum. The pegmatite is intruded into a granite.</figcaption>
+      <figcaption>Spodumene pegamtite from the TSB in the Smithsonian National Museaum of Natural History. The pegmatite is intruded into a granite.</figcaption>
     </figure>
     
 
