@@ -154,59 +154,15 @@ permalink: /research/
     <!-- duplicate/modify the figure blocks above for more photos -->
   </div> <!-- /.teaching-gallery -->
 
-<!-- Unified Lightbox: paste this just after your galleries and before the closing page-content div -->
+<!-- Unified Lightbox (replace previous lightbox block with this) -->
 <style>
-/* Lightbox overlay */
-#lightbox-overlay {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  box-sizing: border-box;
-}
-#lightbox-inner {
-  max-width: 98%;
-  max-height: 98%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-#lightbox-image {
-  max-width: 100%;
-  max-height: 80vh;
-  border-radius: 6px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-}
-#lightbox-caption {
-  color: #eee;
-  font-size: 0.95rem;
-  text-align: center;
-  max-width: 90%;
-  margin-top: 6px;
-}
-#lightbox-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: rgba(255,255,255,0.06);
-  color: #fff;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  backdrop-filter: blur(2px);
-}
-#lightbox-close:hover { background: rgba(255,255,255,0.12); }
-@media (max-width: 560px) {
-  #lightbox-image { max-height: 70vh; }
-  #lightbox-caption { font-size: 0.9rem; }
-}
+  #lightbox-overlay{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+  #lightbox-inner{max-width:98%;max-height:98%;display:flex;flex-direction:column;align-items:center;gap:8px}
+  #lightbox-image{max-width:100%;max-height:80vh;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+  #lightbox-caption{color:#eee;font-size:0.95rem;text-align:center;max-width:90%;margin-top:6px}
+  #lightbox-close{position:absolute;top:12px;right:16px;background:rgba(255,255,255,0.06);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:0.95rem;backdrop-filter:blur(2px)}
+  #lightbox-close:hover{background:rgba(255,255,255,0.12)}
+  @media (max-width:560px){#lightbox-image{max-height:70vh}#lightbox-caption{font-size:0.9rem}}
 </style>
 
 <div id="lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true">
@@ -219,53 +175,96 @@ permalink: /research/
 
 <script>
 (function() {
-  const overlay = document.getElementById('lightbox-overlay');
-  const overlayImg = document.getElementById('lightbox-image');
-  const overlayCaption = document.getElementById('lightbox-caption');
-  const closeBtn = document.getElementById('lightbox-close');
+  // defensive DOM ready
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
 
-  // selectors target project thumbnails, gallery images, and teaching gallery images
-  const selectors = '.project-card__img, .gallery-grid img, .teaching-gallery img';
-  document.querySelectorAll(selectors).forEach(img => {
-    // set zoom cursor
-    img.style.cursor = 'zoom-in';
+  ready(function() {
+    const overlay = document.getElementById('lightbox-overlay');
+    const overlayImg = document.getElementById('lightbox-image');
+    const overlayCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
 
-    img.addEventListener('click', function(e) {
-      // Prevent navigation if image is inside an <a>
-      if (e && e.preventDefault) e.preventDefault();
+    if (!overlay || !overlayImg) {
+      console.error('Lightbox: required elements missing');
+      return;
+    }
 
-      const fullSrc = img.getAttribute('data-full') || img.src || img.getAttribute('data-src');
-      if (!fullSrc) return;
-
+    // Open lightbox with given image element
+    function openLightbox(imgEl) {
+      const fullSrc = imgEl.getAttribute('data-full') || imgEl.src || imgEl.getAttribute('data-src');
+      if (!fullSrc) {
+        console.warn('Lightbox: no image source found for', imgEl);
+        return;
+      }
       overlayImg.src = fullSrc;
-      overlayImg.alt = img.alt || '';
-
-      const caption = img.getAttribute('data-caption') || img.alt || '';
-      overlayCaption.textContent = caption;
-
+      overlayImg.alt = imgEl.alt || '';
+      overlayCaption.textContent = imgEl.getAttribute('data-caption') || imgEl.alt || '';
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+    }
+
+    // Close handler
+    function closeLightbox() {
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden', 'true');
+      overlayImg.src = '';
+      overlayCaption.textContent = '';
+      document.body.style.overflow = '';
+    }
+
+    // Event delegation: catch clicks on images in these containers
+    // selectors include project thumbnails, gallery images, teaching gallery
+    const container = document; // delegate from document
+    container.addEventListener('click', function(e) {
+      const clickTarget = e.target;
+
+      // If clicked element is an IMG inside one of our target selectors
+      // We allow images inside:
+      //  - .project-card__img
+      //  - any img inside .gallery-grid
+      //  - any img inside .teaching-gallery
+      if (clickTarget && clickTarget.tagName === 'IMG') {
+        const isProjectThumb = clickTarget.classList.contains('project-card__img');
+        const inGalleryGrid = clickTarget.closest('.gallery-grid') !== null;
+        const inTeaching = clickTarget.closest('.teaching-gallery') !== null;
+
+        if (isProjectThumb || inGalleryGrid || inTeaching) {
+          // Prevent the enclosing anchor from navigating when the IMG is clicked
+          // Find nearest <a> ancestor and prevent its default navigation only for this event
+          const anchor = clickTarget.closest('a');
+          if (anchor) {
+            e.preventDefault();
+            // stop immediate propagation so other handlers don't override
+            e.stopPropagation && e.stopPropagation();
+          }
+
+          // Open the lightbox
+          openLightbox(clickTarget);
+          return;
+        }
+      }
+
+      // If user clicks a project-card anchor but not the image, allow navigation as normal
+    }, true /* useCapture to be extra robust against other handlers */);
+
+    // Close handlers
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeLightbox();
     });
-  });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.style.display === 'flex') closeLightbox();
+    });
 
-  function closeLightbox() {
-    overlay.style.display = 'none';
-    overlay.setAttribute('aria-hidden', 'true');
-    overlayImg.src = '';
-    overlayCaption.textContent = '';
-    document.body.style.overflow = '';
-  }
-
-  closeBtn.addEventListener('click', closeLightbox);
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) closeLightbox();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && overlay.style.display === 'flex') closeLightbox();
+    // Helpful console message for debugging
+    console.info('Lightbox: initialized (targets: .project-card__img, .gallery-grid img, .teaching-gallery img)');
   });
 })();
 </script>
+
 
 </div> <!-- /.page-content -->
