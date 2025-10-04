@@ -202,6 +202,70 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* === Safety fixes to avoid overlap on homepage & publications === */
+
+  /* Ensure masthead/header always sits above content panels */
+  .masthead, header, .site-header, .page__header {
+    position: relative;
+    z-index: 120 !important;
+  }
+
+  /* Make sure article and page-content sit in normal flow and are centered */
+  article.page,
+  #main > article.page,
+  article.page > .page-content,
+  .page-content {
+    position: relative !important;
+    z-index: 10 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: auto !important;
+    right: auto !important;
+    max-width: 980px;         /* keeps content column narrow for readability */
+    width: calc(100% - 40px); /* small horizontal padding on very small screens */
+    box-sizing: border-box;
+  }
+
+  /* If article/page-content has negative margins or absolute positioning from theme,
+     neutralize them so it cannot slide under the sidebar/header */
+  article.page[style],
+  article.page .page-content[style],
+  .page-content[style] {
+    margin: 0 !important;
+    position: relative !important;
+  }
+
+  /* When the defensive grid is active (has-sidebar-article), ensure sidebar width and stacking */
+  #main.has-sidebar-article {
+    grid-template-columns: 280px 1fr !important; /* slightly wider sidebar to be safe */
+  }
+  #main.has-sidebar-article > aside,
+  #main.has-sidebar-article .sidebar {
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  /* Make sure article column never flows under the sidebar */
+  #main.has-sidebar-article > article.page,
+  #main.has-sidebar-article article.page,
+  #main.has-sidebar-article > .archive,
+  #main.has-sidebar-article .archive {
+    grid-column: 2;
+    margin: 0 !important;
+    z-index: 10 !important;
+  }
+
+  /* Minor responsive tweak */
+  @media (max-width: 980px) {
+    article.page,
+    .page-content {
+      width: calc(100% - 28px);
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
 </style>
 
 <!-- JS: add a class to #main only when both aside and article.page are present -->
