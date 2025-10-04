@@ -22,42 +22,38 @@
 <style>
   body {
     background-image: url('/images/SDU/BlackWhiteSalar.jpg');
-    background-size: cover;         /* fill entire viewport */
-    background-position: center;    /* center image */
-    background-attachment: fixed;   /* stay fixed while scrolling */
-    background-repeat: no-repeat;   /* no tiling */
-    color: #111;                    /* adjust text color for contrast */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #111;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-  /* Optional translucent overlay for readability */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.75);  /* light overlay; change to rgba(0,0,0,0.4) for darker */
+    background: rgba(255, 255, 255, 0.75);
     z-index: -1;
   }
 
-  /* Add a lightly shaded background behind all page content */
   .page-content {
-    background: rgba(255, 255, 255, 0.75); /* translucent white panel */
-    border-radius: 12px;                   /* soften edges */
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1); /* gentle shadow for depth */
-    padding: 2rem;                         /* spacing inside panel */
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    padding: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    color: #222;                           /* darker text for readability */
+    color: #222;
   }
 
-  /* Slightly stronger contrast for headings */
   .page-content h1, .page-content h2, .page-content h3 {
     color: #111;
   }
 
-  /* === Fallback: style archive pages (e.g., Publications) if .page-content isn't present === */
   .archive {
-    background: rgba(255,255,255,0.75);   /* translucent white */
+    background: rgba(255,255,255,0.75);
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     padding: 1.5rem;
@@ -70,21 +66,10 @@
     color: #111;
   }
 
-  /* If both .page-content and .archive exist, prefer .page-content style */
-  .page-content.archive,
-  .archive .page-content {
-    background: rgba(255,255,255,0.88);
-    padding: 2rem;
-  }
-
-  /* === Precise rule for article.page (target Publications layout rendering) ===
-     This covers pages that render content inside <article class="page"> ... </article>
-     (we add this last so it overrides more generic rules when necessary)
-  */
   #main > article.page,
   #main article.page,
   article.page {
-    background: rgba(255,255,255,0.75);   /* translucent white panel */
+    background: rgba(255,255,255,0.75);
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     padding: 1.5rem;
@@ -92,10 +77,9 @@
     color: #222;
     overflow: hidden;
     position: relative;
-    z-index: 10; /* ensure article sits below the sidebar which will have higher z-index */
+    z-index: 10;
   }
 
-  /* Headings inside the article get strong contrast */
   #main article.page h1,
   #main article.page h2,
   #main article.page h3,
@@ -103,14 +87,12 @@
     color: #111;
   }
 
-  /* If the article contains an inner .page-content, prefer its style */
   #main article.page > .page-content,
   article.page > .page-content {
     background: rgba(255,255,255,0.88);
     padding: 2rem;
   }
 
-  /* Smaller screens: slightly reduce padding for article wrapper */
   @media (max-width: 560px) {
     #main > article.page,
     article.page {
@@ -121,12 +103,8 @@
   }
 
   /* ==== Safer responsive two-column layout (flex-based) ==== */
-  /* Default: single-column flow */
-  #main {
-    display: block;
-  }
+  #main { display: block; }
 
-  /* Use :has() when supported (modern browsers) - only apply when an aside is present */
   @supports(selector(:has(> aside))) {
     @media (min-width: 880px) {
       #main:has(> aside) {
@@ -136,7 +114,7 @@
         box-sizing: border-box;
       }
       #main:has(> aside) > aside {
-        flex: 0 0 280px; /* fixed sidebar width */
+        flex: 0 0 280px;
         max-width: 320px;
         box-sizing: border-box;
         position: relative;
@@ -154,7 +132,6 @@
     }
   }
 
-  /* Fallback: when :has() is not supported, rely on the JS class you already add */
   @media (min-width: 880px) {
     #main.has-sidebar-article {
       display: flex;
@@ -182,13 +159,11 @@
     }
   }
 
-  /* Ensure header sits above content panels */
   .masthead, header, .site-header, .page__header {
     position: relative;
     z-index: 120;
   }
 
-  /* Center / constrain article on pages without a sidebar */
   @media (min-width: 880px) {
     #main:not(:has(> aside)) > article.page,
     #main:not(:has(> aside)) > .archive,
@@ -203,7 +178,6 @@
     }
   }
 
-  /* Small screens: keep single-column stacking */
   @media (max-width: 879px) {
     #main,
     #main.has-sidebar-article {
@@ -211,9 +185,6 @@
     }
   }
 
-  /* === Safety fixes to neutralize any rogue absolute positioning or negative margins === */
-
-  /* Make sure article and page-content sit in normal flow and are centered */
   article.page,
   #main > article.page,
   article.page > .page-content,
@@ -224,12 +195,11 @@
     margin-right: auto !important;
     left: auto !important;
     right: auto !important;
-    max-width: 980px;         /* keeps content column narrow for readability */
-    width: calc(100% - 40px); /* small horizontal padding on very small screens */
+    max-width: 980px;
+    width: calc(100% - 40px);
     box-sizing: border-box;
   }
 
-  /* Neutralize inline styles that would force overlap */
   article.page[style],
   article.page .page-content[style],
   .page-content[style] {
@@ -237,7 +207,6 @@
     position: relative !important;
   }
 
-  /* Minor responsive tweak */
   @media (max-width: 980px) {
     article.page,
     .page-content {
@@ -247,9 +216,59 @@
       padding-right: 1rem;
     }
   }
+
+  /* === Fix: keep masthead at top and avoid content overlap === */
+  :root {
+    --masthead-height: 110px;
+  }
+
+  .masthead,
+  header,
+  .site-header,
+  .page__header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999 !important;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  body {
+    padding-top: var(--masthead-height);
+    transition: padding-top .15s ease;
+  }
+
+  @media (max-width: 880px) {
+    :root { --masthead-height: 72px; }
+    body { padding-top: var(--masthead-height); }
+  }
+
+  .page-content,
+  .archive,
+  article.page,
+  .page-content.archive {
+    position: relative;
+    z-index: 10;
+    margin-top: 0;
+  }
+
+  @media (max-width: 560px) {
+    .masthead,
+    header,
+    .site-header,
+    .page__header {
+      position: relative !important;
+      top: auto;
+    }
+    body {
+      padding-top: 0;
+    }
+  }
 </style>
 
-<!-- JS: add a class to #main only when both aside and article.page are present (fallback) -->
 <script>
   (function() {
     function onReady(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
