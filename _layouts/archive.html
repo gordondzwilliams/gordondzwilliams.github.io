@@ -19,6 +19,11 @@ layout: default
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 class="page__title">{{ page.title }}</h1>
     {% endunless %}
-    {{ content }}
+
+    <!-- ✅ Added wrapper for shaded panel -->
+    <div class="page-content">
+      {{ content }}
+    </div>
+
   </div>
 </div>
