@@ -76,6 +76,47 @@
     background: rgba(255,255,255,0.88);
     padding: 2rem;
   }
+
+  /* === Precise rule for article.page (target Publications layout rendering) ===
+     This covers pages that render content inside <article class="page"> ... </article>
+     (we add this last so it overrides more generic rules when necessary)
+  */
+  #main > article.page,
+  #main article.page,
+  article.page {
+    background: rgba(255,255,255,0.75);   /* translucent white panel */
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    color: #222;
+    overflow: hidden;
+  }
+
+  /* Headings inside the article get strong contrast */
+  #main article.page h1,
+  #main article.page h2,
+  #main article.page h3,
+  article.page h1, article.page h2, article.page h3 {
+    color: #111;
+  }
+
+  /* If the article contains an inner .page-content, prefer its style */
+  #main article.page > .page-content,
+  article.page > .page-content {
+    background: rgba(255,255,255,0.88);
+    padding: 2rem;
+  }
+
+  /* Smaller screens: slightly reduce padding for article wrapper */
+  @media (max-width: 560px) {
+    #main > article.page,
+    article.page {
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+  }
 </style>
 
 <meta http-equiv="cleartype" content="on">
