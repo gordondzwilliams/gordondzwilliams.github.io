@@ -18,8 +18,9 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
 
-<!-- === Site-wide background image & shaded text panel === -->
+<!-- === Site-wide background image + subtle shaded panels (NOT applied to archive/publications) === -->
 <style>
+  /* Page background image (site-wide) */
   body {
     background-image: url('/images/SDU/BlackWhiteSalar.jpg');
     background-size: cover;
@@ -30,326 +31,84 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
+  /* Light translucent overlay so background doesn't wash out text */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255,255,255,0.70); /* tweak opacity to taste */
     z-index: -1;
   }
 
+  /* Default: add a softly shaded white panel around page content for readability */
   .page-content {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255,255,255,0.85);
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-    padding: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    color: #222;
-  }
-
-  .page-content h1, .page-content h2, .page-content h3 {
-    color: #111;
-  }
-
-  .archive {
-    background: rgba(255,255,255,0.75);
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    color: #222;
-  }
-
-  .archive .page__title,
-  .archive h1, .archive h2, .archive h3 {
-    color: #111;
-  }
-
-  #main > article.page,
-  #main article.page,
-  article.page {
-    background: rgba(255,255,255,0.75);
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    color: #222;
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
-  }
-
-  #main article.page h1,
-  #main article.page h2,
-  #main article.page h3,
-  article.page h1, article.page h2, article.page h3 {
-    color: #111;
-  }
-
-  #main article.page > .page-content,
-  article.page > .page-content {
-    background: rgba(255,255,255,0.88);
-    padding: 2rem;
-  }
-
-  @media (max-width: 560px) {
-    #main > article.page,
-    article.page {
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-    }
-  }
-
-  /* ==== Safer responsive two-column layout (flex-based) ==== */
-  #main { display: block; }
-
-  @supports(selector(:has(> aside))) {
-    @media (min-width: 880px) {
-      #main:has(> aside) {
-        display: flex;
-        gap: 32px;
-        align-items: flex-start;
-        box-sizing: border-box;
-      }
-      #main:has(> aside) > aside {
-        flex: 0 0 280px;
-        max-width: 320px;
-        box-sizing: border-box;
-        position: relative;
-        z-index: 30;
-      }
-      #main:has(> aside) > article.page,
-      #main:has(> aside) > .archive {
-        flex: 1 1 0;
-        margin: 0;
-        width: 100%;
-        max-width: 980px;
-        box-sizing: border-box;
-        z-index: 10;
-      }
-    }
-  }
-
-  @media (min-width: 880px) {
-    #main.has-sidebar-article {
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-      box-sizing: border-box;
-    }
-    #main.has-sidebar-article > aside,
-    #main.has-sidebar-article .sidebar {
-      flex: 0 0 280px;
-      max-width: 320px;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 30;
-    }
-    #main.has-sidebar-article > article.page,
-    #main.has-sidebar-article > .archive,
-    #main.has-sidebar-article article.page {
-      flex: 1 1 0;
-      margin: 0;
-      width: 100%;
-      max-width: 980px;
-      box-sizing: border-box;
-      z-index: 10;
-    }
-  }
-
-  .masthead, header, .site-header, .page__header {
-    position: relative;
-    z-index: 120;
-  }
-
-  @media (min-width: 880px) {
-    #main:not(:has(> aside)) > article.page,
-    #main:not(:has(> aside)) > .archive,
-    #main:not(.has-sidebar-article) > article.page,
-    #main:not(.has-sidebar-article) > .archive {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 980px;
-      width: 100%;
-      box-sizing: border-box;
-      z-index: 10;
-    }
-  }
-
-  @media (max-width: 879px) {
-    #main,
-    #main.has-sidebar-article {
-      display: block;
-    }
-  }
-
-  article.page,
-  #main > article.page,
-  article.page > .page-content,
-  .page-content {
-    position: relative !important;
-    z-index: 10 !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    left: auto !important;
-    right: auto !important;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+    padding: 28px;
+    margin: 20px auto;
     max-width: 980px;
-    width: calc(100% - 40px);
+    color: #222;
     box-sizing: border-box;
   }
 
-  article.page[style],
-  article.page .page-content[style],
-  .page-content[style] {
-    margin: 0 !important;
-    position: relative !important;
+  /* Headings a bit darker for contrast */
+  .page-content h1,
+  .page-content h2,
+  .page-content h3 {
+    color: #0d0d0d;
   }
 
-  @media (max-width: 980px) {
-    article.page,
-    .page-content {
-      width: calc(100% - 28px);
-      max-width: 100%;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-  }
-
-  /* === Fix: keep masthead at top and avoid content overlap === */
-  :root { --masthead-height: 64px; } /* measured header height */
-
-  .masthead,
-  header,
-  .site-header,
-  .page__header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99999 !important;
-    width: 100%;
-    background: rgba(255,255,255,0.95) !important;
-    color: #111 !important;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  .masthead a,
-  .masthead .site-title,
-  header.site-header a,
-  .page__header a,
-  .masthead nav a {
-    color: #111 !important;
-    text-decoration: none !important;
-  }
-
-  body {
-    padding-top: var(--masthead-height);
-    transition: padding-top .15s ease;
-  }
-
-  @media (max-width: 880px) {
-    :root { --masthead-height: 72px; }
-    body { padding-top: var(--masthead-height); }
-  }
-
-  .page-content,
+  /* -------------------------------------------------------
+     IMPORTANT: override to *remove* shading for archive/publication pages
+     (these selectors match the default archive rendering in your theme)
+     ------------------------------------------------------- */
+  /* If the page has a top-level .archive container (your publications page), remove the panel */
   .archive,
+  #main > .archive,
+  #main .archive {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* If the page renders inside <article class="page"> (common for archive layout),
+     make the article transparent so publications show the plain site background */
   article.page,
-  .page-content.archive {
-    position: relative;
-    z-index: 10;
-    margin-top: 0;
+  #main > article.page,
+  #main article.page {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Keep headings inside those archive/article containers readable (but not boxed) */
+  #main article.page h1,
+  #main article.page h2,
+  #main article.page h3,
+  .archive h1, .archive h2, .archive h3 {
+    color: #111;
+    margin-top: 1.25rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 880px) {
+    .page-content {
+      padding: 18px;
+      margin: 16px;
+      border-radius: 10px;
+    }
+    body::before { background: rgba(255,255,255,0.78); }
   }
 
   @media (max-width: 560px) {
-    .masthead,
-    header,
-    .site-header,
-    .page__header {
-      position: relative !important;
-      top: auto;
-    }
-    body { padding-top: 0; }
-  }
-
-  /* --- Extra defensive sidebar rules to prevent overlap --- */
-  @media (min-width: 880px) {
-    #main.has-sidebar-article > aside,
-    #main.has-sidebar-article .sidebar,
-    #main:has(> aside) > aside {
-      position: sticky !important;
-      top: var(--masthead-height, 64px);
-      align-self: start;
-      z-index: 40 !important;
-      flex: 0 0 300px !important;
-      max-width: 320px !important;
-      box-sizing: border-box !important;
-    }
-
-    #main.has-sidebar-article > article.page,
-    #main.has-sidebar-article > .archive,
-    #main:has(> aside) > article.page,
-    #main:has(> aside) > .archive {
-      flex: 1 1 0 !important;
-      min-width: 0;
-      margin: 0 !important;
-      z-index: 10 !important;
-      box-sizing: border-box !important;
-    }
-
-    #main.has-sidebar-article article.page[style],
-    #main.has-sidebar-article .archive[style],
-    #main:has(> aside) article.page[style] {
-      position: relative !important;
-      left: auto !important;
-      right: auto !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-  }
-
-  @media (min-width: 720px) and (max-width: 979px) {
-    #main.has-sidebar-article > aside,
-    #main:has(> aside) > aside {
-      flex: 0 0 320px !important;
-    }
-    #main.has-sidebar-article > article.page,
-    #main:has(> aside) > article.page {
-      max-width: calc(100% - 340px) !important;
-    }
-  }
-
-  @media (max-width: 879px) {
-    #main.has-sidebar-article,
-    #main:has(> aside) {
-      display: block !important;
-    }
-    #main.has-sidebar-article > aside,
-    #main:has(> aside) > aside {
-      position: relative !important;
-      top: auto !important;
-      width: 100% !important;
-      max-width: 100% !important;
+    .page-content {
+      padding: 14px;
+      margin: 12px;
     }
   }
 </style>
-
-<script>
-  (function() {
-    function onReady(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
-    onReady(function(){
-      var main = document.getElementById('main');
-      if (!main) return;
-      var hasAside = !!main.querySelector('aside');
-      var hasArticlePage = !!main.querySelector('article.page');
-      if (hasAside && hasArticlePage) {
-        main.classList.add('has-sidebar-article');
-      }
-    });
-  })();
-</script>
 
 <meta http-equiv="cleartype" content="on">
