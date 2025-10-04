@@ -138,7 +138,7 @@ permalink: /research/
     My applied research translates directly into my teaching, and I enjoy taking students into the field to explore the geology and environmental systems they first encounter in the classroom. I have extensive experience as a teaching assistant, leading both short and multi-day field trips in Ireland and North Carolina, where students engage with topics covering geology, mineral deposits, water quality, and field methods.
   </p>
 
-  <!-- Teaching photo gallery: add/remove <figure> blocks and update image src/captions -->
+    <!-- Teaching photo gallery: add/remove <figure> blocks and update image src/captions -->
   <div class="teaching-gallery">
 
     <figure>
@@ -147,30 +147,27 @@ permalink: /research/
     </figure>
 
     <figure>
-      <img src="/images/Teaching/GeoNC.jpg" alt="Ireland field trip">
+      <img src="/images/Teaching/GeoNC.jpg" alt="North Carolina field trip">
       <figcaption>Geology of North Carolina Field Trip</figcaption>
     </figure>
-
 
     <!-- duplicate/modify the figure blocks above for more photos -->
   </div> <!-- /.teaching-gallery -->
 
-<!-- Lightbox overlay (place this just before the final </div> <!-- /.page-content --> ) -->
+<!-- Unified Lightbox: paste this just after your galleries and before the closing page-content div -->
 <style>
 /* Lightbox overlay */
 #lightbox-overlay {
   display: none;
   position: fixed;
   z-index: 9999;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  inset: 0;
   background: rgba(0,0,0,0.85);
   align-items: center;
   justify-content: center;
   padding: 24px;
   box-sizing: border-box;
 }
-
-/* Container for image + caption */
 #lightbox-inner {
   max-width: 98%;
   max-height: 98%;
@@ -179,23 +176,19 @@ permalink: /research/
   align-items: center;
   gap: 8px;
 }
-
-#lightbox-inner img {
+#lightbox-image {
   max-width: 100%;
   max-height: 80vh;
   border-radius: 6px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
-
-/* Caption */
 #lightbox-caption {
   color: #eee;
   font-size: 0.95rem;
   text-align: center;
   max-width: 90%;
+  margin-top: 6px;
 }
-
-/* Close button */
 #lightbox-close {
   position: absolute;
   top: 12px;
@@ -210,10 +203,8 @@ permalink: /research/
   backdrop-filter: blur(2px);
 }
 #lightbox-close:hover { background: rgba(255,255,255,0.12); }
-
-/* Small screens tweak */
 @media (max-width: 560px) {
-  #lightbox-inner img { max-height: 70vh; }
+  #lightbox-image { max-height: 70vh; }
   #lightbox-caption { font-size: 0.9rem; }
 }
 </style>
@@ -233,31 +224,27 @@ permalink: /research/
   const overlayCaption = document.getElementById('lightbox-caption');
   const closeBtn = document.getElementById('lightbox-close');
 
-  // Target project thumbnails, the gallery-grid, and the teaching-gallery
+  // selectors target project thumbnails, gallery images, and teaching gallery images
   const selectors = '.project-card__img, .gallery-grid img, .teaching-gallery img';
   document.querySelectorAll(selectors).forEach(img => {
-    // show zoom cursor
+    // set zoom cursor
     img.style.cursor = 'zoom-in';
 
     img.addEventListener('click', function(e) {
       // Prevent navigation if image is inside an <a>
       if (e && e.preventDefault) e.preventDefault();
 
-      // Prefer a data-full attribute for full-size image, otherwise use image src
       const fullSrc = img.getAttribute('data-full') || img.src || img.getAttribute('data-src');
       if (!fullSrc) return;
 
       overlayImg.src = fullSrc;
       overlayImg.alt = img.alt || '';
 
-      // Prefer explicit caption stored in data-caption, otherwise fall back to alt text
       const caption = img.getAttribute('data-caption') || img.alt || '';
       overlayCaption.textContent = caption;
 
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden', 'false');
-
-      // lock page scroll while lightbox open
       document.body.style.overflow = 'hidden';
     });
   });
@@ -270,18 +257,13 @@ permalink: /research/
     document.body.style.overflow = '';
   }
 
-  // Close handlers
   closeBtn.addEventListener('click', closeLightbox);
   overlay.addEventListener('click', function(e) {
-    // Close only when clicking the backdrop (not the inner image)
     if (e.target === overlay) closeLightbox();
   });
 
-  // ESC key closes
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && overlay.style.display === 'flex') {
-      closeLightbox();
-    }
+    if (e.key === 'Escape' && overlay.style.display === 'flex') closeLightbox();
   });
 })();
 </script>
