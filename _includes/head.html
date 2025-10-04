@@ -91,6 +91,8 @@
     margin: 1.5rem 0;
     color: #222;
     overflow: hidden;
+    position: relative;
+    z-index: 10; /* ensure article sits below the sidebar which will have higher z-index */
   }
 
   /* Headings inside the article get strong contrast */
@@ -132,7 +134,11 @@
     #main.has-sidebar-article > aside,
     #main.has-sidebar-article .sidebar {
       grid-column: 1;
-      z-index: 5;
+      z-index: 20; /* higher than article */
+      position: relative;
+      align-self: start;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     #main.has-sidebar-article > .archive,
@@ -142,6 +148,47 @@
       grid-column: 2;
       max-width: 980px;
       width: 100%;
+      margin: 0; /* avoid negative margins that could cause overlap */
+      box-sizing: border-box;
+    }
+  }
+
+  /* --- Tighter two-column layout to prevent overlap --- */
+  @media (min-width: 880px) {
+    /* explicit sidebar width avoids shrink/overlap */
+    #main.has-sidebar-article {
+      grid-template-columns: 260px 1fr; /* sidebar 260px, content fills remainder */
+      gap: 32px;
+    }
+
+    /* make sidebar sticky on tall pages and keep it above content */
+    #main.has-sidebar-article > aside,
+    #main.has-sidebar-article .sidebar {
+      position: relative;
+      z-index: 30;            /* ensure sidebar sits above article panel */
+      align-self: start;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* content column: ensure it clears and can't go under sidebar */
+    #main.has-sidebar-article > .archive,
+    #main.has-sidebar-article .archive,
+    #main.has-sidebar-article > article.page,
+    #main.has-sidebar-article article.page {
+      grid-column: 2;
+      margin: 0;              /* remove any outer negative margins that cause overlap */
+      width: 100%;
+      max-width: 900px;       /* slightly narrower for comfortable reading */
+      box-sizing: border-box;
+    }
+
+    /* if the theme makes the sidebar absolute or floats it, force normal flow */
+    #main.has-sidebar-article aside[style],
+    #main.has-sidebar-article .sidebar[style] {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
     }
   }
 
@@ -149,6 +196,10 @@
   @media (max-width: 879px) {
     #main {
       display: block;
+    }
+
+    #main.has-sidebar-article {
+      grid-template-columns: 1fr;
     }
   }
 </style>
