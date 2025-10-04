@@ -138,10 +138,10 @@ permalink: /research/
     My applied research translates directly into my teaching, and I enjoy taking students into the field to explore the geology and environmental systems they first encounter in the classroom. I have extensive experience as a teaching assistant, leading both short and multi-day field trips in Ireland and North Carolina, where students engage with topics covering geology, mineral deposits, water quality, and field methods.
   </p>
 
-    <!-- Teaching photo gallery: add/remove <figure> blocks and update image src/captions -->
-  <div class="teaching-gallery">
+ <!-- Responsive gallery: add as many <figure> blocks as you want -->
+  <div class="gallery-grid">
 
-    <figure>
+     <figure>
       <img src="/images/Teaching/GeoIrelandFolds.JPEG" alt="Field trip, sampling outcrop">
       <figcaption>Geology of Ireland Field Trip</figcaption>
     </figure>
@@ -150,120 +150,48 @@ permalink: /research/
       <img src="/images/Teaching/GeoNC.jpg" alt="North Carolina field trip">
       <figcaption>Geology of North Carolina Field Trip</figcaption>
     </figure>
+    
 
-    <!-- duplicate/modify the figure blocks above for more photos -->
-  </div> <!-- /.teaching-gallery -->
+  </div> <!-- /.gallery-grid -->
 
-<!-- Unified Lightbox (replace previous lightbox block with this) -->
+  <!-- Lightbox overlay element -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Full size image">
+  </div>
+
+</div> <!-- /.page-content -->
+
 <style>
-  #lightbox-overlay{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
-  #lightbox-inner{max-width:98%;max-height:98%;display:flex;flex-direction:column;align-items:center;gap:8px}
-  #lightbox-image{max-width:100%;max-height:80vh;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-  #lightbox-caption{color:#eee;font-size:0.95rem;text-align:center;max-width:90%;margin-top:6px}
-  #lightbox-close{position:absolute;top:12px;right:16px;background:rgba(255,255,255,0.06);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:0.95rem;backdrop-filter:blur(2px)}
-  #lightbox-close:hover{background:rgba(255,255,255,0.12)}
-  @media (max-width:560px){#lightbox-image{max-height:70vh}#lightbox-caption{font-size:0.9rem}}
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
 </style>
 
-<div id="lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true">
-  <button id="lightbox-close" aria-label="Close image">✕</button>
-  <div id="lightbox-inner">
-    <img id="lightbox-image" src="" alt="">
-    <div id="lightbox-caption"></div>
-  </div>
-</div>
-
 <script>
-(function() {
-  // defensive DOM ready
-  function ready(fn) {
-    if (document.readyState !== 'loading') fn();
-    else document.addEventListener('DOMContentLoaded', fn);
-  }
-
-  ready(function() {
-    const overlay = document.getElementById('lightbox-overlay');
-    const overlayImg = document.getElementById('lightbox-image');
-    const overlayCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.getElementById('lightbox-close');
-
-    if (!overlay || !overlayImg) {
-      console.error('Lightbox: required elements missing');
-      return;
-    }
-
-    // Open lightbox with given image element
-    function openLightbox(imgEl) {
-      const fullSrc = imgEl.getAttribute('data-full') || imgEl.src || imgEl.getAttribute('data-src');
-      if (!fullSrc) {
-        console.warn('Lightbox: no image source found for', imgEl);
-        return;
-      }
-      overlayImg.src = fullSrc;
-      overlayImg.alt = imgEl.alt || '';
-      overlayCaption.textContent = imgEl.getAttribute('data-caption') || imgEl.alt || '';
-      overlay.style.display = 'flex';
-      overlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    // Close handler
-    function closeLightbox() {
-      overlay.style.display = 'none';
-      overlay.setAttribute('aria-hidden', 'true');
-      overlayImg.src = '';
-      overlayCaption.textContent = '';
-      document.body.style.overflow = '';
-    }
-
-    // Event delegation: catch clicks on images in these containers
-    // selectors include project thumbnails, gallery images, teaching gallery
-    const container = document; // delegate from document
-    container.addEventListener('click', function(e) {
-      const clickTarget = e.target;
-
-      // If clicked element is an IMG inside one of our target selectors
-      // We allow images inside:
-      //  - .project-card__img
-      //  - any img inside .gallery-grid
-      //  - any img inside .teaching-gallery
-      if (clickTarget && clickTarget.tagName === 'IMG') {
-        const isProjectThumb = clickTarget.classList.contains('project-card__img');
-        const inGalleryGrid = clickTarget.closest('.gallery-grid') !== null;
-        const inTeaching = clickTarget.closest('.teaching-gallery') !== null;
-
-        if (isProjectThumb || inGalleryGrid || inTeaching) {
-          // Prevent the enclosing anchor from navigating when the IMG is clicked
-          // Find nearest <a> ancestor and prevent its default navigation only for this event
-          const anchor = clickTarget.closest('a');
-          if (anchor) {
-            e.preventDefault();
-            // stop immediate propagation so other handlers don't override
-            e.stopPropagation && e.stopPropagation();
-          }
-
-          // Open the lightbox
-          openLightbox(clickTarget);
-          return;
-        }
-      }
-
-      // If user clicks a project-card anchor but not the image, allow navigation as normal
-    }, true /* useCapture to be extra robust against other handlers */);
-
-    // Close handlers
-    closeBtn.addEventListener('click', closeLightbox);
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeLightbox();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && overlay.style.display === 'flex') closeLightbox();
-    });
-
-    // Helpful console message for debugging
-    console.info('Lightbox: initialized (targets: .project-card__img, .gallery-grid img, .teaching-gallery img)');
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+  img.addEventListener('click', () => {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'flex';
+    lightbox.querySelector('img').src = img.src;
   });
-})();
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
 </script>
 
 
