@@ -18,4 +18,25 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
 
+<!-- === Site-wide background image === -->
+<style>
+  body {
+    background-image: url('/images/SDU/BlackWhiteSalar.jpg');
+    background-size: cover;         /* fill entire viewport */
+    background-position: center;    /* center image */
+    background-attachment: fixed;   /* stay fixed while scrolling */
+    background-repeat: no-repeat;   /* no tiling */
+    color: #111;                    /* adjust text color for contrast */
+  }
+
+  /* Optional translucent overlay for readability */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);  /* light overlay; change to rgba(0,0,0,0.4) for darker */
+    z-index: -1;
+  }
+</style>
+
 <meta http-equiv="cleartype" content="on">
