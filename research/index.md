@@ -229,7 +229,61 @@ permalink: /research/
 <script>
 (function() {
   const overlay = document.getElementById('lightbox-overlay');
-  const overlayImg = docum
+  const overlayImg = document.getElementById('lightbox-image');
+  const overlayCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
 
+  // Target project thumbnails, the gallery-grid, and the teaching-gallery
+  const selectors = '.project-card__img, .gallery-grid img, .teaching-gallery img';
+  document.querySelectorAll(selectors).forEach(img => {
+    // show zoom cursor
+    img.style.cursor = 'zoom-in';
+
+    img.addEventListener('click', function(e) {
+      // Prevent navigation if image is inside an <a>
+      if (e && e.preventDefault) e.preventDefault();
+
+      // Prefer a data-full attribute for full-size image, otherwise use image src
+      const fullSrc = img.getAttribute('data-full') || img.src || img.getAttribute('data-src');
+      if (!fullSrc) return;
+
+      overlayImg.src = fullSrc;
+      overlayImg.alt = img.alt || '';
+
+      // Prefer explicit caption stored in data-caption, otherwise fall back to alt text
+      const caption = img.getAttribute('data-caption') || img.alt || '';
+      overlayCaption.textContent = caption;
+
+      overlay.style.display = 'flex';
+      overlay.setAttribute('aria-hidden', 'false');
+
+      // lock page scroll while lightbox open
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlayImg.src = '';
+    overlayCaption.textContent = '';
+    document.body.style.overflow = '';
+  }
+
+  // Close handlers
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', function(e) {
+    // Close only when clicking the backdrop (not the inner image)
+    if (e.target === overlay) closeLightbox();
+  });
+
+  // ESC key closes
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.style.display === 'flex') {
+      closeLightbox();
+    }
+  });
+})();
+</script>
 
 </div> <!-- /.page-content -->
