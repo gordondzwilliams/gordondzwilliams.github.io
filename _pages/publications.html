@@ -5,12 +5,33 @@ permalink: /publications/
 author_profile: true
 ---
 
+<!-- Force white background only on this page -->
 <style>
-  body {
-    background: #ffffff !important;
+  html, body {
+    background-image: none !important;
+    background-color: #ffffff !important;
   }
+
   body::before {
+    display: none !important;
     background: none !important;
+    content: none !important;
+  }
+
+  .archive,
+  #main > .archive,
+  article.page,
+  #main > article.page,
+  .page-content {
+    background: #ffffff !important;
+    box-shadow: none !important;
+    padding: 1rem !important;
+    margin: 0 0 1rem 0 !important;
+    color: #111 !important;
+  }
+
+  @media (max-width: 880px) {
+    body { background-color: #ffffff !important; }
   }
 </style>
 
@@ -25,6 +46,7 @@ author_profile: true
 
   {% include base_path %}
 
+  <!-- Publication listings -->
   {% if site.publication_category %}
     {% for category in site.publication_category  %}
       {% assign title_shown = false %}
@@ -45,4 +67,4 @@ author_profile: true
     {% endfor %}
   {% endif %}
 
-</div>
+</div> <!-- /.page-content -->
