@@ -102,7 +102,8 @@ permalink: /research/
 </style>
 
 <div class="page-content">
-  <p> </p>
+  <p>  
+  </p>
   <h2>Research</h2>
   
   <!-- ✍️ Edit this intro text anytime -->
