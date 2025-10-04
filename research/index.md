@@ -138,21 +138,54 @@ permalink: /research/
     My applied research translates directly into my teaching, and I enjoy taking students into the field to explore the geology and environmental systems they first encounter in the classroom. I have extensive experience as a teaching assistant, leading both short and multi-day field trips in Ireland and North Carolina, where students engage with topics covering geology, mineral deposits, water quality, and field methods.
   </p>
 
- <!-- Responsive gallery: add as many <figure> blocks as you want -->
-  <div class="gallery-grid">
+ <!-- Teaching gallery -->
+<style>
+/* Teaching gallery grid */
+.teaching-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2–3 per row depending on width */
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+.teaching-gallery figure {
+  margin: 0;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+.teaching-gallery img {
+  width: 100%;
+  height: 180px; /* adjust for smaller thumbnails */
+  object-fit: cover;
+  cursor: zoom-in;
+}
+.teaching-gallery figcaption {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.3;
+  text-align: center;
+}
+</style>
 
-     <figure>
-      <img src="/images/Teaching/GeoIrelandFolds.JPEG" alt="Field trip, sampling outcrop">
-      <figcaption>Geology of Ireland Field Trip</figcaption>
-    </figure>
+<div class="teaching-gallery">
+  <figure>
+    <img src="/images/Teaching/GeoIrelandFolds.JPEG" alt="Field trip, sampling outcrop">
+    <figcaption>Geology of Ireland Field Trip</figcaption>
+  </figure>
 
-    <figure>
-      <img src="/images/Teaching/GeoNC.jpg" alt="North Carolina field trip">
-      <figcaption>Geology of North Carolina Field Trip</figcaption>
-    </figure>
-    
+  <figure>
+    <img src="/images/Teaching/GeoNC.jpg" alt="North Carolina field trip">
+    <figcaption>Geology of North Carolina Field Trip</figcaption>
+  </figure>
 
-  </div> <!-- /.gallery-grid -->
+  <!-- Add more photos below in the same <figure> format -->
+</div> <!-- /.teaching-gallery -->
+
 
   <!-- Lightbox overlay element -->
   <div class="lightbox" id="lightbox">
