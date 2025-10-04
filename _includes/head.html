@@ -120,96 +120,98 @@
     }
   }
 
-  /* === Defensive two-column layout: only enable when JS confirms both sidebar AND article.page exist === */
-  @media (min-width: 880px) {
-    /* Only applies when #main has the class "has-sidebar-article" (added by JS) */
-    #main.has-sidebar-article {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 28px;
-      align-items: start;
-      box-sizing: border-box;
-    }
+  /* ==== Safer responsive two-column layout (flex-based) ==== */
+  /* Default: single-column flow */
+  #main {
+    display: block;
+  }
 
-    #main.has-sidebar-article > aside,
-    #main.has-sidebar-article .sidebar {
-      grid-column: 1;
-      z-index: 20; /* higher than article */
-      position: relative;
-      align-self: start;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    #main.has-sidebar-article > .archive,
-    #main.has-sidebar-article .archive,
-    #main.has-sidebar-article > article.page,
-    #main.has-sidebar-article article.page {
-      grid-column: 2;
-      max-width: 980px;
-      width: 100%;
-      margin: 0; /* avoid negative margins that could cause overlap */
-      box-sizing: border-box;
+  /* Use :has() when supported (modern browsers) - only apply when an aside is present */
+  @supports(selector(:has(> aside))) {
+    @media (min-width: 880px) {
+      #main:has(> aside) {
+        display: flex;
+        gap: 32px;
+        align-items: flex-start;
+        box-sizing: border-box;
+      }
+      #main:has(> aside) > aside {
+        flex: 0 0 280px; /* fixed sidebar width */
+        max-width: 320px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 30;
+      }
+      #main:has(> aside) > article.page,
+      #main:has(> aside) > .archive {
+        flex: 1 1 0;
+        margin: 0;
+        width: 100%;
+        max-width: 980px;
+        box-sizing: border-box;
+        z-index: 10;
+      }
     }
   }
 
-  /* --- Tighter two-column layout to prevent overlap --- */
+  /* Fallback: when :has() is not supported, rely on the JS class you already add */
   @media (min-width: 880px) {
-    /* explicit sidebar width avoids shrink/overlap */
     #main.has-sidebar-article {
-      grid-template-columns: 260px 1fr; /* sidebar 260px, content fills remainder */
+      display: flex;
       gap: 32px;
+      align-items: flex-start;
+      box-sizing: border-box;
     }
-
-    /* make sidebar sticky on tall pages and keep it above content */
     #main.has-sidebar-article > aside,
     #main.has-sidebar-article .sidebar {
+      flex: 0 0 280px;
+      max-width: 320px;
+      box-sizing: border-box;
       position: relative;
-      z-index: 30;            /* ensure sidebar sits above article panel */
-      align-self: start;
-      width: 100%;
-      box-sizing: border-box;
+      z-index: 30;
     }
-
-    /* content column: ensure it clears and can't go under sidebar */
-    #main.has-sidebar-article > .archive,
-    #main.has-sidebar-article .archive,
     #main.has-sidebar-article > article.page,
+    #main.has-sidebar-article > .archive,
     #main.has-sidebar-article article.page {
-      grid-column: 2;
-      margin: 0;              /* remove any outer negative margins that cause overlap */
+      flex: 1 1 0;
+      margin: 0;
       width: 100%;
-      max-width: 900px;       /* slightly narrower for comfortable reading */
+      max-width: 980px;
       box-sizing: border-box;
-    }
-
-    /* if the theme makes the sidebar absolute or floats it, force normal flow */
-    #main.has-sidebar-article aside[style],
-    #main.has-sidebar-article .sidebar[style] {
-      position: relative !important;
-      left: auto !important;
-      top: auto !important;
+      z-index: 10;
     }
   }
 
-  /* Small screens: preserve single-column stacking (no change) */
-  @media (max-width: 879px) {
-    #main {
-      display: block;
-    }
-
-    #main.has-sidebar-article {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* === Safety fixes to avoid overlap on homepage & publications === */
-
-  /* Ensure masthead/header always sits above content panels */
+  /* Ensure header sits above content panels */
   .masthead, header, .site-header, .page__header {
     position: relative;
-    z-index: 120 !important;
+    z-index: 120;
   }
+
+  /* Center / constrain article on pages without a sidebar */
+  @media (min-width: 880px) {
+    #main:not(:has(> aside)) > article.page,
+    #main:not(:has(> aside)) > .archive,
+    #main:not(.has-sidebar-article) > article.page,
+    #main:not(.has-sidebar-article) > .archive {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 980px;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+  }
+
+  /* Small screens: keep single-column stacking */
+  @media (max-width: 879px) {
+    #main,
+    #main.has-sidebar-article {
+      display: block;
+    }
+  }
+
+  /* === Safety fixes to neutralize any rogue absolute positioning or negative margins === */
 
   /* Make sure article and page-content sit in normal flow and are centered */
   article.page,
@@ -227,33 +229,12 @@
     box-sizing: border-box;
   }
 
-  /* If article/page-content has negative margins or absolute positioning from theme,
-     neutralize them so it cannot slide under the sidebar/header */
+  /* Neutralize inline styles that would force overlap */
   article.page[style],
   article.page .page-content[style],
   .page-content[style] {
     margin: 0 !important;
     position: relative !important;
-  }
-
-  /* When the defensive grid is active (has-sidebar-article), ensure sidebar width and stacking */
-  #main.has-sidebar-article {
-    grid-template-columns: 280px 1fr !important; /* slightly wider sidebar to be safe */
-  }
-  #main.has-sidebar-article > aside,
-  #main.has-sidebar-article .sidebar {
-    position: relative !important;
-    z-index: 30 !important;
-  }
-
-  /* Make sure article column never flows under the sidebar */
-  #main.has-sidebar-article > article.page,
-  #main.has-sidebar-article article.page,
-  #main.has-sidebar-article > .archive,
-  #main.has-sidebar-article .archive {
-    grid-column: 2;
-    margin: 0 !important;
-    z-index: 10 !important;
   }
 
   /* Minor responsive tweak */
@@ -268,7 +249,7 @@
   }
 </style>
 
-<!-- JS: add a class to #main only when both aside and article.page are present -->
+<!-- JS: add a class to #main only when both aside and article.page are present (fallback) -->
 <script>
   (function() {
     function onReady(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
