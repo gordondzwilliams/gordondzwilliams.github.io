@@ -18,7 +18,7 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
 
-<!-- === Site-wide background image === -->
+<!-- === Site-wide background image & shaded text panel === -->
 <style>
   body {
     background-image: url('/images/SDU/BlackWhiteSalar.jpg');
@@ -27,6 +27,7 @@
     background-attachment: fixed;   /* stay fixed while scrolling */
     background-repeat: no-repeat;   /* no tiling */
     color: #111;                    /* adjust text color for contrast */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   /* Optional translucent overlay for readability */
@@ -36,6 +37,22 @@
     inset: 0;
     background: rgba(255, 255, 255, 0.75);  /* light overlay; change to rgba(0,0,0,0.4) for darker */
     z-index: -1;
+  }
+
+  /* Add a lightly shaded background behind all page content */
+  .page-content {
+    background: rgba(255, 255, 255, 0.88); /* translucent white panel */
+    border-radius: 12px;                   /* soften edges */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1); /* gentle shadow for depth */
+    padding: 2rem;                         /* spacing inside panel */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #222;                           /* darker text for readability */
+  }
+
+  /* Slightly stronger contrast for headings */
+  .page-content h1, .page-content h2, .page-content h3 {
+    color: #111;
   }
 </style>
 
