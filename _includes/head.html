@@ -54,6 +54,28 @@
   .page-content h1, .page-content h2, .page-content h3 {
     color: #111;
   }
+
+  /* === Fallback: style archive pages (e.g., Publications) if .page-content isn't present === */
+  .archive {
+    background: rgba(255,255,255,0.75);   /* translucent white */
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    color: #222;
+  }
+
+  .archive .page__title,
+  .archive h1, .archive h2, .archive h3 {
+    color: #111;
+  }
+
+  /* If both .page-content and .archive exist, prefer .page-content style */
+  .page-content.archive,
+  .archive .page-content {
+    background: rgba(255,255,255,0.88);
+    padding: 2rem;
+  }
 </style>
 
 <meta http-equiv="cleartype" content="on">
