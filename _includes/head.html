@@ -117,6 +117,54 @@
       border-radius: 8px;
     }
   }
+
+  /* ---- Layout fix: ensure sidebar and archive sit side-by-side on wide screens ---- */
+  @media (min-width: 880px) {
+    /* Make #main a 2-column grid: sidebar (auto) + content (1fr) */
+    #main {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;                 /* space between sidebar and content */
+      align-items: start;
+      box-sizing: border-box;
+    }
+
+    /* Target likely sidebar markup */
+    #main > aside,
+    #main > .sidebar,
+    #main .sidebar {
+      grid-column: 1;
+      z-index: 5;                /* keep sidebar above background panel if needed */
+    }
+
+    /* Archive/content area goes in column 2 */
+    #main > .archive,
+    #main .archive {
+      grid-column: 2;
+    }
+
+    /* If content renders inside article.page, ensure it stays in column 2 */
+    #main > article.page,
+    #main article.page {
+      grid-column: 2;
+    }
+
+    /* Optional: limit content max width for nicer reading on large screens */
+    #main > .archive,
+    #main .archive,
+    #main > article.page,
+    #main article.page {
+      max-width: 980px;
+      width: 100%;
+    }
+  }
+
+  /* Small screens: preserve single-column stacking (no change) */
+  @media (max-width: 879px) {
+    #main {
+      display: block;
+    }
+  }
 </style>
 
 <meta http-equiv="cleartype" content="on">
