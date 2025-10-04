@@ -7,33 +7,57 @@ author_profile: true
 
 <!-- Force white background only on this page -->
 <style>
-  html, body {
-    background-image: none !important;
-    background-color: #ffffff !important;
-  }
+/* strongest possible CSS override for Publications page */
+html.publications-page, html.publications-page body,
+html.publications-page, body.publications-page {
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
 
-  body::before {
-    display: none !important;
-    background: none !important;
-    content: none !important;
-  }
+/* hide any pseudo-element overlay */
+body::before, html::before, html::after, body::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
 
-  .archive,
-  #main > .archive,
-  article.page,
-  #main > article.page,
-  .page-content {
-    background: #ffffff !important;
-    box-shadow: none !important;
-    padding: 1rem !important;
-    margin: 0 0 1rem 0 !important;
-    color: #111 !important;
-  }
+/* ensure all containers are white */
+.archive, #main > .archive,
+article.page, #main > article.page,
+.page-content {
+  background: #ffffff !important;
+  box-shadow: none !important;
+  color: #111 !important;
+  margin: 0 auto !important;
+  padding: 1rem !important;
+}
 
-  @media (max-width: 880px) {
-    body { background-color: #ffffff !important; }
-  }
+/* tweak mobile */
+@media (max-width: 880px) {
+  body { background-color: #ffffff !important; }
+}
 </style>
+
+<script>
+(function(){
+  // Immediately enforce white background programmatically
+  try {
+    document.documentElement.style.backgroundImage = 'none';
+    document.documentElement.style.backgroundColor = '#ffffff';
+    document.body.style.backgroundImage = 'none';
+    document.body.style.backgroundColor = '#ffffff';
+  } catch(e){}
+
+  // Inject a style element at runtime to kill pseudo-elements and overlays
+  var s = document.createElement('style');
+  s.id = 'pubs-force-white';
+  s.textContent =
+    'body::before, html::before, html::after, body::after { content: none !important; display: none !important; background: none !important; }' +
+    'html, body { background-image: none !important; background-color: #ffffff !important; }' +
+    '.archive, article.page, .page-content { background: #ffffff !important; box-shadow: none !important; }';
+  (document.head || document.documentElement).appendChild(s);
+})();
+</script>
 
 <div class="page-content">
 
