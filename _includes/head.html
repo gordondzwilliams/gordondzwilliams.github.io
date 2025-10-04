@@ -218,9 +218,7 @@
   }
 
   /* === Fix: keep masthead at top and avoid content overlap === */
-  :root {
-    --masthead-height: 110px;
-  }
+  :root { --masthead-height: 110px; }
 
   .masthead,
   header,
@@ -263,8 +261,67 @@
       position: relative !important;
       top: auto;
     }
-    body {
-      padding-top: 0;
+    body { padding-top: 0; }
+  }
+
+  /* --- Extra defensive sidebar rules to prevent overlap --- */
+  @media (min-width: 880px) {
+    #main.has-sidebar-article > aside,
+    #main.has-sidebar-article .sidebar,
+    #main:has(> aside) > aside {
+      position: sticky !important;
+      top: var(--masthead-height, 110px);
+      align-self: start;
+      z-index: 40 !important;
+      flex: 0 0 280px !important;
+      max-width: 320px !important;
+      box-sizing: border-box !important;
+    }
+
+    #main.has-sidebar-article > article.page,
+    #main.has-sidebar-article > .archive,
+    #main:has(> aside) > article.page,
+    #main:has(> aside) > .archive {
+      flex: 1 1 0 !important;
+      min-width: 0;
+      margin: 0 !important;
+      z-index: 10 !important;
+      box-sizing: border-box !important;
+    }
+
+    #main.has-sidebar-article article.page[style],
+    #main.has-sidebar-article .archive[style],
+    #main:has(> aside) article.page[style] {
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  @media (min-width: 720px) and (max-width: 979px) {
+    #main.has-sidebar-article > aside,
+    #main:has(> aside) > aside {
+      flex: 0 0 300px !important;
+    }
+    #main.has-sidebar-article > article.page,
+    #main:has(> aside) > article.page {
+      max-width: calc(100% - 320px) !important;
+    }
+  }
+
+  @media (max-width: 879px) {
+    #main.has-sidebar-article,
+    #main:has(> aside) {
+      display: block !important;
+    }
+    #main.has-sidebar-article > aside,
+    #main:has(> aside) > aside {
+      position: relative !important;
+      top: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
     }
   }
 </style>
