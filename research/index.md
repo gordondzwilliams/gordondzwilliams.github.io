@@ -155,4 +155,81 @@ permalink: /research/
     <!-- duplicate/modify the figure blocks above for more photos -->
   </div> <!-- /.teaching-gallery -->
 
+<!-- Lightbox overlay (place this just before the final </div> <!-- /.page-content --> ) -->
+<style>
+/* Lightbox overlay */
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Container for image + caption */
+#lightbox-inner {
+  max-width: 98%;
+  max-height: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#lightbox-inner img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* Caption */
+#lightbox-caption {
+  color: #eee;
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Close button */
+#lightbox-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  backdrop-filter: blur(2px);
+}
+#lightbox-close:hover { background: rgba(255,255,255,0.12); }
+
+/* Small screens tweak */
+@media (max-width: 560px) {
+  #lightbox-inner img { max-height: 70vh; }
+  #lightbox-caption { font-size: 0.9rem; }
+}
+</style>
+
+<div id="lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+  <button id="lightbox-close" aria-label="Close image">✕</button>
+  <div id="lightbox-inner">
+    <img id="lightbox-image" src="" alt="">
+    <div id="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const overlay = document.getElementById('lightbox-overlay');
+  const overlayImg = docum
+
+
 </div> <!-- /.page-content -->
