@@ -15,6 +15,6 @@ What motivates me is understanding the trade-offs of the energy transition. Lith
 
 Beyond research, I enjoy teaching and mentoring students in both field and laboratory settings. Fieldwork is one of my favorite parts of Earth Science: whether sampling brines in the high-altitude salt flats of the Andes, working with communities to assess water resources, or leading student field trips, I feel at my best when outdoors.
 
-I am currently a PhD candidate in the [Vengosh Lab](https://sites.nicholas.duke.edu/avnervengosh) at Duke University.
+I am currently a PhD candidate in the <a href="https://sites.nicholas.duke.edu/avnervengosh" target="_blank" rel="noopener">Vengosh Lab</a> at Duke University.
 
 </div>
