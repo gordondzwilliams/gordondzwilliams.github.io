@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Water Quality Impacts of Hrad-Rock Lithium Mining
+title:  Hard-Rock Lithium Deposits and Water Geochemistry
 excerpt: Hard-Rock Lithium Deposits and Water Geochemistry
 image: /images/HallmanBeam1.jpg
 order: 9
