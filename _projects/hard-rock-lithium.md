@@ -102,7 +102,7 @@ My work investigates water quality across the TSB, with a focus on developing ge
     
     <figure>
       <img src="/images/TSB/TSB_SamplingM.jpg" alt="Blue glow on Salar de Uyuni">
-      <figcaption>Water Sampling in the TSB</figcaption>
+      <figcaption>Fellow grad student Marija P. collecting stream water samples in the TSB</figcaption>
     </figure>
         
     <figure>
