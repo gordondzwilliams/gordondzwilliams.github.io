@@ -7,28 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-<style>
-  /* Sidebar shading only for the homepage */
-  #main > aside,
-  .sidebar,
-  aside {
-    background: rgba(255,255,255,0.92);
-    border-radius: 10px;
-    padding: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-  }
-
-  @media (max-width: 880px) {
-    #main > aside,
-    .sidebar {
-      background: rgba(255,255,255,0.98);
-      padding: 12px;
-      border-radius: 8px;
-    }
-  }
-</style>
 
 <div class="page-content">
 
