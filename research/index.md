@@ -104,7 +104,7 @@ permalink: /research/
 <div class="page-content">
   <p>  
   </p>
-  <h2>Research</h2>
+  <h1>Research</h1>
   
   <!-- ✍️ Edit this intro text anytime -->
   <p>
@@ -135,7 +135,7 @@ permalink: /research/
   </div> <!-- /.project-grid -->
 
   <!-- ===== Teaching section (placed BELOW the project gallery) ===== -->
-  <h2>Teaching</h2>
+  <h1>Teaching</h1>
   <p>
     My applied research translates directly into my teaching, and I enjoy taking students into the field to explore the geology and environmental systems they first encounter in the classroom. I have extensive experience as a teaching assistant, leading both short and multi-day field trips in Ireland and North Carolina, where students engage with topics covering geology, mineral deposits, water quality, and field methods.
   </p>
