@@ -95,7 +95,7 @@ order: 10
 
     <figure>
       <img src="/images/SDU/BlackWhiteSalar.jpg" alt="Evaporation ponds at Salar de Uyuni">
-      <figcaption>Extracting shallow brine samples from beneath the salt crust</figcaption>
+      <figcaption>Extracting shallow brine and sediment samples from beneath the salt crust</figcaption>
     </figure>
 
     <figure>
@@ -130,7 +130,12 @@ order: 10
 
     <figure>
       <img src="/images/SDU/HannahCoipasa.jpg" alt="Field team sampling brines">
-      <figcaption>Sampling Salar de Coipasa</figcaption>
+      <figcaption>Fellow grad student Hannah W. brine/salt sampling at the Salar de Coipasa</figcaption>
+    </figure>
+    
+    <figure>
+      <img src="/images/SDU/AV_GW_SDU.jpg" alt="Field team sampling brines">
+      <figcaption>Gordon and PhD advisor Avner Vengosh sampling brines at the SDU</figcaption>
     </figure>
     
 
