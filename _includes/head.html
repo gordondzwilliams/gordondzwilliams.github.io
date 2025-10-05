@@ -13,6 +13,20 @@
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+
+  /* --- Publications page detector: add class early --- */
+  (function(){
+    try {
+      var p = window.location.pathname.replace(/\/+$/,'');
+      if (p === '/publications' || p === '/publications/index.html') {
+        document.documentElement.classList.add('publications-page');
+        if (document.body) document.body.classList.add('publications-page');
+        else document.addEventListener('DOMContentLoaded', function(){
+          document.body.classList.add('publications-page');
+        });
+      }
+    } catch(e){}
+  })();
 </script>
 
 <!-- For all browsers -->
@@ -20,7 +34,7 @@
 
 <!-- === Site-wide background image + subtle shaded panels (NOT applied to archive/publications) === -->
 <style>
-  /* Page background image (site-wide) */
+  /* Default site background */
   body {
     background-image: url('/images/SDU/BlackWhiteSalar.jpg');
     background-size: cover;
@@ -31,16 +45,14 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-  /* Light translucent overlay so background doesn't wash out text */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(255,255,255,0.70); /* tweak opacity to taste */
+    background: rgba(255,255,255,0.70);
     z-index: -1;
   }
 
-  /* Default: add a softly shaded white panel around page content for readability */
   .page-content {
     background: rgba(255,255,255,0.85);
     border-radius: 12px;
@@ -52,29 +64,16 @@
     box-sizing: border-box;
   }
 
-  /* Headings a bit darker for contrast */
   .page-content h1,
   .page-content h2,
   .page-content h3 {
     color: #0d0d0d;
   }
 
-  /* -------------------------------------------------------
-     IMPORTANT: override to *remove* shading for archive/publication pages
-     (these selectors match the default archive rendering in your theme)
-     ------------------------------------------------------- */
-  /* If the page has a top-level .archive container (your publications page), remove the panel */
+  /* Remove shading for archive/publications layout */
   .archive,
   #main > .archive,
-  #main .archive {
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* If the page renders inside <article class="page"> (common for archive layout),
-     make the article transparent so publications show the plain site background */
+  #main .archive,
   article.page,
   #main > article.page,
   #main article.page {
@@ -84,7 +83,6 @@
     margin: 0 !important;
   }
 
-  /* Keep headings inside those archive/article containers readable (but not boxed) */
   #main article.page h1,
   #main article.page h2,
   #main article.page h3,
@@ -93,7 +91,29 @@
     margin-top: 1.25rem;
   }
 
-  /* Responsive adjustments */
+  /* Publications page: pure white background */
+  html.publications-page,
+  body.publications-page {
+    background-image: none !important;
+    background-color: #ffffff !important;
+  }
+
+  html.publications-page body::before,
+  body.publications-page::before {
+    background: none !important;
+    content: none !important;
+  }
+
+  html.publications-page .archive,
+  body.publications-page .archive,
+  html.publications-page article.page,
+  body.publications-page article.page {
+    background: #ffffff !important;
+    box-shadow: none !important;
+    padding: 1rem !important;
+    margin: 0 auto !important;
+  }
+
   @media (max-width: 880px) {
     .page-content {
       padding: 18px;
