@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # you can keep this custom var if you use it elsewhere
-title                    : "Gordon D.Z. Williams, Duke University"
+title                    : "Gordon Williams"
 title_separator          : "-"
 name                     : &name "Gordon Williams"
 description              : &description "Your Name's academic portfolio"
