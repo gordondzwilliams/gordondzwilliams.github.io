@@ -109,6 +109,7 @@ permalink: /research/
   <!-- ✍️ Edit this intro text anytime -->
   <p>
    My research broadly focuses on the geochemistry and environmental impacts of lithium deposits and mining them. Lithium is currently produced from two main deposit types (1) Lithium-Cesium-Tantalum (LCT) pegmatites which are hard-rock deposits and (2) closed-basin brines which are hypersaline waters. My work encompasses both including project sites at (1) the Carolina Tin-Spodumene Belt of North Carolina which hosts LCT-pegmatite deposits, where I investigate the natural and mining related water-quality impacts to streams and groundwater throughout a legacy mining region, and (2) the Salar de Uyuni in Bolivia which is the largest salt flat in the world and hosts a massive lithium brine resource that is currently under development where I investigate the geochemistry and geochemical evolution of brines and the potential water-quality impacts of mining them.
+    In addition to lihtium deposits I also collaborate on research related to phosphate deposits and phosphate fertilizers.
   </p>
 
   <p>Please click the images below for more information on each project!</p>
