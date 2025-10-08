@@ -3,7 +3,7 @@ layout: default
 title:  Phosphate Rocks and Fertilizers
 excerpt: 
 image: /images/phos/GHfertilizer.jpg
-order: 11
+order: 8
 ---
 <style>
 /* Page container so content isn't flush against the window */
