@@ -10,7 +10,7 @@ classes: wide
   You can also find my work on
   <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">
     Google Scholar
-  </a>.
+  </a>
 </p>
 
 {% assign pubs = site.publications | sort:"year" | reverse %}
