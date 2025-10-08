@@ -3,7 +3,7 @@ layout: default
 title:  Phosphate Rocks and Fertilizers
 excerpt: Phosphate Rocks and Fertilizers
 image: /images/phos/GHfertilizer.jpg
-order: 8
+order: 11
 ---
 <style>
 /* Page container so content isn't flush against the window */
@@ -67,36 +67,52 @@ order: 8
 
   <!-- Use HTML headings inside an HTML wrapper so they render correctly -->
   <h1>Phosphate Rocks and Fertilizers</h1>
-<p>
-Phosphorous is among the most important elements for modern agriculture, and phosphate rocks are the primary source of phosphorous for fertilizers. Phosphate rock deposits are found throughout the world, having formed through sedimentary and magmatic processes.  
-</p>
-<p>
-I collaborate on a variety of projects related to:  
-</p>
-<p>
-1. Understanding the depositional environments of phosphorites and their enrichment in elements other than phosphorous**, including redox-sensitive elements (like uranium or cadmium) and rare earth elements. To do this, we use uranium, strontium, and lead isotopes along with rare earth element profiles to reconstruct the environmental conditions of marine phosphorite deposit formation [\[1\]](https://doi.org/10.1016/j.chemgeo.2023.121715), [\[2\]](https://doi.org/10.1016/j.chemgeo.2024.122214).  
-</p>
-<p>
-2. Tracing the impacts of phosphate rock mining, processing, and fertilizer use on agricultural systems.** During the processing of phosphate rocks to fertilizers, many trace elements and radionuclides naturally enriched in the rocks are transferred into fertilizer products [\[3\]](https://doi.org/10.1021/acs.estlett.4c00170), [\[4\]](https://doi.org/10.1016/j.scitotenv.2022.157971). Our field studies show that long-term fertilizer application can enrich trace elements and radionuclides in agricultural topsoils and groundwater, and that isotopic fingerprints of strontium provide powerful tracers for identifying fertilizer-derived contaminants in the environment [\[3\]](https://doi.org/10.1021/acs.estlett.4c00170), [\[5\]](https://doi.org/10.1016/j.jhazmat.2025.140033), [\[6\]](https://doi.org/10.1016/j.scitotenv.2023.167863).  
-</p>
 
- 
+  <p>
+    Phosphorous is among the most important elements for modern agriculture, and phosphate rocks are the primary source of phosphorous for fertilizers. Phosphate rock deposits are found throughout the world, having formed through sedimentary and magmatic processes.
+  </p>
+
+  <p>
+    I collaborate on a variety of projects related to:
+  </p>
+
+  <p>
+    1. <strong>Understanding the depositional environments of phosphorites and their enrichment in elements other than phosphorous</strong>, including redox-sensitive elements (like uranium or cadmium) and rare earth elements. To do this, we use uranium, strontium, and lead isotopes along with rare earth element profiles to reconstruct the environmental conditions of marine phosphorite deposit formation <a href="https://doi.org/10.1016/j.chemgeo.2023.121715" target="_blank" rel="noopener">[1]</a>, <a href="https://doi.org/10.1016/j.chemgeo.2024.122214" target="_blank" rel="noopener">[2]</a>.
+  </p>
+
+  <p>
+    2. <strong>Tracing the impacts of phosphate rock mining, processing, and fertilizer use on agricultural systems.</strong> During the processing of phosphate rocks to fertilizers, many trace elements and radionuclides naturally enriched in the rocks are transferred into fertilizer products <a href="https://doi.org/10.1021/acs.estlett.4c00170" target="_blank" rel="noopener">[3]</a>, <a href="https://doi.org/10.1016/j.scitotenv.2022.157971" target="_blank" rel="noopener">[4]</a>. Our field studies show that long-term fertilizer application can enrich trace elements and radionuclides in agricultural topsoils and groundwater, and that isotopic fingerprints of strontium provide powerful tracers for identifying fertilizer-derived contaminants in the environment <a href="https://doi.org/10.1021/acs.estlett.4c00170" target="_blank" rel="noopener">[3]</a>, <a href="https://doi.org/10.1016/j.jhazmat.2025.140033" target="_blank" rel="noopener">[5]</a>, <a href="https://doi.org/10.1016/j.scitotenv.2023.167863" target="_blank" rel="noopener">[6]</a>.
+  </p>
 
   <h2>Photos from the Field</h2>
   <p>click to expand</p>
 
   <!-- Responsive gallery: add as many <figure> blocks as you want -->
   <div class="gallery-grid">
-
-
-    
-
+    <!-- Example figure (uncomment and fill src/caption as needed)
+    <figure>
+      <img src="/images/phos/example.jpg" alt="field photo">
+      <figcaption>Caption text</figcaption>
+    </figure>
+    -->
   </div> <!-- /.gallery-grid -->
 
   <!-- Lightbox overlay element -->
   <div class="lightbox" id="lightbox">
     <img src="" alt="Full size image">
   </div>
+
+  <hr>
+
+  <h3>References</h3>
+  <ol>
+    <li>Z. Wang et al., “Lead isotopes and rare earth elements geochemistry of global phosphate rocks: Insights into depositional conditions and environmental tracing,” <em>Chemical Geology</em>, vol. 639, p. 121715, Nov. 2023. <a href="https://doi.org/10.1016/j.chemgeo.2023.121715" target="_blank" rel="noopener">https://doi.org/10.1016/j.chemgeo.2023.121715</a></li>
+    <li>R. C. Hill et al., “Reconstructing the depositional environment and diagenetic modification of global phosphate deposits through integration of uranium and strontium isotopes,” <em>Chemical Geology</em>, vol. 662, p. 122214, Sept. 2024. <a href="https://doi.org/10.1016/j.chemgeo.2024.122214" target="_blank" rel="noopener">https://doi.org/10.1016/j.chemgeo.2024.122214</a></li>
+    <li>R. C. Hill et al., “Tracing the Environmental Effects of Mineral Fertilizer Application with Trace Elements and Strontium Isotope Variations,” <em>Environmental Science & Technology Letters</em>, vol. 11, no. 6, pp. 604–610, May 2024. <a href="https://doi.org/10.1021/acs.estlett.4c00170" target="_blank" rel="noopener">https://doi.org/10.1021/acs.estlett.4c00170</a></li>
+    <li>A. Vengosh et al., “The strontium isotope fingerprint of phosphate rocks mining,” <em>Science of The Total Environment</em>, vol. 850, p. 157971, Dec. 2022. <a href="https://doi.org/10.1016/j.scitotenv.2022.157971" target="_blank" rel="noopener">https://doi.org/10.1016/j.scitotenv.2022.157971</a></li>
+    <li>R. C. Hill et al., “Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fertilizers, and phosphogypsum waste and its potential effect on the environment,” <em>Journal of Hazardous Materials</em>, vol. 499, p. 140033, Nov. 2025. <a href="https://doi.org/10.1016/j.jhazmat.2025.140033" target="_blank" rel="noopener">https://doi.org/10.1016/j.jhazmat.2025.140033</a></li>
+    <li>J. Hu et al., “Evidence for the accumulation of toxic metal(loid)s in agricultural soils impacted from long-term application of phosphate fertilizer,” <em>Science of The Total Environment</em>, vol. 907, p. 167863, Jan. 2024. <a href="https://doi.org/10.1016/j.scitotenv.2023.167863" target="_blank" rel="noopener">https://doi.org/10.1016/j.scitotenv.2023.167863</a></li>
+  </ol>
 
 </div> <!-- /.page-content -->
 
@@ -132,4 +148,3 @@ document.getElementById('lightbox').addEventListener('click', () => {
   document.getElementById('lightbox').style.display = 'none';
 });
 </script>
-
