@@ -8,11 +8,12 @@ permalink: /teaching/
 .page-content {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 28px 20px 20px; /* added top padding to match Research page */
   box-sizing: border-box;
   line-height: 1.5;
 }
 
+/* Optional: consistent spacing for headings & paragraphs */
 .page-content h1,
 .page-content h2,
 .page-content h3 {
