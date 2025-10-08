@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Phosphate Rocks and Fertilizers
-excerpt: Phosphate Rocks and Fertilizers
+excerpt: 
 image: /images/phos/GHfertilizer.jpg
 order: 11
 ---
