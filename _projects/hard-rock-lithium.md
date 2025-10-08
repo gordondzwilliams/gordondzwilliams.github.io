@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Hard-Rock Lithium Deposits and Water Geochemistry
-excerpt: Hard-Rock Lithium Deposits and Water Geochemistry
+excerpt: 
 image: /images/HallmanBeam1.jpg
 order: 9
 ---
