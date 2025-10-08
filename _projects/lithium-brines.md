@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Lithium Brine Geochemistry
-excerpt: Lithium Brine Geochemistry
+excerpt: 
 image: /images/SDU_BlueGlow.jpg
 order: 10
 ---
