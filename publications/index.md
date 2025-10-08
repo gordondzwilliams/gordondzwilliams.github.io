@@ -6,6 +6,13 @@ classes: wide
 author_profile: true
 ---
 
+<p style="font-size: 1.05rem; margin-bottom: 1.5rem;">
+  You can also find my work on
+  <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" rel="noopener">
+    Google Scholar
+  </a>.
+</p>
+
 {% assign pubs = site.publications | sort:"year" | reverse %}
 {% assign current_year = "" %}
 
