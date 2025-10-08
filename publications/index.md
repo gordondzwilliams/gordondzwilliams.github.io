@@ -6,7 +6,8 @@ classes: wide
 author_profile: true
 ---
 
-<p style="font-size: 1.05rem; margin-bottom: 1.5rem;">
+<!-- Google Scholar link: update YOUR_GOOGLE_SCHOLAR_ID -->
+<p style="font-size:1.05rem; margin-bottom:1rem;">
   You can also find my work on
   <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" rel="noopener">
     Google Scholar
