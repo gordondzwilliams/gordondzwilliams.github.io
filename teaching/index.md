@@ -103,6 +103,7 @@ permalink: /teaching/
 
 <div class="page-content">
   <p>  
+    
   </p>
   <h1>Teaching</h1>
   <p>
