@@ -92,34 +92,17 @@ permalink: /teaching/
 </style>
 
 <div class="page-content">
-
+<p>
+  
+</p>
   <h1>Teaching</h1>
 
   <div class="content-row">
     <div class="text">
       <p>
-        My applied research translates directly into my teaching, and I enjoy taking students into the field to explore the geology and environmental systems they first encounter in the classroom. I have extensive experience as a teaching assistant, leading both short and multi-day field trips in places like Ireland and North Carolina, where students engage with topics covering geology, mineral deposits, water quality, and field methods.
+        My applied research translates directly into my teaching, and I enjoy taking students into the field to explore the geology and environmental systems they first encounter in the classroom. I have extensive experience as a teaching assistant and co-leading both short and multi-day field trips in places like Ireland and North Carolina, where students engage with topics covering geology, mineral deposits, water quality, and field methods.
       </p>
 
-      <h2>Field-based courses & activities</h2>
-      <p>
-        I regularly lead and co-lead field trips and short courses that emphasize hands-on observation, mapping, and sample-based inquiry. Students learn to integrate field measurements with laboratory geochemistry and environmental data to address questions about landscape evolution, resource distribution, and environmental impact.
-      </p>
-
-      <p>
-        Typical activities include: outcrop description and sketching, stratigraphic logging, simple mapping exercises, soil and water sampling protocols, and introduction to geochemical tracers used in environmental investigations.
-      </p>
-
-      <h3>Student opportunities</h3>
-      <ul>
-        <li>Field assistant roles on multi-day trips</li>
-        <li>Research projects tied to real-world datasets</li>
-        <li>Training in sampling, sample care, and basic lab techniques</li>
-      </ul>
-
-      <p>
-        If you are a student interested in participating in fieldwork or joining a project, please <a href="/contact/">get in touch</a> with a brief note about your interests and availability.
-      </p>
     </div>
 
     <!-- Photos -->
