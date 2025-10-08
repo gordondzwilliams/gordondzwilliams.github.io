@@ -1,48 +1,41 @@
 ---
 layout: single
-title: Publications
+title: Publications (DEBUG)
 permalink: /publications/
 classes: wide
 author_profile: true
 ---
 
-<style>
-/* small callout style for the Scholar link */
-.pub-callout {
-  border-left: 4px solid #2a6f9e;
-  background: #f5f9fc;
-  padding: 10px 14px;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  color: #0b3b57;
-}
-.pub-callout a { font-weight: 600; color: #0b3b57; text-decoration: underline; }
-.pub-empty { color: #666; font-size: 0.95rem; margin-bottom: 1rem; }
-</style>
-
-<div class="pub-callout" role="note" aria-label="Google Scholar">
-  You can also find my work on
-  <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">
-    Google Scholar
-  </a>.
+<!-- VERY VISIBLE DEBUG BANNER - remove after testing -->
+<div style="background:#b20000;color:#fff;padding:18px;border-radius:6px;margin-bottom:18px;font-size:1.15rem;">
+  DEBUG: If you see this banner, the `publications/index.md` file is being used. If you do NOT see this banner, a different file is rendering / caching is happening.
 </div>
 
+<!-- Google Scholar link -->
+<p style="font-size:1.05rem; margin-bottom:1rem;">
+  You can also find my work on
+  <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+</p>
+
+<!-- Publication collection check -->
+<p style="color:#555;margin-bottom:1rem;">
+  Debug: publications found = <strong>{{ site.publications | size }}</strong>
+</p>
+
 {%- comment -%}
-Optional debug: to see whether the publications collection is being read,
-you can temporarily uncomment the block below. It will output the number
-of items in site.publications.
+Uncomment the block below to print raw data about the first publication (handy to inspect whether `pdf` exists).
+Be careful — this prints raw Liquid/Jekyll output.
 {%- endcomment -%}
 
 {%- comment -%}
-<p class="pub-empty">Debug: Publications found: {{ site.publications | size }}</p>
+{% if site.publications and site.publications.size > 0 %}
+  <h4>First publication (raw):</h4>
+  <pre style="background:#f5f5f5;padding:10px;border-radius:6px">{{ site.publications | first | inspect }}</pre>
+{% endif %}
 {%- endcomment -%}
 
 {% assign pubs = site.publications | sort:"year" | reverse %}
 {% assign current_year = "" %}
-
-{% if pubs == empty %}
-  <p class="pub-empty">No publications found in the `site.publications` collection. Make sure your `_publications/` folder exists and files are committed.</p>
-{% endif %}
 
 {% for p in pubs %}
   {% assign y = p.year | default: 'No year' %}
