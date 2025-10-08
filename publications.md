@@ -5,6 +5,14 @@ permalink: /publications/
 classes: wide
 ---
 
+<!-- Google Scholar link -->
+<p style="font-size:1.05rem; margin-bottom:1rem;">
+  You can also find my work on
+  <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">
+    Google Scholar
+  </a>.
+</p>
+
 {% assign pubs = site.publications | sort:"year" | reverse %}
 {% assign current_year = "" %}
 
@@ -29,6 +37,9 @@ classes: wide
   {% endif %}
   {% if p.authors %} — {{ p.authors | join: ", " }}{% endif %}
   {% if p.journal %} — <em>{{ p.journal }}</em>{% endif %}
+  {% if p.pdf %}
+    &nbsp; <a href="{{ p.pdf | relative_url }}" target="_blank" rel="noopener">[PDF]</a>
+  {% endif %}
 </li>
 {% endfor %}
 </ul>
