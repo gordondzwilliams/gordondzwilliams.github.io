@@ -6,16 +6,43 @@ classes: wide
 author_profile: true
 ---
 
-<!-- Google Scholar link: update YOUR_GOOGLE_SCHOLAR_ID -->
-<p style="font-size:1.05rem; margin-bottom:1rem;">
+<style>
+/* small callout style for the Scholar link */
+.pub-callout {
+  border-left: 4px solid #2a6f9e;
+  background: #f5f9fc;
+  padding: 10px 14px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  color: #0b3b57;
+}
+.pub-callout a { font-weight: 600; color: #0b3b57; text-decoration: underline; }
+.pub-empty { color: #666; font-size: 0.95rem; margin-bottom: 1rem; }
+</style>
+
+<div class="pub-callout" role="note" aria-label="Google Scholar">
   You can also find my work on
   <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">
     Google Scholar
   </a>.
-</p>
+</div>
+
+{%- comment -%}
+Optional debug: to see whether the publications collection is being read,
+you can temporarily uncomment the block below. It will output the number
+of items in site.publications.
+{%- endcomment -%}
+
+{%- comment -%}
+<p class="pub-empty">Debug: Publications found: {{ site.publications | size }}</p>
+{%- endcomment -%}
 
 {% assign pubs = site.publications | sort:"year" | reverse %}
 {% assign current_year = "" %}
+
+{% if pubs == empty %}
+  <p class="pub-empty">No publications found in the `site.publications` collection. Make sure your `_publications/` folder exists and files are committed.</p>
+{% endif %}
 
 {% for p in pubs %}
   {% assign y = p.year | default: 'No year' %}
