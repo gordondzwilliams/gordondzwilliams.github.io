@@ -38,7 +38,7 @@ classes: wide
   {% if p.authors %} — {{ p.authors | join: ", " }}{% endif %}
   {% if p.journal %} — <em>{{ p.journal }}</em>{% endif %}
   {% if p.pdf %}
-    &nbsp; <a href="{{ p.pdf | relative_url }}" target="_blank" rel="noopener">[PDF]</a>
+    &nbsp; <a href="{{ p.pdf | relative_url }}" target="_blank" rel="noopener">[pdf]</a>
   {% endif %}
 </li>
 {% endfor %}
