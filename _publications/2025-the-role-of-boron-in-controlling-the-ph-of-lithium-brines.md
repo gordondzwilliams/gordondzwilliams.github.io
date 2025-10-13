@@ -1,6 +1,6 @@
 ---
 layout: "publication"
-title: "The Role of Boron in Controlling the pH of Lithium Brines"
+title: "The role of boron in controlling the pH of lithium brines"
 authors:
   - "Gordon D. Z. Williams"
   - "Paz Nativ"
@@ -8,6 +8,5 @@ authors:
 year: "2025"
 journal: "Science Advances"
 doi: "10.1126/sciadv.adw3268"
-pdf: /files/papers/Williams-2025-SciAdv.pdf
 ---
 
