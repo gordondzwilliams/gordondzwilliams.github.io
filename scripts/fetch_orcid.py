@@ -404,10 +404,42 @@ def parse_group_item_with_details(item, i, headers):
     }
 
 # ----------------------- markdown writer -----------------------
+
+def extract_existing_pdf(path):
+    """
+    Return the raw pdf value string from the file's front matter if present,
+    e.g. '/files/my-paper.pdf' or 'files/my-paper.pdf'. Returns None if none.
+    This is intentionally simple: it looks for a line starting with 'pdf:'.
+    """
+    try:
+        p = Path(path)
+        if not p.exists():
+            return None
+        text = p.read_text(encoding="utf-8")
+    except Exception:
+        return None
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n", text, re.S)
+    if not m:
+        return None
+    fm_block = m.group(1)
+    for line in fm_block.splitlines():
+        line_stripped = line.strip()
+        if line_stripped.lower().startswith("pdf:"):
+            val = line_stripped.split(":", 1)[1].strip()
+            # remove surrounding quotes if present
+            if val.startswith('"') and val.endswith('"'):
+                val = val[1:-1]
+            if val.startswith("'") and val.endswith("'"):
+                val = val[1:-1]
+            return val
+    return None
+
 def mk_markdown(parsed, idx):
     slug = safe_filename(parsed.get("title")) or f"publication-{idx}-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
     fname_prefix = (parsed.get('year') or '')[:4] or 'nodate'
     filename = OUT_DIR / f"{fname_prefix}-{slug}.md"
+
+    # Build front dict as before
     front = {
         "layout": "publication",
         "title": parsed["title"],
@@ -417,16 +449,26 @@ def mk_markdown(parsed, idx):
         "doi": parsed["doi"],
         "url": parsed["url"],
     }
+
+    # If file exists, try to preserve existing pdf: field
+    existing_pdf = extract_existing_pdf(filename)
+    if existing_pdf and not front.get("pdf"):
+        front["pdf"] = existing_pdf  # preserve existing pdf link
+
+    # Build front-matter text (same style as original)
     fm = "---\n"
-    for k,v in front.items():
+    for k, v in front.items():
         if v is None:
             continue
         if isinstance(v, list):
             fm += f"{k}:\n"
             for elem in v:
-                fm += f"  - \"{elem}\"\n"
+                # escape double quotes in element
+                elem_esc = elem.replace('"', '\\"')
+                fm += f"  - \"{elem_esc}\"\n"
         else:
-            fm += f"{k}: \"{v}\"\n"
+            val = str(v).replace('"', '\\"')
+            fm += f'{k}: "{val}"\n'
     fm += "---\n\n"
     body = parsed["abstract"] + "\n" if parsed["abstract"] else ""
     return filename, fm + body
