@@ -13,5 +13,6 @@ authors:
 year: "2024"
 journal: "Chemical Geology"
 doi: "10.1016/j.chemgeo.2024.122214"
+pdf: "files/papers/Hill et al. - 2024 - Reconstructing the depositional environment and di.pdf"
 ---
 
