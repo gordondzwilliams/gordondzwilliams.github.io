@@ -12,5 +12,6 @@ authors:
 year: "2024"
 journal: "Science of The Total Environment"
 doi: "10.1016/j.scitotenv.2023.167863"
+pdf: "files/papers/Hu et al. - 2024 - Evidence for the accumulation of toxic metal(loid).pdf"
 ---
 
