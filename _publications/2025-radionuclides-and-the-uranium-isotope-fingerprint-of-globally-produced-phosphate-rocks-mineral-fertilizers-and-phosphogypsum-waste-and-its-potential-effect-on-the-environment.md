@@ -10,5 +10,6 @@ authors:
 year: "2025"
 journal: "Journal of Hazardous Materials"
 doi: "10.1016/j.jhazmat.2025.140033"
+pdf: "files/papers/Hill et al. - 2025 - Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fert.pdf"
 ---
 
