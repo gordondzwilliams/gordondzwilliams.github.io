@@ -11,5 +11,6 @@ authors:
 year: "2024"
 journal: "Science of The Total Environment"
 doi: "10.1016/j.scitotenv.2024.177281"
+pdf: "files/papers/Williams et al. - 2024 - The potential water quality impacts of hard-rock l.pdf"
 ---
 
