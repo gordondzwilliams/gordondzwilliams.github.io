@@ -7,5 +7,6 @@ authors:
 year: "2025"
 journal: "Environmental Science & Technology Letters"
 doi: "10.1021/acs.estlett.4c01124"
+pdf: "files/papers/williams-vengosh-2025-quality-of-wastewater-from-lithium-brine-mining.pdf"
 ---
 
