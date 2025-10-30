@@ -17,5 +17,6 @@ authors:
 year: "2023"
 journal: "Chemical Geology"
 doi: "10.1016/j.chemgeo.2023.121715"
+pdf: "files/papers/Wang et al. - 2023 - Lead isotopes and rare earth elements geochemistry.pdf"
 ---
 
