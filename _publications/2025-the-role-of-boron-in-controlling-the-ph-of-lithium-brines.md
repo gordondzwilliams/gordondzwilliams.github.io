@@ -8,6 +8,6 @@ authors:
 year: "2025"
 journal: "Science Advances"
 doi: "10.1126/sciadv.adw3268"
-pdf: /files/papers/Williams-2025-SciAdv.pdf
+pdf: "/files/papers/Williams-2025-SciAdv.pdf"
 ---
 
