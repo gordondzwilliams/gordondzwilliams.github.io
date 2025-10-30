@@ -13,5 +13,6 @@ authors:
 year: "2025"
 journal: "Environmental Science: Advances"
 doi: "10.1039/D5VA00103J"
+pdf: "files/papers/Lopez et al. - 2025 - Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis.pdf"
 ---
 
