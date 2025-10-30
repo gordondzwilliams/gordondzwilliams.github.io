@@ -15,5 +15,6 @@ authors:
 year: "2024"
 journal: "Environmental Science & Technology Letters"
 doi: "10.1021/acs.estlett.4c00170"
+pdf: "files/papers/Hill et al. - 2024 - Tracing the Environmental Effects of Mineral Ferti.pdf"
 ---
 
