@@ -12,5 +12,6 @@ authors:
 year: "2025"
 journal: "Applied Geochemistry"
 doi: "10.1016/j.apgeochem.2025.106631"
+pdf: "files/papers/Hall_Williams_2025_AppliedGeochem.pdf"
 ---
 
