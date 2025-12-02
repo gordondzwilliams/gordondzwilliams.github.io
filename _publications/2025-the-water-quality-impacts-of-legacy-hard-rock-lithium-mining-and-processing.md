@@ -10,5 +10,6 @@ authors:
 year: "2025"
 journal: "Environmental Science & Technology"
 doi: "10.1021/acs.est.5c13682"
+pdf: "files/papers/2025_Williams_EST_LegacyWaterQualityImpacts.pdf"
 ---
 
