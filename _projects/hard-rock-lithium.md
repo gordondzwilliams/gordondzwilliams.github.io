@@ -79,7 +79,17 @@ My work investigates water quality across the TSB, with a focus on developing ge
 </p>
 <h2>Soil Exploration</h2>
 <p>
-LCT pegmatites often occur as “swarms” of dikes and can be spread out over large areas. This means that LCT pegmatite deposits are not always one single continuous deposit, making it difficult to locate individual dikes during exploration, especially if they are not visible from the surface. Since soils partially inherit their chemical and mineralogical composition from underlying bedrock, one common approach during prospecting is to look for soil geochemical anomalies that can indicate the presence of subsurface pegmatites. To aid in this we have identified strontium isotopes (<sup>87</sup>Sr/<sup>86</sup>Sr) and Rb/Sr ratios as potential new tools to aid in soil exploration studies. This unique approach leverages the unique enrichment of rubidium, a relatively incompatible element, and the depletion of strontium, a relatively compatible element, in LCT pegmatites meaning that they have extremely high Rb/Sr ratios. These extremely high Rb/Sr ratios allow for considerably radiogenic ingrowth of <sup>87</sup>Sr from the decay of <sup>87</sup>Rb forming extraordinarily high <sup>87</sup>Sr/<sup>86</sup>Sr ratios (we have measured a value as high as 121.0 in whole-rock pegmatites) that are distinct from almost all other values found in geologic and environmental media. These extremely high <sup>87</sup>Sr/<sup>86</sup>Sr and Rb/Sr ratios are carried into overlying soils and can be used during soil exploration studies to locate subsurface pegmatites. Check out our publication in <a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">Applied Geochemistry</a> that describes this approach.
+LCT pegmatites commonly occur as swarms of dikes distributed across broad areas. Because these dikes are not always exposed at the surface, and individual bodies may be discontinuous, locating them during exploration can be challenging.
+  </p>
+<p>
+Since soils inherit much of their chemical and mineralogical signature from the underlying bedrock, soil geochemistry is a powerful tool for detecting concealed pegmatites. To support this, we have identified strontium isotopes <sup>87</sup>Sr/<sup>86</sup>Sr) and Rb/Sr ratios as effective new indicators for soil-based exploration.
+  </p>
+<p>
+This method takes advantage of the unusual geochemical signature of LCT pegmatites: they are strongly enriched in rubidium (an incompatible element) and depleted in strontium (a compatible element), resulting in exceptionally high Rb/Sr ratios. Over time, these high Rb/Sr values drive substantial radiogenic ingrowth of <sup>87</sup>Sr from the decay of <sup>87</sup>Rb, producing extraordinarily high <sup>87</sup>Sr/<sup>86</sup>Sr ratios, in some cases exceeding 121.0 in whole-rock analyses. These values are far above those found in most geologic or environmental materials.
+Crucially, these distinctive isotopic and elemental signatures are transferred into the overlying soils, where they can be detected and used to pinpoint the location of subsurface pegmatites during exploration.
+  </p>
+<p>
+For a detailed description of this approach, see our publication in <a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">Applied Geochemistry</a>.
 </p>
 
  
