@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Hard-Rock Lithium Deposits and Water Geochemistry
+title:  Hard-Rock Lithium Deposits, Environmental Geochemistry
 excerpt: 
 image: /images/HallmanBeam1.jpg
 order: 9
@@ -70,14 +70,14 @@ order: 9
 <p>
 Hard-rock lithium deposits, known as Lithium-Cesium-Tantalum (LCT) pegmatites, are currently the most important global source of lithium. These pegmatites represent the highly fractionated endmembers of granitic magmas and are enriched in “incompatible” elements such as lithium.
 </p>
-<h2>Water-Quality</h2>
+<h2>Water Quality</h2>
 <p>
 In North Carolina, the Carolina Tin-Spodumene Belt (TSB) is just outside of Charlotte, NC and hosts one of the largest LCT pegmatite resources. From the 1950s through the late 1980s, the TSB was among the world’s most productive lithium mining regions. Although mining has since ceased, legacy open-pit operations remain which have since filled with water forming pit lakes.
 </p>
 <p>
 My work investigates water quality across the TSB, with a focus on developing geochemical tracers (e.g. <sup>87</sup>Sr/<sup>86</sup>Sr, Rb/Sr, Ca/SO<sub>4</sub>) to distinguish natural processes from mining-related impacts. Our research so far indicates that low-abundance phosphate minerals in the LCT pegmatites may play an important role in regulating water chemistry during early stages of mining (check out our <a href="https://doi.org/10.1016/j.scitotenv.2024.177281" target="_blank" rel="noopener">Science of the Total Environment</a> article). We also found that lithium, rubidium, and cesium concentrations are consistently elevated in both groundwater and surface water throughout the TSB, reflecting both the natural and mining related water-rock interactions from these pegmatites and also the influence of legacy processing waste residues on nearby water resources. Notably common contaminants in water like arsenic and thallium were not directly associated with mining or processing. Check out our <a href="https://doi.org/10.1021/acs.est.5c13682" target="_blank" rel="noopener">Environmental Science & Technology</a> article that develops geochemical tracers to delineate between natural and mining or processing related water quality impacts.
 </p>
-<h2>Exploration</h2>
+<h2>Soil Exploration</h2>
 <p>
 LCT pegmatites often occur as “swarms” of dikes and can be spread out over large areas. This means that LCT pegmatite deposits are not always one single continuous deposit, making it difficult to locate individual dikes during exploration, especially if they are not visible from the surface. Since soils partially inherit their chemical and mineralogical composition from underlying bedrock, one common approach during prospecting is to look for soil geochemical anomalies that can indicate the presence of subsurface pegmatites. To aid in this we have identified strontium isotopes (<sup>87</sup>Sr/<sup>86</sup>Sr) and Rb/Sr ratios as potential new tools to aid in soil exploration studies. This unique approach leverages the unique enrichment of rubidium, a relatively incompatible element, and the depletion of strontium, a relatively compatible element, in LCT pegmatites meaning that they have extremely high Rb/Sr ratios. These extremely high Rb/Sr ratios allow for considerably radiogenic ingrowth of <sup>87</sup>Sr from the decay of <sup>87</sup>Rb forming extraordinarily high <sup>87</sup>Sr/<sup>86</sup>Sr ratios (we have measured a value as high as 121.0 in whole-rock pegmatites) that are distinct from almost all other values found in geologic and environmental media. These extremely high <sup>87</sup>Sr/<sup>86</sup>Sr and Rb/Sr ratios are carried into overlying soils and can be used during soil exploration studies to locate subsurface pegmatites. Check out our publication in <a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">Applied Geochemistry</a> that describes this approach.
 </p>
