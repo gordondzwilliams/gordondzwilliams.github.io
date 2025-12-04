@@ -66,7 +66,8 @@ order: 9
 <div class="page-content">
 
   <!-- Use HTML headings inside an HTML wrapper so they render correctly -->
-  <h1>Hard-Rock Lithium Deposits and Water-Quality</h1>
+  <h1>Hard-Rock Lithium Deposits</h1>
+  <h2>Water-Quality</h2>
 <p>
 Hard-rock lithium deposits, known as Lithium-Cesium-Tantalum (LCT) pegmatites, are currently the most important global source of lithium. These pegmatites represent the highly fractionated endmembers of granitic magmas and are enriched in “incompatible” elements such as lithium.
 </p>
