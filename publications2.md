@@ -104,13 +104,15 @@ permalink: /publications2/
 	</p>
 
 	<h2>2019</h2>
+	<ul>
 	<li>
 	<a href="https://doi.org/10.1785/0220180298" target="_blank" rel="noopener">
 		Seismology with dark data: Image-based processing of analog records using machine learning for the rangely earthquake control experiment
 	  </a>
 	  — Kaiwen Wang, William L. Ellsworth, Gregory C. Beroza, <b>Gordon Williams</b>, Miao Zhang, Dustin Schroeder, Justin Rubinstein — Seismological Research Letters
 	  <a href="/files/papers/Wang et al. - 2018 - Seismology with Dark Data Image‐Based Processing .pdf" target="_blank" rel="noopener">[pdf]</a>
-	</li>	
+	</li>
+	<ul>
 
 
 </div> <!-- /.page-content -->
