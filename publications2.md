@@ -83,15 +83,64 @@ permalink: /publications2/
 	  </a>
 	</p>
 	
-	<h2>2026</h2>
+	<h3>2026</h3>
 	<ul>
 	</ul>
 	
-	<h2>2025</h2>
+	<h3>2025</h3>
 	<ul>
+	
+		<li>
+			<a href="https://doi.org/10.1021/acs.est.5c13682" target="_blank" rel="noopener">
+			The Water Quality Impacts of Legacy Hard-Rock Lithium Mining and Processing
+		  </a>
+		  — <b>Gordon D. Z. Williams</b>, Marija Petrović, Robert C. Hill, Grace A. Hall, Avner Vengosh — <i>Environmental Science & Technology</i>
+		  <a href="/files/papers/2025_Williams_EST_LegacyWaterQualityImpacts.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
+
+		<li>
+			<a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">
+			Strontium isotopes and Rb/Sr tracers in surface soils for locating subsurface lithium pegmatites
+		  </a>
+		  — Grace A. Hall, <b>Gordon D.Z. Williams</b>, Mona-Liza C. Sirbescu, P. Louis Lu, Gary S. Dwyer, Daniel D. Richter, Avner Vengosh — <i>Applied Geochemistry</i>
+		  <a href="/files/papers/Hall_Williams_2025_AppliedGeochem.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
+	
+		<li>
+			<a href="https://doi.org/10.1016/j.jhazmat.2025.140033" target="_blank" rel="noopener">
+			Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fertilizers, and phosphogypsum waste and its potential effect on the environment
+		  </a>
+		  — Robert C. Hill, Zhen Wang, Jun Hu, <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Journal of Hazardous Materials</i>
+		  <a href="/files/papers/Hill et al. - 2025 - Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fert.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
+	
+		<li>
+			<a href="https://doi.org/10.1039/D5VA00103J" target="_blank" rel="noopener">
+			Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis elegans
+		  </a>
+		  — Roi Faroud Lopez, Javier Huayta, <b>Gordon D. Z. Williams</b>, Sarah A. Seay, Pooja D. Lalwani, Sasha N. Bacot, Avner Vengosh, Joel N. Meyer — <i>Environmental Science: Advances</i>
+		  <a href="/files/papers/Lopez et al. - 2025 - Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
+	
+		<li>
+			<a href="https://doi.org/10.1126/sciadv.adw3268" target="_blank" rel="noopener">
+			The role of boron in controlling the pH of lithium brines
+		  </a>
+		  — <b>Gordon D. Z. Williams<\b>, Paz Nativ, Avner Vengosh — <i>Science Advances</i>
+		  <a href="/files/papers/Williams-2025-SciAdv.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
+
+		<li>
+			<a href="https://doi.org/10.1021/acs.estlett.4c01124" target="_blank" rel="noopener">
+			Quality of Wastewater from Lithium-Brine Mining
+		  </a>
+		  — <b>Gordon D. Z. Williams<\b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
+		  <a href="/files/papers/williams-vengosh-2025-quality-of-wastewater-from-lithium-brine-mining.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
+
 	</ul>
 
-	<h2>2024</h2>
+	<h3>2024</h3>
 	<ul>
 		<li>
 			<a href="https://doi.org/10.1016/j.scitotenv.2024.177281" target="_blank" rel="noopener">
@@ -126,7 +175,7 @@ permalink: /publications2/
 		</li>
 		</ul>
 
-	<h2>2023</h2>
+	<h3>2023</h3>
 		<ul>
 		<li>
 			<a href="https://doi.org/10.1016/j.chemgeo.2023.121715" target="_blank" rel="noopener">
@@ -137,7 +186,7 @@ permalink: /publications2/
 		</li>
 		</ul>
 
-	<h2>2022</h2>
+	<h3>2022</h3>
 		<ul>
 		<li>
 		<a href="https://doi.org/10.1016/j.scitotenv.2022.157971" target="_blank" rel="noopener">
@@ -146,9 +195,9 @@ permalink: /publications2/
 		  — Avner Vengosh, Zhen Wang, <b>Gordon Williams</b>, Robert Hill, Rachel M. Coyte, Gary S. Dwyer — <i>Science of the Total Environment</i>
 		  <a href="/files/papers/Vengosh et al. - 2022 - The strontium isotope fingerprint of phosphate roc.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
-		<ul>
+		</ul>
 
-	<h2>2019</h2>
+	<h3>2019</h3>
 		<ul>
 		<li>
 		<a href="https://doi.org/10.1785/0220180298" target="_blank" rel="noopener">
