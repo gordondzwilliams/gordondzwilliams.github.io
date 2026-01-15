@@ -5,44 +5,58 @@ permalink: /publications/
 ---
 
 <style>
-/* Add spacing so content isn’t flush with screen edges */
-.page-content {
+/* Page container spacing (keeps content from being flush with screen edges) */
+.page-content,
+article.page > .page-content,
+#main > .archive,
+.archive {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
 }
 
-/* Optional: nicer typography spacing for headings & paragraphs */
+/* Default heading spacing */
 .page-content h1,
+article.page h1,
+.archive h1,
 .page-content h2,
-.page-content h3 {
+.page-content h3,
+article.page h2,
+article.page h3 {
   margin-top: 1.25rem;
   margin-bottom: 0.6rem;
 }
 
-/* Remove extra space above the page title */
-.page-content h1:first-child {
+/* Ensure first H1 in these containers has no top margin */
+.page-content > h1:first-child,
+article.page > h1:first-child,
+.archive > h1:first-child {
   margin-top: 0;
 }
 
-/* Make sure long code/links wrap inside the container */
-.page-content p, .page-content a {
+/* Small tweak: make the Google Scholar line a little roomier */
+.page-content .scholar-link {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+/* Make sure long lines/wraps behave */
+.page-content p, .page-content a, article.page p, article.page a {
   word-break: break-word;
 }
 </style>
 
 <div class="page-content">
-	<p></p>
   <h1>Publications</h1>
-  
+
   <!-- Google Scholar link -->
-	<p style="font-size:1.05rem; margin-bottom:1rem;">
-	  You can also find my work on
-	  <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">
-		Google Scholar
-	  </a>
-	</p>
+  <p class="scholar-link">
+    You can also find my work on
+    <a href="https://scholar.google.com/citations?user=YvgsRxsAAAAJ&hl=en" target="_blank" rel="noopener">
+      Google Scholar
+    </a>
+  </p>
 	
 	
 	<p>
@@ -184,4 +198,4 @@ permalink: /publications/
 		<ul>
 
 
-<p></p> <!-- /.page-content -->
+</div> <!-- /.page-content -->
