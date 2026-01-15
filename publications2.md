@@ -83,8 +83,9 @@ permalink: /publications2/
 	  </a>
 	</p>
 	
+	
 	<p>
-	* = co-first author, † = undergraduate mentee
+	<b>*</b> = co-first author, <b><sup>†</sup></b> = undergraduate mentee
 	</p>
 	
 	<h3>2026</h3>
@@ -115,7 +116,7 @@ permalink: /publications2/
 			<a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">
 			Strontium isotopes and Rb/Sr tracers in surface soils for locating subsurface lithium pegmatites
 		  </a>
-		  — *†Grace A. Hall, <b>*Gordon D.Z. Williams</b>, Mona-Liza C. Sirbescu, P. Louis Lu, Gary S. Dwyer, Daniel D. Richter, Avner Vengosh — <i>Applied Geochemistry</i>
+		  — <b>*<sup>†</sup></b>Grace A. Hall, <b>*Gordon D.Z. Williams</b>, Mona-Liza C. Sirbescu, P. Louis Lu, Gary S. Dwyer, Daniel D. Richter, Avner Vengosh — <i>Applied Geochemistry</i>
 		  <a href="/files/papers/Hall_Williams_2025_AppliedGeochem.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 	
