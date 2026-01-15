@@ -48,6 +48,7 @@ article.page > h1:first-child,
 </style>
 
 <div class="page-content">
+	<p> </p>
   <h1>Publications</h1>
 
   <!-- Google Scholar link -->
@@ -198,4 +199,4 @@ article.page > h1:first-child,
 		<ul>
 
 
-</div> <!-- /.page-content -->
+<p> </p> <!-- /.page-content -->
