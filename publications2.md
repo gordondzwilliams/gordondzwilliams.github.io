@@ -7,9 +7,9 @@ permalink: /publications/
 <style>
 /* Add spacing so content isn’t flush with screen edges */
 .page-content {
-  max-width: 900px;   /* keeps text in a nice readable width */
-  margin: 0 auto;     /* centers the content */
-  padding: 0 20px;    /* adds space on left/right */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
@@ -21,48 +21,9 @@ permalink: /publications/
   margin-bottom: 0.6rem;
 }
 
-/* Simple, theme-friendly project grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-  margin: 1.5rem 0;
-}
-.project-card {
-  display: block;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 1px 4px rgba(0,0,0,.08);
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  transition: transform .08s ease, box-shadow .2s ease;
-}
-.project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
-}
-.project-card__img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  display: block;
-  background: #f4f4f4;
-}
-.project-card__body {
-  padding: .85rem 1rem 1rem;
-}
-.project-card__title {
-  margin: 0 0 .25rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-.project-card__desc {
-  margin: 0;
-  color: #444;
-  font-size: .95rem;
-  line-height: 1.35;
+/* Remove extra space above the page title */
+.page-content h1:first-child {
+  margin-top: 0;
 }
 
 /* Make sure long code/links wrap inside the container */
@@ -72,7 +33,6 @@ permalink: /publications/
 </style>
 
 <div class="page-content">
-  <p></p>
   <h1>Publications</h1>
   
   <!-- Google Scholar link -->
