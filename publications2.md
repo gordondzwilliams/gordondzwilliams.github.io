@@ -33,6 +33,7 @@ permalink: /publications/
 </style>
 
 <div class="page-content">
+	<p></p>
   <h1>Publications</h1>
   
   <!-- Google Scholar link -->
@@ -183,4 +184,4 @@ permalink: /publications/
 		<ul>
 
 
-</div> <!-- /.page-content -->
+<p></p> <!-- /.page-content -->
