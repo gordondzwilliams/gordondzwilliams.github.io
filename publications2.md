@@ -83,8 +83,21 @@ permalink: /publications2/
 	  </a>
 	</p>
 	
+	<p>
+	* = co-first author, † = undergraduate mentee
+	</p>
+	
 	<h3>2026</h3>
+	
 	<ul>
+	
+		<li>
+			<a href="https://doi.org/10.1021/acs.estlett.5c01196" target="_blank" rel="noopener">
+			Discrepancies between pH and Corrosive Indices of Hypersaline Effluents
+		  </a>
+		  — Paz Nativ, <b>Gordon D. Z. Williams</b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
+		  <a href="/files/papers/Nativ et al. - 2026 - Discrepancies between pH and Corrosive Indices of Hypersaline Effluents.pdf" target="_blank" rel="noopener">[pdf]</a>
+		</li>
 	</ul>
 	
 	<h3>2025</h3>
@@ -102,7 +115,7 @@ permalink: /publications2/
 			<a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">
 			Strontium isotopes and Rb/Sr tracers in surface soils for locating subsurface lithium pegmatites
 		  </a>
-		  — Grace A. Hall, <b>Gordon D.Z. Williams</b>, Mona-Liza C. Sirbescu, P. Louis Lu, Gary S. Dwyer, Daniel D. Richter, Avner Vengosh — <i>Applied Geochemistry</i>
+		  — *†Grace A. Hall, <b>*Gordon D.Z. Williams</b>, Mona-Liza C. Sirbescu, P. Louis Lu, Gary S. Dwyer, Daniel D. Richter, Avner Vengosh — <i>Applied Geochemistry</i>
 		  <a href="/files/papers/Hall_Williams_2025_AppliedGeochem.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 	
