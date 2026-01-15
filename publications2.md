@@ -85,11 +85,11 @@ permalink: /publications2/
 	
 	<h2>2026</h2>
 	<ul>
-	</ui>
+	</ul>
 	
 	<h2>2025</h2>
 	<ul>
-	</ui>
+	</ul>
 
 	<h2>2024</h2>
 	<ul>
@@ -124,7 +124,7 @@ permalink: /publications2/
 		  — Jun Hu, Zhen Wang, <b>Gordon D.Z. Williams</b>, Gary S. Dwyer, Luke Gatiboni, Owen W. Duckworth, Avner Vengosh — <i>Science of The Total Environment</i>
 		  <a href="/files/papers/Hu et al. - 2024 - Evidence for the accumulation of toxic metal(loid).pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
-		</ui>
+		</ul>
 
 	<h2>2023</h2>
 		<ul>
@@ -135,7 +135,7 @@ permalink: /publications2/
 		  — Zhen Wang, Robert Hill, <b>Gordon Williams</b>, Gary S. Dwyer, Jun Hu, Ewald Schnug, Roland Bol, Yajie Sun, Drew S. Coleman, Xiao-Ming Liu, Michael R. Sandstrom, Avner Vengosh — <i>Chemical Geology</i>
 		  <a href="/files/papers/Wang et al. - 2023 - Lead isotopes and rare earth elements geochemistry.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
-		</ui>
+		</ul>
 
 	<h2>2022</h2>
 		<ul>
