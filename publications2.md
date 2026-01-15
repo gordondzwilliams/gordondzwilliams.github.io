@@ -183,4 +183,4 @@ permalink: /publications/
 		<ul>
 
 
-<!-- /.page-content -->
+</div> <!-- /.page-content -->
