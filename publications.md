@@ -1,7 +1,7 @@
 ---
 layout: single
-title: Publications
-permalink: /publications/
+title: PublicationsOLD
+permalink: 
 classes: wide
 ---
 
