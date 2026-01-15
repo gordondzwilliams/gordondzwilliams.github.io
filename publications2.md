@@ -84,24 +84,37 @@ permalink: /publications2/
 	</p>
 	
 	<h2>2026</h2>
-	<p>
-	</p>
+	<ul>
+	</li>
 	
 	<h2>2025</h2>
-	<p>
-	</p>
+	<ul>
+	</li>
 
 	<h2>2024</h2>
-	<p>
-	</p>
+	<ul>
+	</li>
 
 	<h2>2023</h2>
-	<p>
-	</p>
+	<ul>
+		<a href="https://doi.org/10.1016/j.chemgeo.2023.121715" target="_blank" rel="noopener">
+		Lead isotopes and rare earth elements geochemistry of global phosphate rocks: Insights into depositional conditions and environmental tracing
+	  </a>
+	  — Zhen Wang, Robert Hill, <b>Gordon Williams<\b>, Gary S. Dwyer, Jun Hu, Ewald Schnug, Roland Bol, Yajie Sun, Drew S. Coleman, Xiao-Ming Liu, Michael R. Sandstrom, Avner Vengosh — <i>Chemical Geology<\i>
+	  <a href="/files/papers/Wang et al. - 2023 - Lead isotopes and rare earth elements geochemistry.pdf" target="_blank" rel="noopener">[pdf]</a>
+	</li>
+	</li>
 
 	<h2>2022</h2>
-	<p>
-	</p>
+	<ul>
+	<li>
+	<a href="https://doi.org/10.1016/j.scitotenv.2022.157971" target="_blank" rel="noopener">
+		The strontium isotope fingerprint of phosphate rocks mining
+	  </a>
+	  — Avner Vengosh, Zhen Wang, <b>Gordon Williams</b>, Robert Hill, Rachel M. Coyte, Gary S. Dwyer — <i>Science of the Total Environment<\i>
+	  <a href="/files/papers/Vengosh et al. - 2022 - The strontium isotope fingerprint of phosphate roc.pdf" target="_blank" rel="noopener">[pdf]</a>
+	</li>
+	<ul>
 
 	<h2>2019</h2>
 	<ul>
@@ -109,7 +122,7 @@ permalink: /publications2/
 	<a href="https://doi.org/10.1785/0220180298" target="_blank" rel="noopener">
 		Seismology with dark data: Image-based processing of analog records using machine learning for the rangely earthquake control experiment
 	  </a>
-	  — Kaiwen Wang, William L. Ellsworth, Gregory C. Beroza, <b>Gordon Williams</b>, Miao Zhang, Dustin Schroeder, Justin Rubinstein — Seismological Research Letters
+	  — Kaiwen Wang, William L. Ellsworth, Gregory C. Beroza, <b>Gordon Williams</b>, Miao Zhang, Dustin Schroeder, Justin Rubinstein — <i>Seismological Research Letters<\i>
 	  <a href="/files/papers/Wang et al. - 2018 - Seismology with Dark Data Image‐Based Processing .pdf" target="_blank" rel="noopener">[pdf]</a>
 	</li>
 	<ul>
