@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Publications2
-permalink: /publications2/
+title: Publications
+permalink: /publications/
 ---
 
 <style>
