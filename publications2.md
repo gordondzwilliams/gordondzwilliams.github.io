@@ -126,7 +126,7 @@ permalink: /publications2/
 			<a href="https://doi.org/10.1126/sciadv.adw3268" target="_blank" rel="noopener">
 			The role of boron in controlling the pH of lithium brines
 		  </a>
-		  — <b>Gordon D. Z. Williams<\b>, Paz Nativ, Avner Vengosh — <i>Science Advances</i>
+		  — <b>Gordon D. Z. Williams</b>, Paz Nativ, Avner Vengosh — <i>Science Advances</i>
 		  <a href="/files/papers/Williams-2025-SciAdv.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 
@@ -134,7 +134,7 @@ permalink: /publications2/
 			<a href="https://doi.org/10.1021/acs.estlett.4c01124" target="_blank" rel="noopener">
 			Quality of Wastewater from Lithium-Brine Mining
 		  </a>
-		  — <b>Gordon D. Z. Williams<\b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
+		  — <b>Gordon D. Z. Williams</b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
 		  <a href="/files/papers/williams-vengosh-2025-quality-of-wastewater-from-lithium-brine-mining.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 
