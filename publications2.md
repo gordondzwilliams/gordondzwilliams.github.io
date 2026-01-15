@@ -115,4 +115,4 @@ permalink: /publications2/
 	<ul>
 
 
-</div> <!-- /.page-content -->
+<!-- /.page-content -->
