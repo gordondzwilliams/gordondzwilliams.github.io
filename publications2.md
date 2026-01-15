@@ -12,7 +12,7 @@ article.page > .page-content,
 .archive {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 28px 20px 20px;
   box-sizing: border-box;
 }
 
