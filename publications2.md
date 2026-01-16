@@ -45,6 +45,27 @@ article.page > h1:first-child,
 .page-content p, .page-content a, article.page p, article.page a {
   word-break: break-word;
 }
+
+/* Year headers as centered text with horizontal bars on both sides */
+.page-content h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;              /* space between text and bars */
+  text-align: center;
+  font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+}
+
+/* Horizontal bars */
+.page-content h3::before,
+.page-content h3::after {
+  content: "";
+  flex: 1;                /* makes bars stretch to full width */
+  height: 1px;
+  background-color: #ccc; /* adjust color */
+}
+
 </style>
 
 <div class="page-content">
@@ -72,7 +93,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1021/acs.estlett.5c01196" target="_blank" rel="noopener">
 			Discrepancies between pH and Corrosive Indices of Hypersaline Effluents
 		  </a>
-		  — Paz Nativ, <b>Gordon D. Z. Williams</b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
+		  — Paz Nativ, <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
 		  <a href="/files/papers/Nativ et al. - 2026 - Discrepancies between pH and Corrosive Indices of Hypersaline Effluents.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 	</ul>
@@ -84,7 +105,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1021/acs.est.5c13682" target="_blank" rel="noopener">
 			The Water Quality Impacts of Legacy Hard-Rock Lithium Mining and Processing
 		  </a>
-		  — <b>Gordon D. Z. Williams</b>, Marija Petrović, Robert C. Hill, Grace A. Hall, Avner Vengosh — <i>Environmental Science & Technology</i>
+		  — <b>Gordon D.Z. Williams</b>, Marija Petrović, Robert C. Hill, Grace A. Hall, Avner Vengosh — <i>Environmental Science & Technology</i>
 		  <a href="/files/papers/2025_Williams_EST_LegacyWaterQualityImpacts.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 
@@ -108,7 +129,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1039/D5VA00103J" target="_blank" rel="noopener">
 			Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis elegans
 		  </a>
-		  — Roi Faroud Lopez, Javier Huayta, <b>Gordon D. Z. Williams</b>, Sarah A. Seay, Pooja D. Lalwani, Sasha N. Bacot, Avner Vengosh, Joel N. Meyer — <i>Environmental Science: Advances</i>
+		  — Roi Faroud Lopez, Javier Huayta, <b>Gordon D.Z. Williams</b>, Sarah A. Seay, Pooja D. Lalwani, Sasha N. Bacot, Avner Vengosh, Joel N. Meyer — <i>Environmental Science: Advances</i>
 		  <a href="/files/papers/Lopez et al. - 2025 - Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 	
@@ -116,7 +137,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1126/sciadv.adw3268" target="_blank" rel="noopener">
 			The role of boron in controlling the pH of lithium brines
 		  </a>
-		  — <b>Gordon D. Z. Williams</b>, Paz Nativ, Avner Vengosh — <i>Science Advances</i>
+		  — <b>Gordon D.Z. Williams</b>, Paz Nativ, Avner Vengosh — <i>Science Advances</i>
 		  <a href="/files/papers/Williams-2025-SciAdv.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 
@@ -124,7 +145,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1021/acs.estlett.4c01124" target="_blank" rel="noopener">
 			Quality of Wastewater from Lithium-Brine Mining
 		  </a>
-		  — <b>Gordon D. Z. Williams</b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
+		  — <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
 		  <a href="/files/papers/williams-vengosh-2025-quality-of-wastewater-from-lithium-brine-mining.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 
@@ -152,7 +173,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1021/acs.estlett.4c00170" target="_blank" rel="noopener">
 			Tracing the Environmental Effects of Mineral Fertilizer Application with Trace Elements and Strontium Isotope Variations
 		  </a>
-		  — Robert C. Hill, <b>Gordon D. Z. Williams</b>, Zhen Wang, Jun Hu, Tayel El-Hasan, Owen W. Duckworth, Ewald Schnug, Roland Bol, Anjali Singh, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
+		  — Robert C. Hill, <b>Gordon D.Z. Williams</b>, Zhen Wang, Jun Hu, Tayel El-Hasan, Owen W. Duckworth, Ewald Schnug, Roland Bol, Anjali Singh, Avner Vengosh — <i>Environmental Science & Technology Letters</i>
 		  <a href="/files/papers/Hill et al. - 2024 - Tracing the Environmental Effects of Mineral Ferti.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 		
