@@ -105,7 +105,7 @@ article.page > h1:first-child,
 			<a href="https://doi.org/10.1021/acs.est.5c13682" target="_blank" rel="noopener">
 			The Water Quality Impacts of Legacy Hard-Rock Lithium Mining and Processing
 		  </a>
-		  — <b>Gordon D.Z. Williams</b>, Marija Petrović, Robert C. Hill, Grace A. Hall, Avner Vengosh — <i>Environmental Science & Technology</i>
+		  — <b>Gordon D.Z. Williams</b>, Marija Petrović, Robert C. Hill, <b><sup>†</sup></b>Grace A. Hall, Avner Vengosh — <i>Environmental Science & Technology</i>
 		  <a href="/files/papers/2025_Williams_EST_LegacyWaterQualityImpacts.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 
