@@ -62,7 +62,7 @@ article.page > h1:first-child,
 .page-content h3::after {
   content: "";
   flex: 1;                /* makes bars stretch to full width */
-  height: 1px;
+  height: 2px;
   background-color: #666; /* adjust color */
 }
 
