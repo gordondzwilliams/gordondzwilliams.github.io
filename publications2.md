@@ -63,7 +63,7 @@ article.page > h1:first-child,
   content: "";
   flex: 1;                /* makes bars stretch to full width */
   height: 1px;
-  background-color: #ccc; /* adjust color */
+  background-color: #666; /* adjust color */
 }
 
 </style>
