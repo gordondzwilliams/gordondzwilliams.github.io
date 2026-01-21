@@ -93,7 +93,7 @@ article.page > h1:first-child,
 			Geochemical controls on the formation of lithium brines in closed-basins of the Lithium Triangle
 			</a>
 		  — <b>Gordon D.Z. Williams</b>, Julien Barre, Pascale Louvat, Sylvain Bérail, Romain Millot, Avner Vengosh — <i>Earth and Planetary Science Letters</i>
-
+		  <a href="/files/papers/Williams et al. - 2026 - Geochemical controls on the formation of lithium brines in closed-basins of the Lithium Triangle.pdf" target="_blank" rel="noopener">[pdf]</a>
 		</li>
 	
 		<li>
