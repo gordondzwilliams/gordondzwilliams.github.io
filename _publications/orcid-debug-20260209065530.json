@@ -1,0 +1,723 @@
+[
+  {
+    "last-modified-date": {
+      "value": 1768992099149
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.epsl.2026.119849",
+          "external-id-normalized": {
+            "value": "10.1016/j.epsl.2026.119849",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.epsl.2026.119849"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 203109288,
+        "created-date": {
+          "value": 1768992099149
+        },
+        "last-modified-date": {
+          "value": 1768992099149
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Geochemical controls on the formation of lithium brines in closed-basins of the Lithium Triangle"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.epsl.2026.119849",
+              "external-id-normalized": {
+                "value": "10.1016/j.epsl.2026.119849",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.epsl.2026.119849"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1016/j.epsl.2026.119849"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "04"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Earth and Planetary Science Letters"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/203109288",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1768298681318
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1021/acs.estlett.5c01196",
+          "external-id-normalized": {
+            "value": "10.1021/acs.estlett.5c01196",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1021/acs.estlett.5c01196"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 201255676,
+        "created-date": {
+          "value": 1767372158967
+        },
+        "last-modified-date": {
+          "value": 1768298681318
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Discrepancies between pH and Corrosive Indices of Hypersaline Effluents"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1021/acs.estlett.5c01196",
+              "external-id-normalized": {
+                "value": "10.1021/acs.estlett.5c01196",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1021/acs.estlett.5c01196"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1021/acs.estlett.5c01196"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "01"
+          },
+          "day": {
+            "value": "13"
+          }
+        },
+        "journal-title": {
+          "value": "Environmental Science & Technology Letters"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/201255676",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1765889489195
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1021/acs.est.5c13682",
+          "external-id-normalized": {
+            "value": "10.1021/acs.est.5c13682",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1021/acs.est.5c13682"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 198573017,
+        "created-date": {
+          "value": 1764706861038
+        },
+        "last-modified-date": {
+          "value": 1765889489195
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "The Water Quality Impacts of Legacy Hard-Rock Lithium Mining and Processing"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1021/acs.est.5c13682",
+              "external-id-normalized": {
+                "value": "10.1021/acs.est.5c13682",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1021/acs.est.5c13682"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1021/acs.est.5c13682"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "12"
+          },
+          "day": {
+            "value": "16"
+          }
+        },
+        "journal-title": {
+          "value": "Environmental Science & Technology"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/198573017",
+        "display-index": "1"
+      },
+      {
+        "put-code": 198566942,
+        "created-date": {
+          "value": 1764703164635
+        },
+        "last-modified-date": {
+          "value": 1764703197026
+        },
+        "source": {
+          "source-orcid": {
+            "uri": "https://orcid.org/0000-0002-9076-9635",
+            "path": "0000-0002-9076-9635",
+            "host": "orcid.org"
+          },
+          "source-client-id": null,
+          "source-name": {
+            "value": "Gordon D.Z. Williams"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "The Water Quality Impacts of Legacy Hard-Rock Lithium Mining and Processing"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1021/acs.est.5c13682",
+              "external-id-normalized": {
+                "value": "10.1021/acs.est.5c13682",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1021/acs.est.5c13682"
+              },
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "0013-936X",
+              "external-id-normalized": {
+                "value": "0013-936X",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/0013-936X"
+              },
+              "external-id-relationship": "part-of"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "1520-5851",
+              "external-id-normalized": {
+                "value": "1520-5851",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/1520-5851"
+              },
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://dx.doi.org/10.1021/acs.est.5c13682"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "12"
+          },
+          "day": {
+            "value": "02"
+          }
+        },
+        "journal-title": {
+          "value": "Environmental Science & Technology"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/198566942",
+        "display-index": "0"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1763563018645
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.apgeochem.2025.106631",
+          "external-id-normalized": {
+            "value": "10.1016/j.apgeochem.2025.106631",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.apgeochem.2025.106631"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 197375067,
+        "created-date": {
+          "value": 1763563018645
+        },
+        "last-modified-date": {
+          "value": 1763563018645
+        },
+        "source": {
+          "source-orcid": {
+            "uri": "https://orcid.org/0000-0002-9076-9635",
+            "path": "0000-0002-9076-9635",
+            "host": "orcid.org"
+          },
+          "source-client-id": null,
+          "source-name": {
+            "value": "Gordon D.Z. Williams"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Strontium isotopes and Rb/Sr tracers in surface soils for locating subsurface lithium pegmatites"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.apgeochem.2025.106631",
+              "external-id-normalized": {
+                "value": "10.1016/j.apgeochem.2025.106631",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.apgeochem.2025.106631"
+              },
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "0883-2927",
+              "external-id-normalized": {
+                "value": "0883-2927",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/0883-2927"
+              },
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://dx.doi.org/10.1016/j.apgeochem.2025.106631"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "12"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Applied Geochemistry"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/197375067",
+        "display-index": "0"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1759768596939
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.jhazmat.2025.140033",
+          "external-id-normalized": {
+            "value": "10.1016/j.jhazmat.2025.140033",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.jhazmat.2025.140033"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 193438753,
+        "created-date": {
+          "value": 1759530519297
+        },
+        "last-modified-date": {
+          "value": 1759768596939
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fertilizers, and phosphogypsum waste and its potential effect on the environment"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.jhazmat.2025.140033",
+              "external-id-normalized": {
+                "value": "10.1016/j.jhazmat.2025.140033",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.jhazmat.2025.140033"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1016/j.jhazmat.2025.140033"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "11"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Journal of Hazardous Materials"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/193438753",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1760116210225
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1126/sciadv.adw3268",
+          "external-id-normalized": {
+            "value": "10.1126/sciadv.adw3268",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1126/sciadv.adw3268"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 184649350,
+        "created-date": {
+          "value": 1748026078487
+        },
+        "last-modified-date": {
+          "value": 1760116210225
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "The role of boron in controlling the pH of lithium brines"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1126/sciadv.adw3268",
+              "external-id-normalized": {
+                "value": "10.1126/sciadv.adw3268",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1126/sciadv.adw3268"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1126/sciadv.adw3268"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "05"
+          },
+          "day": {
+            "value": "23"
+          }
+        },
+        "journal-title": {
+          "value": "Science Advances"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/184649350",
+        "display-index": "2"
+      },
+      {
+        "put-code": 184593751,
+        "created-date": {
+          "value": 1747960008852
+        },
+        "last-modified-date": {
+          "value": 1747960008852
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0003-1003-360X",
+            "path": "0000-0003-1003-360X",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "AAAS - Science"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "The Role of Boron in Controlling the pH of Lithium Brines"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1126/sciadv.adw3268",
+              "external-id-normalized": {
+                "value": "10.1126/sciadv.adw3268",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1126/sciadv.adw3268"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://www.science.org/doi/10.1126/sciadv.adw3268"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "05"
+          },
+          "day": {
+            "value": "23"
+          }
+        },
+        "journal-title": {
+          "value": "Science Advances"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/184593751",
+        "display-index": "1"
+      }
+    ]
+  }
+]
