@@ -82,6 +82,10 @@ order: 10
     To explain the observed pH decrease in the evaporation ponds, we applied a suite of geochemical tools, including boron isotopes (δ<sup>11</sup>B), geochemical modeling, and elemental analyses. Our results demonstrate that pH decline is controlled by boron speciation, which governs brine alkalinity and therefore controls brine pH. Extending this work, we compiled a large dataset of global lithium-rich brines and demonstrated that the same process occurs throughout the Lithium Triangle and in Tibetan Plateau brines as well (see our <a href="https://doi.org/10.1126/sciadv.adw3268" target="_blank" rel="noopener">Science Advances</a> article).
   </p>
 
+  <p>
+    Building on this foundation, we are investigating the processes that control how lithium and other solutes are sourced, concentrated, and modified within the Salar de Uyuni and other closed basins of the Lithium Triangle. Our recent study shows that precipitation of ulexite (a borate mineral) marks a critical geochemical divide during the evaporative evolution of inflow waters into saline brines. In addition, we demonstrate that cycles of halite dissolution and precipitation in near-surface brines strongly regulate absolute lithium concentrations (see our <a href="https://doi.org/10.1016/j.epsl.2026.119849" target="_blank" rel="noopener">Earth and Planetary Science Letters</a> article).
+  </p>
+
   <h2>Photos from the Field</h2>
   <p>click to expand</p>
 
