@@ -75,7 +75,7 @@ article.page > h1:first-child,
 
 
 <ul>
-Test
+Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README tab of the excel sheet.
 		  <a href="_data/LT/Supplement_LiTriangleDataset.xlsx" target="_blank" rel="noopener">[Download]</a>
 
 <ul>
