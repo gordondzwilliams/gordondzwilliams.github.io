@@ -73,16 +73,12 @@ article.page > h1:first-child,
   <h1>Lithium Triangle Brine and Water Dataset</h1>
 
 
-<h3>2019</h3>
-		<ul>
-		<li>
-		<a href="https://doi.org/10.1785/0220180298" target="_blank" rel="noopener">
-			Test
-		  </a>
-		  — Test</i>
-		  <a href="/files/papers/Wang et al. - 2018 - Seismology with Dark Data Image‐Based Processing .pdf" target="_blank" rel="noopener">[test_file]</a>
-		</li>
-		<ul>
+
+<ul>
+Test
+		  <a href="_data/LT/Supplement_LiTriangleDataset.xlsx" target="_blank" rel="noopener">[Download]</a>
+
+<ul>
 
 
 <p> </p> <!-- /.page-content -->
