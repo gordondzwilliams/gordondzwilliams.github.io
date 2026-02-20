@@ -75,10 +75,15 @@ article.page > h1:first-child,
 
 
 <ul>
+	<p>
 Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README tab of the excel sheet.
 <a href="/files/data/LT/Supplement_LiTriangleDataset.xlsx" download>
   [Download]
 </a>
+		</p>
+	<p>
+		Map coming soon.
+	</p>
 <ul>
 
 
