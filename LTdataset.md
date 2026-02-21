@@ -22,8 +22,6 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
     border: 1px solid #ccc; border-radius: 4px;
     margin: 1em 0 0 0; background: #b8cfe0;
   }
-
-  /* ── Controls bar (basemap + layer toggles) ── */
   #map-controls {
     background: #f9f9f9;
     border: 1px solid #ccc; border-radius: 4px;
@@ -32,52 +30,39 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
     display: flex; flex-wrap: wrap; gap: 8px 0;
     align-items: flex-start;
   }
-
-  /* Basemap switcher */
   #basemap-switcher {
     display: flex; align-items: center; gap: 8px;
     padding-right: 16px; margin-right: 16px;
-    border-right: 1px solid #ddd;
-    flex-shrink: 0;
+    border-right: 1px solid #ddd; flex-shrink: 0;
   }
   #basemap-switcher strong { color: #111; white-space: nowrap; }
   .bm-btn {
     padding: 3px 10px; border-radius: 3px; cursor: pointer;
     border: 1px solid #bbb; background: #fff;
     font-size: 0.84em; color: #111;
-    transition: background 0.15s, color 0.15s;
-    user-select: none;
+    transition: background 0.15s, color 0.15s; user-select: none;
   }
   .bm-btn.active { background: #333; color: #fff; border-color: #333; }
   .bm-btn:not(.active):hover { background: #eee; }
-
-  /* Layer toggles section */
   #layer-section { flex: 1; }
   #layer-section strong { color: #111; display: block; margin-bottom: 5px; }
   .layer-grid { display: flex; flex-wrap: wrap; gap: 4px 12px; }
-
   .layer-item {
     display: flex; align-items: center; gap: 6px;
     padding: 3px 7px; border-radius: 3px; cursor: pointer;
     user-select: none; transition: background 0.15s;
-    border: 1px solid transparent;
   }
   .layer-item:hover { background: #efefef; }
-
-  /* Unchecked state — muted but still readable */
   .layer-item.hidden { opacity: 0.45; }
   .layer-item.hidden:hover { opacity: 0.65; background: #efefef; }
-
   .layer-item input[type=checkbox] { cursor: pointer; margin: 0; accent-color: #333; }
   .layer-dot {
     width: 12px; height: 12px; border-radius: 50%;
     border: 1px solid rgba(0,0,0,0.25); flex-shrink: 0;
   }
   .layer-item label { cursor: pointer; color: #111; white-space: nowrap; }
-
   #map-status { font-size: 0.79em; color: #888; margin: 2px 0 1.5em 0; }
-
-  /* Popup */
+  #map-status.error { color: #c0392b; font-weight: bold; }
   .lt-popup {
     max-height: 340px; overflow-y: auto;
     min-width: 230px; max-width: 360px; font-size: 0.81em;
@@ -99,13 +84,11 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
 <div id="lt-map"></div>
 
 <div id="map-controls">
-  <!-- Basemap switcher -->
   <div id="basemap-switcher">
     <strong>Basemap:</strong>
-    <span class="bm-btn active" id="btn-satellite" onclick="switchBasemap('satellite')">Satellite</span>
-    <span class="bm-btn" id="btn-light" onclick="switchBasemap('light')">Street Map</span>
+    <span class="bm-btn active" id="btn-satellite" onclick="ltSwitchBasemap('satellite')">Satellite</span>
+    <span class="bm-btn" id="btn-light" onclick="ltSwitchBasemap('light')">Street Map</span>
   </div>
-  <!-- Layer toggles — populated by JS -->
   <div id="layer-section">
     <strong>Toggle Sample Types:</strong>
     <div class="layer-grid" id="layer-grid">Loading…</div>
@@ -117,7 +100,25 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
 <script>
 (function () {
 
-  /* ── Type → color map ── */
+  var CSV_URL = '/files/data/LT/Supplement_LiTriangleDataset.csv';
+  var TIMEOUT_MS = 15000; // 15 seconds before showing a helpful error
+
+  var statusEl = document.getElementById('map-status');
+  function setStatus(msg, isError) {
+    statusEl.textContent = msg;
+    statusEl.className = isError ? 'error' : '';
+  }
+
+  /* ── Timeout watchdog — catches silent 404s ── */
+  var loadTimer = setTimeout(function () {
+    setStatus(
+      'ERROR: Could not load the data file at ' + CSV_URL +
+      '. Please make sure Supplement_LiTriangleDataset.csv has been uploaded to /files/data/LT/ in your GitHub repo.',
+      true
+    );
+  }, TIMEOUT_MS);
+
+  /* ── Colors ── */
   var PALETTE = {
     'Brine':          '#e63946',
     'Marginal Brine': '#ff6b6b',
@@ -133,7 +134,6 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
   };
   function typeColor(t) { return PALETTE[(t||'').trim()] || '#888888'; }
 
-  /* ── Helpers ── */
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g,'&amp;').replace(/</g,'&lt;')
@@ -166,11 +166,11 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
     return null;
   }
 
-  /* ── Basemap tile layers ── */
+  /* ── Basemap layers ── */
   var tileLayers = {
     satellite: L.tileLayer(
       'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
+        attribution: 'Tiles &copy; Esri &mdash; Esri, Maxar, Earthstar Geographics',
         maxZoom: 19
       }
     ),
@@ -181,19 +181,18 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
       }
     )
   };
-
   var currentBasemap = 'satellite';
 
-  /* ── Init map with satellite as default ── */
   var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
   tileLayers.satellite.addTo(map);
 
-  /* ── Basemap switch function (called from onclick) ── */
-  window.switchBasemap = function(name) {
+  var layerGroups  = {};
+  var layerVisible = {};
+
+  window.ltSwitchBasemap = function(name) {
     if (name === currentBasemap) return;
     map.removeLayer(tileLayers[currentBasemap]);
     tileLayers[name].addTo(map);
-    // Keep sample layers on top by re-adding them
     for (var t in layerGroups) {
       if (layerVisible[t]) {
         map.removeLayer(layerGroups[t]);
@@ -205,130 +204,138 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
     document.getElementById('btn-light').classList.toggle('active', name==='light');
   };
 
-  /* ── Layer groups ── */
-  var layerGroups  = {};   // type → L.LayerGroup
-  var layerVisible = {};   // type → bool (tracks intended state)
-
-  /* ── Load CSV ── */
-  Papa.parse('/files/data/LT/Supplement_LiTriangleDataset.csv', {
-    download: true, header: true, skipEmptyLines: true,
-    complete: function(res) {
-      var data = res.data;
-      if (!data.length) {
-        document.getElementById('map-status').textContent = 'No data in CSV.';
-        return;
-      }
-
-      var headers = Object.keys(data[0]);
-      var latCol  = findCol(headers, ['Lat','Latitude','LAT','LATITUDE']);
-      var lonCol  = findCol(headers, ['Long','Longitude','LON','LONG','LONGITUDE','Lon']);
-      var typeCol = findCol(headers, ['Type','TYPE','type','Sample Type']);
-
-      if (!latCol || !lonCol) {
-        document.getElementById('map-status').textContent =
-          'ERROR: Could not find Lat/Lon columns. Found: ' + headers.join(', ');
-        return;
-      }
-
-      var plotted=0, skipped=0, bounds=[];
-
-      data.forEach(function(row) {
-        var lat = parseFloat(row[latCol]);
-        var lon = parseFloat(row[lonCol]);
-        if (isNaN(lat) || isNaN(lon)) { skipped++; return; }
-
-        var type = typeCol ? (row[typeCol]||'Unknown').trim() : 'Unknown';
-
-        if (!layerGroups[type]) {
-          layerGroups[type]  = L.layerGroup().addTo(map);
-          layerVisible[type] = true;
-        }
-
-        L.circleMarker([lat, lon], {
-          radius: 6, fillColor: typeColor(type),
-          color: '#fff', weight: 1.2,
-          opacity: 1, fillOpacity: 0.87
-        })
-        .bindPopup(buildPopup(row), { maxWidth: 380, maxHeight: 420 })
-        .addTo(layerGroups[type]);
-
-        bounds.push([lat, lon]);
-        plotted++;
-      });
-
-      if (bounds.length) map.fitBounds(bounds, { padding: [25, 25] });
-      buildLayerPanel();
-
-      var msg = plotted + ' samples plotted';
-      if (skipped) msg += ' (' + skipped + ' skipped — no coordinates)';
-      msg += '. Click any point for full data.';
-      document.getElementById('map-status').textContent = msg;
-    },
-    error: function(e) {
-      document.getElementById('map-status').textContent = 'CSV error: ' + (e.message||e);
+  /* ── Fetch CSV via XMLHttpRequest first to catch 404s clearly ── */
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', CSV_URL, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    clearTimeout(loadTimer);
+    if (xhr.status === 404 || xhr.status === 0) {
+      setStatus(
+        'ERROR: Data file not found at ' + CSV_URL +
+        '. Please upload Supplement_LiTriangleDataset.csv to /files/data/LT/ in your GitHub repo.',
+        true
+      );
+      return;
     }
-  });
+    if (xhr.status < 200 || xhr.status >= 300) {
+      setStatus('ERROR: Could not load CSV (HTTP ' + xhr.status + ').', true);
+      return;
+    }
+    /* File loaded — parse it */
+    var results = Papa.parse(xhr.responseText, {
+      header: true,
+      skipEmptyLines: true
+    });
+    processData(results.data);
+  };
+  xhr.onerror = function() {
+    clearTimeout(loadTimer);
+    setStatus('ERROR: Network error loading ' + CSV_URL + '. Check the file exists in your repo.', true);
+  };
+  xhr.send();
 
-  /* ── Build toggle checkboxes ── */
+  /* ── Process parsed rows ── */
+  function processData(data) {
+    if (!data || !data.length) {
+      setStatus('ERROR: CSV file is empty or could not be parsed.', true);
+      return;
+    }
+
+    var headers = Object.keys(data[0]);
+    var latCol  = findCol(headers, ['Lat','Latitude','LAT','LATITUDE']);
+    var lonCol  = findCol(headers, ['Long','Longitude','LON','LONG','LONGITUDE','Lon']);
+    var typeCol = findCol(headers, ['Type','TYPE','type','Sample Type']);
+
+    if (!latCol || !lonCol) {
+      setStatus('ERROR: Could not find Lat/Lon columns. Columns found: ' + headers.join(', '), true);
+      return;
+    }
+
+    var plotted=0, skipped=0, bounds=[];
+
+    data.forEach(function(row) {
+      var lat = parseFloat(row[latCol]);
+      var lon = parseFloat(row[lonCol]);
+      if (isNaN(lat) || isNaN(lon)) { skipped++; return; }
+      var type = typeCol ? (row[typeCol]||'Unknown').trim() : 'Unknown';
+
+      if (!layerGroups[type]) {
+        layerGroups[type]  = L.layerGroup().addTo(map);
+        layerVisible[type] = true;
+      }
+
+      L.circleMarker([lat, lon], {
+        radius: 6, fillColor: typeColor(type),
+        color: '#fff', weight: 1.2,
+        opacity: 1, fillOpacity: 0.87
+      })
+      .bindPopup(buildPopup(row), { maxWidth: 380, maxHeight: 420 })
+      .addTo(layerGroups[type]);
+
+      bounds.push([lat, lon]);
+      plotted++;
+    });
+
+    if (bounds.length) map.fitBounds(bounds, { padding: [25, 25] });
+    buildLayerPanel();
+
+    var msg = plotted + ' samples plotted';
+    if (skipped) msg += ' (' + skipped + ' skipped — no coordinates)';
+    msg += '. Click any point for full data.';
+    setStatus(msg, false);
+  }
+
+  /* ── Toggle panel ── */
   var TYPE_ORDER = ['Brine','Marginal Brine','Stream','River','Spring',
                     'Thermal Spring','Geothermal','Lake','Underground','Seep','Rain'];
 
   function buildLayerPanel() {
     var grid = document.getElementById('layer-grid');
     grid.innerHTML = '';
-
     var types = Object.keys(layerGroups).slice().sort(function(a,b){
       var ia=TYPE_ORDER.indexOf(a), ib=TYPE_ORDER.indexOf(b);
       if(ia===-1) ia=999; if(ib===-1) ib=999;
       return ia!==ib ? ia-ib : a.localeCompare(b);
     });
+    types.forEach(function(type){ grid.appendChild(makeToggleItem(type)); });
+  }
 
-    types.forEach(function(type){
-      var color = typeColor(type);
-      var count = layerGroups[type].getLayers().length;
-      var safeId = 'chk-' + type.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
+  function makeToggleItem(type) {
+    var color  = typeColor(type);
+    var count  = layerGroups[type].getLayers().length;
+    var safeId = 'chk-' + type.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
 
-      var item = document.createElement('div');
-      item.className = 'layer-item';
-      item.id = 'item-' + safeId;
+    var item = document.createElement('div');
+    item.className = 'layer-item';
+    item.id = 'item-' + safeId;
 
-      var chk = document.createElement('input');
-      chk.type = 'checkbox';
-      chk.id   = safeId;
-      chk.checked = true;
+    var chk = document.createElement('input');
+    chk.type = 'checkbox'; chk.id = safeId; chk.checked = true;
 
-      /* ── Toggle handler — fixes both visibility AND re-click ── */
-      chk.addEventListener('change', (function(t, el) {
-        return function() {
-          if (this.checked) {
-            /* Show: add group back to map, mark visible */
-            layerGroups[t].addTo(map);
-            layerVisible[t] = true;
-            el.classList.remove('hidden');
-          } else {
-            /* Hide: remove group from map, mark hidden */
-            if (map.hasLayer(layerGroups[t])) {
-              map.removeLayer(layerGroups[t]);
-            }
-            layerVisible[t] = false;
-            el.classList.add('hidden');
-          }
-        };
-      })(type, item));
+    chk.addEventListener('change', (function(t, el) {
+      return function() {
+        if (this.checked) {
+          layerGroups[t].addTo(map);
+          layerVisible[t] = true;
+          el.classList.remove('hidden');
+        } else {
+          if (map.hasLayer(layerGroups[t])) map.removeLayer(layerGroups[t]);
+          layerVisible[t] = false;
+          el.classList.add('hidden');
+        }
+      };
+    })(type, item));
 
-      var dot = document.createElement('div');
-      dot.className = 'layer-dot';
-      dot.style.background = color;
+    var dot = document.createElement('div');
+    dot.className = 'layer-dot'; dot.style.background = color;
 
-      var lbl = document.createElement('label');
-      lbl.htmlFor = safeId;
-      lbl.textContent = type + ' (' + count + ')';
+    var lbl = document.createElement('label');
+    lbl.htmlFor = safeId;
+    lbl.textContent = type + ' (' + count + ')';
 
-      item.appendChild(chk);
-      item.appendChild(dot);
-      item.appendChild(lbl);
-      grid.appendChild(item);
-    });
+    item.appendChild(chk); item.appendChild(dot); item.appendChild(lbl);
+    return item;
   }
 
 })();
