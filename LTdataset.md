@@ -227,6 +227,11 @@ var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
     return item;
   }
 
-})();
+})();  
 </script>
+
+  <p>
+    Of the selecatable sample types, most brines and some lakes are considered terminal to a closed basin. See the dataset to distinguish between inflows and terminal samples.
+    </p>
+    
 </div>
