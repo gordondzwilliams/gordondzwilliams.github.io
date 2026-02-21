@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: default
 title: "Lithium Triangle Brine and Water Dataset"
 permalink: /LTdataset/
 author_profile: false
@@ -350,19 +350,3 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
 
 })();
 </script>
-
----
-
-### Converting USGS Salar Shapefiles to GeoJSON Using ArcGIS Pro
-
-Once you have activated the salar layer (by uncommenting the code above), here are the steps using ArcGIS Pro:
-
-1. **Download** the USGS dataset from [ScienceBase](https://www.sciencebase.gov/catalog/item/5e90cd8f82ce172707edfc74) and unzip it. Look for the `.gdb` folder.
-2. **Open ArcGIS Pro** and create a new project or open an existing one.
-3. In the **Catalog pane**, right-click on the `.gdb` file → Add to Current Map. You should see one or more salar polygon layers appear.
-4. In the **Contents pane**, right-click the salar polygon layer → Data → Export Features.
-5. In the dialog: set Output Location to any folder on your computer, set Output Name to `salars`, and set **Output Type to GeoJSON**. Make sure the coordinate system is set to **GCS WGS 1984 (EPSG:4326)** — this is required for web maps.
-6. Click **Run**. You will get a `salars.geojson` file.
-7. **Check the file size.** If it is larger than ~8 MB, you can simplify the geometry: right-click the layer → Generalize (or use the Simplify Polygon tool in the Cartography toolbox) with a tolerance of 50–100 meters before re-exporting.
-8. Upload `salars.geojson` to the `files/data/LT/` folder in your GitHub repo.
-9. In `LTdataset.md`, remove the `/*` on the line just before `var salarGroup` and the `*/` near the end of that block to activate the layer.
