@@ -119,10 +119,22 @@ author_profile: false
 
   var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
 
+L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  {
+    attribution:
+      'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics',
+    maxZoom: 19
+  }
+).addTo(map);
+
   L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    { maxZoom: 19 }
-  ).addTo(map);
+  'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+  {
+    attribution: 'Esri',
+    pane: 'overlayPane'
+  }
+).addTo(map);
 
   var layerGroups = {};
 
