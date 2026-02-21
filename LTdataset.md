@@ -8,10 +8,13 @@ author_profile: false
 <style>
 /* Add spacing so content isn’t flush with screen edges */
 .page-content {
-  max-width: 900px;   /* keeps text in a nice readable width */
-  margin: 0 auto;     /* centers the content */
-  padding: 0 20px;    /* adds space on left/right */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 22px;               /* larger padding so text breathes */
   box-sizing: border-box;
+  background: #f6f7f9;         /* pale grey background */
+  border: 1px solid #e6e8eb;   /* subtle border */
+  border-radius: 8px;          /* soft corners */
 }
 
 /* Optional: nicer typography spacing for headings & paragraphs */
