@@ -117,7 +117,6 @@ author_profile: false
     return null;
   }
 
-  var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
 
 var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
 
