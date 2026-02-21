@@ -120,36 +120,21 @@ author_profile: false
 
 var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
 
-// Light basemap
-var light = L.tileLayer(
-  'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  {
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19
-  }
-);
-
-// Satellite basemap
-var satellite = L.tileLayer(
+  L.tileLayer(
   'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   {
-    attribution: 'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics',
+    attribution:
+      'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics',
     maxZoom: 19
   }
-);
+).addTo(map);
 
-// Add default basemap
-light.addTo(map);
-
-// Basemap control
-L.control.layers(
+  L.tileLayer(
+  'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
   {
-    "Light": light,
-    "Satellite": satellite
-  },
-  null,
-  { collapsed: false }
+    attribution: 'Esri',
+    pane: 'overlayPane'
+  }
 ).addTo(map);
 
   var layerGroups = {};
