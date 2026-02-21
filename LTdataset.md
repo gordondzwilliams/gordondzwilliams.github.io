@@ -353,12 +353,27 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
     item.id = 'item-' + id;
     var chk = document.createElement('input');
     chk.type='checkbox'; chk.id=id; chk.checked=true;
-    chk.addEventListener('change', (function(t, el){
-      return function(){
-        if(this.checked){ layerGroups[t].addTo(map); el.classList.remove('hidden'); }
-        else { map.removeLayer(layerGroups[t]); el.classList.add('hidden'); }
-      };
-    })(type, item));
+chk.addEventListener('change', (function(t, el, chkElem, dotElem){
+  return function(){
+    // When checked -> add layer to map and remove inactive styling
+    if (this.checked) {
+      if (!map.hasLayer(layerGroups[t])) {
+        layerGroups[t].addTo(map);
+      }
+      el.classList.remove('inactive');
+      // restore dot opacity to full
+      if(dotElem) dotElem.style.opacity = '1';
+    } else {
+      // When unchecked -> remove layer but keep the toggle visible,
+      // mark it inactive so user can re-check it.
+      if (map.hasLayer(layerGroups[t])) {
+        map.removeLayer(layerGroups[t]);
+      }
+      el.classList.add('inactive');
+      if(dotElem) dotElem.style.opacity = '0.25';
+    }
+  };
+})(type, item, chk, dot));
     var dot = document.createElement('div');
     dot.className='layer-dot'; dot.style.background=color;
     var lbl = document.createElement('label');
