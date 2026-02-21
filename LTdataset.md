@@ -273,4 +273,15 @@ author_profile: false
 
   <p>Of the selectable sample types, most brines and some lakes are considered terminal to a closed basin. See the dataset to distinguish between inflows and terminal samples.</p>
 
+<h3> Use and Citation </h3>
+<p>
+  This dataset forms part of the supplementary material for:
+</p>
+<p>
+Williams, G.D.Z., and Vengosh, A. (submitted). Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: the relative importance of high- and low-temperature water-rock interactions. Earth-Science Reviews.
+</p>
+<p>
+If using this dataset, please cite the above article and any of the original data sources listed in the "References" tab. This compilation reflects original reported values; users are encouraged to consult and cite the primary publications for detailed methodological information.
+  </p>
+
 </div>
