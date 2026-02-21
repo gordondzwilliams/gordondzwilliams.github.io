@@ -1,180 +1,194 @@
 ---
-layout: archive
+layout: single
 title: "Lithium Triangle Brine and Water Dataset"
 permalink: /LTdataset/
+author_profile: false
 ---
 
-<p>Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README tab of the Excel sheet.
+<p>
+Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README.
 &nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.xlsx">[Download Excel]</a>
-&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.csv">[Download CSV]</a></p>
+&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.csv">[Download CSV]</a>
+&nbsp;<a href="/files/data/LT/LiTriangleDataset_README.md">[Download README]</a>
+</p>
 
-<!-- ═══════════════════════════════════════════════════════════
-     LEAFLET INTERACTIVE MAP
-     Dependencies loaded from CDN — no install required
-     ═══════════════════════════════════════════════════════════ -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<!-- ═══════════════════════════════════════════ LEAFLET MAP ═══ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 <style>
   #lt-map {
-    height: 580px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 1em 0 0.5em 0;
-    background: #d4e6f1;
+    height: 580px; width: 100%;
+    border: 1px solid #ccc; border-radius: 4px;
+    margin: 1em 0 0 0; background: #d4e6f1;
   }
-  #map-legend {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px 14px;
-    margin-bottom: 0.5em;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px 16px;
-    font-size: 0.84em;
-    color: #333;
+  #layer-panel {
+    background: #fff;
+    border: 1px solid #ccc; border-radius: 4px;
+    padding: 10px 14px; margin: 6px 0 4px 0;
+    font-size: 0.84em; color: #333;
   }
-  #map-legend h4 {
-    width: 100%;
-    margin: 0 0 5px 0;
-    font-size: 0.88em;
-    font-weight: bold;
+  #layer-panel h4 {
+    margin: 0 0 8px 0; font-size: 0.9em;
+    font-weight: bold; display: flex;
+    align-items: center; gap: 10px;
   }
-  .legend-item { display: flex; align-items: center; gap: 6px; }
-  .legend-dot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.25); flex-shrink: 0; }
-  .legend-salar-box { width: 18px; height: 10px; background: rgba(100,160,220,0.35); border: 1.5px solid rgba(60,100,160,0.7); flex-shrink: 0; }
-  #map-status { font-size: 0.82em; color: #888; margin-bottom: 1.5em; }
-
-  /* Popup */
-  .lt-popup { max-height: 320px; overflow-y: auto; min-width: 220px; max-width: 340px; font-size: 0.82em; }
-  .lt-popup h3 { margin: 0 0 7px 0; font-size: 1em; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px; }
+  #layer-panel h4 span { font-weight: normal; color: #888; font-size: 0.88em; }
+  .layer-grid { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+  .layer-item {
+    display: flex; align-items: center; gap: 7px;
+    cursor: pointer; user-select: none;
+    padding: 3px 6px; border-radius: 3px;
+    transition: background 0.15s;
+  }
+  .layer-item:hover { background: #f5f5f5; }
+  .layer-item input[type=checkbox] { cursor: pointer; margin: 0; }
+  .layer-dot {
+    width: 13px; height: 13px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2); flex-shrink: 0;
+    transition: opacity 0.2s;
+  }
+  .layer-item.hidden .layer-dot { opacity: 0.25; }
+  .layer-item.hidden label { color: #bbb; }
+  label { cursor: pointer; }
+  .salar-box {
+    width: 18px; height: 10px; border-radius: 2px;
+    background: rgba(100,160,220,0.3);
+    border: 1.5px solid rgba(50,90,160,0.7); flex-shrink: 0;
+  }
+  #map-status { font-size: 0.8em; color: #999; margin: 2px 0 1.2em 0; }
+  .lt-popup {
+    max-height: 340px; overflow-y: auto;
+    min-width: 230px; max-width: 360px; font-size: 0.81em;
+  }
+  .lt-popup h3 {
+    margin: 0 0 7px 0; font-size: 1em;
+    border-bottom: 1px solid #e5e5e5; padding-bottom: 4px;
+  }
   .lt-popup table { width: 100%; border-collapse: collapse; }
-  .lt-popup tr:nth-child(even) { background: #f6f6f6; }
+  .lt-popup tr:nth-child(even) { background: #f7f7f7; }
   .lt-popup td { padding: 2px 5px; vertical-align: top; }
-  .lt-popup td:first-child { font-weight: bold; color: #555; white-space: nowrap; padding-right: 8px; min-width: 80px; }
-  .lt-popup .na-val { color: #ccc; font-style: italic; }
+  .lt-popup td:first-child {
+    font-weight: bold; color: #555;
+    white-space: nowrap; padding-right: 8px; min-width: 85px;
+  }
+  .lt-popup .na { color: #ccc; font-style: italic; }
 </style>
 
 <div id="lt-map"></div>
-<div id="map-legend"><h4>Loading…</h4></div>
-<div id="map-status">Loading sample data…</div>
+<div id="layer-panel">
+  <h4>Toggle Sample Types <span>— click checkbox to show/hide a layer</span></h4>
+  <div class="layer-grid" id="layer-grid">Loading…</div>
+</div>
+<div id="map-status">Loading data…</div>
 
 <script>
 (function () {
 
-  /* ── Colorblind-friendlier type palette ── */
-  var PALETTE = [
-    '#e63946','#2a9d8f','#f4a261','#457b9d','#8338ec',
-    '#06d6a0','#fb8500','#e76f51','#118ab2','#6d6875',
-    '#588157','#d62828'
-  ];
-  var colorMap = {}, ci = 0;
+  var PALETTE = {
+    'Brine':          '#e63946',
+    'Marginal Brine': '#c1121f',
+    'Stream':         '#2a9d8f',
+    'River':          '#48cae4',
+    'Spring':         '#52b788',
+    'Thermal Spring': '#f4a261',
+    'Geothermal':     '#fb8500',
+    'Lake':           '#457b9d',
+    'Underground':    '#8338ec',
+    'Seep':           '#6d6875',
+    'Rain':           '#80b918'
+  };
 
-  function typeColor(t) {
-    var k = (t || 'Unknown').trim();
-    if (!colorMap[k]) { colorMap[k] = PALETTE[ci % PALETTE.length]; ci++; }
-    return colorMap[k];
-  }
+  function typeColor(t) { return PALETTE[(t||'').trim()] || '#888888'; }
 
-  function circleMarker(ll, type) {
-    return L.circleMarker(ll, {
-      radius: 7,
-      fillColor: typeColor(type),
-      color: '#fff',
-      weight: 1.2,
-      opacity: 1,
-      fillOpacity: 0.88
-    });
-  }
-
-  /* ── HTML escaping ── */
   function esc(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  /* ── Build popup from row object ── */
-  var SKIP = ['lat','latitude','long','longitude','lon','x','y'];
+  var SKIP_COLS = ['lat','latitude','long','longitude','lon','x','y'];
 
-  function popup(row) {
-    var name = row['Sample ID']||row['Sample_ID']||row['SampleID']||row['Name']||row['Station']||row['Site']||'';
-    var type = row['Type']||row['TYPE']||'';
-    var title = name || type || 'Sample';
-    var html = '<div class="lt-popup"><h3>' + esc(title) + '</h3><table>';
+  function buildPopup(row) {
+    var name = row['Sample ID']||row['Name']||row['Station']||'';
+    var type = row['Type']||'';
+    var html = '<div class="lt-popup"><h3>' + esc(name || type || 'Sample') + '</h3><table>';
     for (var c in row) {
-      if (SKIP.indexOf(c.toLowerCase()) !== -1) continue;
+      if (SKIP_COLS.indexOf(c.toLowerCase()) !== -1) continue;
       var v = row[c];
-      var empty = (v===null||v===undefined||v===''||v==='NA'||v==='N/A'||v==='nd'||v==='ND');
+      var empty = (v===null||v===undefined||v===''||
+                   String(v).toLowerCase()==='na'||
+                   String(v).toLowerCase()==='nd');
       html += '<tr><td>' + esc(c) + '</td>';
-      html += empty ? '<td class="na-val">—</td>' : '<td>' + esc(String(v)) + '</td>';
+      html += empty ? '<td class="na">—</td>' : '<td>' + esc(String(v)) + '</td>';
       html += '</tr>';
     }
     html += '</table></div>';
     return html;
   }
 
-  /* ── Column finder (case-insensitive) ── */
   function findCol(headers, candidates) {
     for (var i=0;i<candidates.length;i++)
       for (var j=0;j<headers.length;j++)
-        if (headers[j].trim().toLowerCase()===candidates[i].toLowerCase()) return headers[j];
+        if (headers[j] && headers[j].trim().toLowerCase()===candidates[i].toLowerCase())
+          return headers[j];
     return null;
   }
 
-  /* ── Init map ── */
   var map = L.map('lt-map', { center: [-23, -67], zoom: 6 });
-
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
     subdomains: 'abcd', maxZoom: 19
   }).addTo(map);
 
-  /* ── Salar polygon layer ──────────────────────────────────────────────────
-     TO ACTIVATE:
-     1. Convert USGS .gdb to GeoJSON (see instructions below the map).
-     2. Upload the file to: /files/data/LT/salars.geojson
-     3. Remove the /* and the closing asterisk-slash to uncomment this block.
-     ──────────────────────────────────────────────────────────────────────── */
+  var layerGroups = {};
+  var layerVisible = {};
+
+  /* ── Salar polygon layer ─────────────────────────────────────────────────
+     TO ACTIVATE after converting USGS .gdb to GeoJSON (see ArcGIS Pro
+     instructions at the bottom of this page):
+       1. Upload salars.geojson to /files/data/LT/salars.geojson in your repo
+       2. Delete the slash-asterisk comment markers below (lines starting with
+          slash-asterisk and ending with asterisk-slash)
+  ─────────────────────────────────────────────────────────────────────── */
   /*
+  var salarGroup = L.layerGroup().addTo(map);
   fetch('/files/data/LT/salars.geojson')
-    .then(r => r.json())
-    .then(geojson => {
-      L.geoJSON(geojson, {
+    .then(function(r){ return r.json(); })
+    .then(function(gj){
+      L.geoJSON(gj, {
         style: {
-          color: 'rgba(50,90,150,0.75)',
-          weight: 1.5,
-          fillColor: 'rgba(100,160,220,0.3)',
-          fillOpacity: 0.35
+          color:'rgba(50,90,160,0.75)', weight:1.5,
+          fillColor:'rgba(100,160,220,0.28)', fillOpacity:0.35
         },
-        onEachFeature: function(f, layer) {
-          var n = f.properties && (f.properties.Salar_Name || f.properties.NAME || f.properties.name || 'Salar');
-          if (n) layer.bindTooltip(n, {sticky:true});
+        onEachFeature: function(f, layer){
+          var n = f.properties &&
+            (f.properties.Salar_Name||f.properties.NAME||f.properties.name||'Salar');
+          if(n) layer.bindTooltip(n,{sticky:true});
         }
-      }).addTo(map);
+      }).addTo(salarGroup);
+      addSalarToggle(salarGroup);
     })
-    .catch(e => console.warn('salars.geojson not found:', e));
+    .catch(function(e){ console.warn('salars.geojson not yet uploaded:',e); });
   */
 
-  /* ── Load CSV ── */
   Papa.parse('/files/data/LT/Supplement_LiTriangleDataset.csv', {
-    download: true,
-    header: true,
-    skipEmptyLines: true,
+    download: true, header: true, skipEmptyLines: true,
     complete: function(res) {
       var data = res.data;
-      if (!data.length) { document.getElementById('map-status').textContent='No data in CSV.'; return; }
-
+      if (!data.length) {
+        document.getElementById('map-status').textContent = 'No data in CSV.';
+        return;
+      }
       var headers = Object.keys(data[0]);
-      var latCol = findCol(headers, ['Lat','Latitude','LAT','LATITUDE']);
-      var lonCol = findCol(headers, ['Long','Longitude','LON','LONG','LONGITUDE','Lon']);
-      var typeCol = findCol(headers, ['Type','TYPE','type','Sample Type','SampleType']);
+      var latCol  = findCol(headers, ['Lat','Latitude','LAT','LATITUDE']);
+      var lonCol  = findCol(headers, ['Long','Longitude','LON','LONG','LONGITUDE','Lon']);
+      var typeCol = findCol(headers, ['Type','TYPE','type','Sample Type']);
 
       if (!latCol || !lonCol) {
         document.getElementById('map-status').textContent =
-          'ERROR: Could not detect Lat/Lon columns. Columns found: ' + headers.join(', ');
+          'ERROR: Could not find Lat/Lon columns. Found: ' + headers.join(', ');
         return;
       }
 
@@ -182,34 +196,106 @@ permalink: /LTdataset/
       data.forEach(function(row) {
         var lat=parseFloat(row[latCol]), lon=parseFloat(row[lonCol]);
         if (isNaN(lat)||isNaN(lon)) { skipped++; return; }
-        var type = typeCol ? (row[typeCol]||'Unknown') : 'Unknown';
-        circleMarker([lat,lon], type)
-          .bindPopup(popup(row), {maxWidth:360, maxHeight:400})
-          .addTo(map);
+        var type = typeCol ? (row[typeCol]||'Unknown').trim() : 'Unknown';
+
+        if (!layerGroups[type]) {
+          layerGroups[type] = L.layerGroup().addTo(map);
+          layerVisible[type] = true;
+        }
+        L.circleMarker([lat,lon], {
+          radius:6, fillColor:typeColor(type), color:'#fff',
+          weight:1.2, opacity:1, fillOpacity:0.87
+        })
+        .bindPopup(buildPopup(row), {maxWidth:380, maxHeight:400})
+        .addTo(layerGroups[type]);
+
         bounds.push([lat,lon]);
         plotted++;
       });
 
-      if (bounds.length) map.fitBounds(bounds, {padding:[30,30]});
+      if (bounds.length) map.fitBounds(bounds, {padding:[25,25]});
+      buildLayerPanel();
 
-      /* Legend */
-      var leg = document.getElementById('map-legend');
-      var html = '<h4>Sample Type</h4>';
-      for (var t in colorMap) {
-        html += '<div class="legend-item"><div class="legend-dot" style="background:'+colorMap[t]+'"></div><span>'+esc(t)+'</span></div>';
-      }
-      /* Uncomment when salar layer is active:
-      html += '<div class="legend-item"><div class="legend-salar-box"></div><span>Salar outline (USGS)</span></div>';
-      */
-      leg.innerHTML = html;
-
-      document.getElementById('map-status').textContent =
-        plotted + ' samples plotted' + (skipped ? ' (' + skipped + ' skipped — no coordinates)' : '') + '. Click any point for full data.';
+      var msg = plotted + ' samples plotted';
+      if (skipped) msg += ' (' + skipped + ' skipped — no coordinates)';
+      msg += '. Click any point for full data.';
+      document.getElementById('map-status').textContent = msg;
     },
     error: function(e) {
-      document.getElementById('map-status').textContent = 'CSV load error: ' + (e.message||e);
+      document.getElementById('map-status').textContent = 'CSV error: ' + (e.message||e);
     }
   });
 
+  var TYPE_ORDER = ['Brine','Marginal Brine','Stream','River','Spring',
+                    'Thermal Spring','Geothermal','Lake','Underground','Seep','Rain'];
+
+  function buildLayerPanel() {
+    var grid = document.getElementById('layer-grid');
+    grid.innerHTML = '';
+    var types = Object.keys(layerGroups);
+    types.sort(function(a,b){
+      var ia=TYPE_ORDER.indexOf(a), ib=TYPE_ORDER.indexOf(b);
+      if(ia===-1) ia=999; if(ib===-1) ib=999;
+      return ia!==ib ? ia-ib : a.localeCompare(b);
+    });
+    types.forEach(function(type){ grid.appendChild(makeToggleItem(type)); });
+  }
+
+  function makeToggleItem(type) {
+    var color = typeColor(type);
+    var id = 'chk-' + type.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
+    var count = layerGroups[type].getLayers().length;
+    var item = document.createElement('div');
+    item.className = 'layer-item';
+    item.id = 'item-' + id;
+    var chk = document.createElement('input');
+    chk.type='checkbox'; chk.id=id; chk.checked=true;
+    chk.addEventListener('change', (function(t, el){
+      return function(){
+        if(this.checked){ layerGroups[t].addTo(map); el.classList.remove('hidden'); }
+        else { map.removeLayer(layerGroups[t]); el.classList.add('hidden'); }
+      };
+    })(type, item));
+    var dot = document.createElement('div');
+    dot.className='layer-dot'; dot.style.background=color;
+    var lbl = document.createElement('label');
+    lbl.htmlFor=id; lbl.textContent=type+' ('+count+')';
+    item.appendChild(chk); item.appendChild(dot); item.appendChild(lbl);
+    return item;
+  }
+
+  function addSalarToggle(sLayer) {
+    var grid = document.getElementById('layer-grid');
+    var item = document.createElement('div');
+    item.className='layer-item';
+    item.style.cssText='border-left:2px solid #ccc;padding-left:10px;margin-left:4px;';
+    var chk=document.createElement('input');
+    chk.type='checkbox'; chk.checked=true; chk.id='chk-salars';
+    chk.addEventListener('change',function(){
+      if(this.checked) sLayer.addTo(map); else map.removeLayer(sLayer);
+    });
+    var box=document.createElement('div'); box.className='salar-box';
+    var lbl=document.createElement('label');
+    lbl.htmlFor='chk-salars'; lbl.textContent='Salar outlines (USGS)';
+    item.appendChild(chk); item.appendChild(box); item.appendChild(lbl);
+    grid.appendChild(item);
+  }
+
 })();
 </script>
+
+---
+
+### Converting USGS Salar Shapefiles to GeoJSON Using ArcGIS Pro
+
+Once you have activated the salar layer (by uncommenting the code above), here are the steps using ArcGIS Pro:
+
+1. **Download** the USGS dataset from [ScienceBase](https://www.sciencebase.gov/catalog/item/5e90cd8f82ce172707edfc74) and unzip it. Look for the `.gdb` folder.
+2. **Open ArcGIS Pro** and create a new project or open an existing one.
+3. In the **Catalog pane**, right-click on the `.gdb` file → Add to Current Map. You should see one or more salar polygon layers appear.
+4. In the **Contents pane**, right-click the salar polygon layer → Data → Export Features.
+5. In the dialog: set Output Location to any folder on your computer, set Output Name to `salars`, and set **Output Type to GeoJSON**. Make sure the coordinate system is set to **GCS WGS 1984 (EPSG:4326)** — this is required for web maps.
+6. Click **Run**. You will get a `salars.geojson` file.
+7. **Check the file size.** If it is larger than ~8 MB, you can simplify the geometry: right-click the layer → Generalize (or use the Simplify Polygon tool in the Cartography toolbox) with a tolerance of 50–100 meters before re-exporting.
+8. Upload `salars.geojson` to the `files/data/LT/` folder in your GitHub repo.
+9. In `LTdataset.md`, remove the `/*` on the line just before `var salarGroup` and the `*/` near the end of that block to activate the layer.
