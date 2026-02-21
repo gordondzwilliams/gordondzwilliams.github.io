@@ -6,9 +6,9 @@ author_profile: false
 ---
 
 <style>
-/* Add spacing so content isn’t flush with screen edges */
+/* ===== Page container (boxes the whole content including header & map) ===== */
 .page__content {
-  max-width: 1000px;      /* adjust width if desired */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 24px;
   background: #f6f7f9;
@@ -25,48 +25,12 @@ author_profile: false
   margin-bottom: 0.6rem;
 }
 
-/* Simple, theme-friendly project grid */
+/* Simple, theme-friendly project grid (unused here but kept) */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   margin: 1.5rem 0;
-}
-.project-card {
-  display: block;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 1px 4px rgba(0,0,0,.08);
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  transition: transform .08s ease, box-shadow .2s ease;
-}
-.project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
-}
-.project-card__img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  display: block;
-  background: #f4f4f4;
-}
-.project-card__body {
-  padding: .85rem 1rem 1rem;
-}
-.project-card__title {
-  margin: 0 0 .25rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-.project-card__desc {
-  margin: 0;
-  color: #444;
-  font-size: .95rem;
-  line-height: 1.35;
 }
 
 /* Make sure long code/links wrap inside the container */
@@ -76,52 +40,74 @@ author_profile: false
 
 /* Map container */
 #lt-map {
-  height: 580px; width: 100%;
-  border: 1px solid #ccc; border-radius: 4px;
-  margin: 1em 0 0 0; background: #d4e6f1;
+  height: 580px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 1em 0 0 0;
+  background: #d4e6f1;
 }
+
+/* Layer panel */
 #layer-panel {
   background: #fff;
-  border: 1px solid #ccc; border-radius: 4px;
-  padding: 10px 14px; margin: 6px 0 4px 0;
-  font-size: 0.84em; color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 6px 0 4px 0;
+  font-size: 0.84em;
+  color: #333;
 }
 #layer-panel h4 {
-  margin: 0 0 8px 0; font-size: 0.9em;
-  font-weight: bold; display: flex;
-  align-items: center; gap: 10px;
+  margin: 0 0 8px 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 #layer-panel h4 span { font-weight: normal; color: #888; font-size: 0.88em; }
 .layer-grid { display: flex; flex-wrap: wrap; gap: 5px 14px; }
 .layer-item {
-  display: flex; align-items: center; gap: 7px;
-  cursor: pointer; user-select: none;
-  padding: 3px 6px; border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+  padding: 3px 6px;
+  border-radius: 3px;
   transition: background 0.15s;
 }
 .layer-item:hover { background: #f5f5f5; }
 .layer-item input[type=checkbox] { cursor: pointer; margin: 0; }
 .layer-dot {
   width: 13px; height: 13px; border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.2); flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.2);
+  flex-shrink: 0;
   transition: opacity 0.2s;
 }
-.layer-item.hidden .layer-dot { opacity: 0.25; }
-.layer-item.hidden label { color: #bbb; }
 label { cursor: pointer; }
 .salar-box {
   width: 18px; height: 10px; border-radius: 2px;
   background: rgba(100,160,220,0.3);
-  border: 1.5px solid rgba(50,90,160,0.7); flex-shrink: 0;
+  border: 1.5px solid rgba(50,90,160,0.7);
+  flex-shrink: 0;
 }
 #map-status { font-size: 0.8em; color: #999; margin: 2px 0 1.2em 0; }
+
+/* Popup styling */
 .lt-popup {
-  max-height: 340px; overflow-y: auto;
-  min-width: 230px; max-width: 360px; font-size: 0.81em;
+  max-height: 340px;
+  overflow-y: auto;
+  min-width: 230px;
+  max-width: 360px;
+  font-size: 0.81em;
 }
 .lt-popup h3 {
-  margin: 0 0 7px 0; font-size: 1em;
-  border-bottom: 1px solid #e5e5e5; padding-bottom: 4px;
+  margin: 0 0 7px 0;
+  font-size: 1em;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 4px;
 }
 .lt-popup table { width: 100%; border-collapse: collapse; }
 .lt-popup tr:nth-child(even) { background: #f7f7f7; }
@@ -138,7 +124,7 @@ label { cursor: pointer; }
 #layer-panel .layer-grid,
 #layer-panel .layer-item,
 #layer-panel .layer-item label {
-  color: #000 !important;          /* label text forced to black */
+  color: #000 !important;
 }
 
 /* Keep dot visible (override dark theme color inversion) */
@@ -150,7 +136,7 @@ label { cursor: pointer; }
 #layer-panel .layer-item.inactive {
   opacity: 0.55;
   filter: grayscale(0.2);
-  pointer-events: auto;           /* still clickable to re-check label */
+  pointer-events: auto; /* still clickable to re-check label */
 }
 
 /* Make inactive label slightly muted but still readable */
@@ -246,13 +232,7 @@ label { cursor: pointer; }
     var layerGroups = {};
     var layerVisible = {};
 
-    /* ── Salar polygon layer ─────────────────────────────────────────────────
-       TO ACTIVATE after converting USGS .gdb to GeoJSON (see ArcGIS Pro
-       instructions at the bottom of this page):
-         1. Upload salars.geojson to /files/data/LT/salars.geojson in your repo
-         2. Delete the slash-asterisk comment markers below (lines starting with
-            slash-asterisk and ending with asterisk-slash)
-    ─────────────────────────────────────────────────────────────────────── */
+    /* ── Salar polygon layer (optional) ────────────────────────────────────── */
     /*
     var salarGroup = L.layerGroup().addTo(map);
     fetch('/files/data/LT/salars.geojson')
@@ -330,135 +310,134 @@ label { cursor: pointer; }
     var TYPE_ORDER = ['Brine','Marginal Brine','Stream','River','Spring',
                       'Thermal Spring','Geothermal','Lake','Underground','Seep','Rain'];
 
+    /* ---------- Robust layer panel + delegated toggles ---------- */
+
     function buildLayerPanel() {
       var grid = document.getElementById('layer-grid');
+      if (!grid) return;
       grid.innerHTML = '';
-      var types = Object.keys(layerGroups);
+
+      var types = Object.keys(layerGroups || {});
       types.sort(function(a,b){
-        var ia=TYPE_ORDER.indexOf(a), ib=TYPE_ORDER.indexOf(b);
-        if(ia===-1) ia=999; if(ib===-1) ib=999;
-        return ia!==ib ? ia-ib : a.localeCompare(b);
+        var ia = TYPE_ORDER.indexOf(a), ib = TYPE_ORDER.indexOf(b);
+        if (ia === -1) ia = 999; if (ib === -1) ib = 999;
+        return ia !== ib ? ia - ib : a.localeCompare(b);
       });
-      types.forEach(function(type){ grid.appendChild(makeToggleItem(type)); });
-    }
 
-    // DROP-IN replacement for makeToggleItem
-    function makeToggleItem(type) {
-      var color = typeColor(type);
-      var id = 'chk-' + type.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
-      // defensive: guard if layerGroups[type] is missing
-      var count = 0;
-      try {
-        if (layerGroups[type] && typeof layerGroups[type].getLayers === 'function') {
-          count = layerGroups[type].getLayers().length;
-        }
-      } catch (e) {
-        console.warn('count error for', type, e);
-      }
-
-      var item = document.createElement('div');
-      item.className = 'layer-item';
-      item.id = 'item-' + id;
-
-      var chk = document.createElement('input');
-      chk.type = 'checkbox';
-      chk.id = id;
-      chk.checked = true;
-
-      var dot = document.createElement('div');
-      dot.className = 'layer-dot';
-      dot.style.background = color;
-      dot.style.opacity = '1';
-
-      var lbl = document.createElement('label');
-      lbl.htmlFor = id;
-      lbl.textContent = type + ' (' + count + ')';
-
-      // Attach elements to the DOM node
-      item.appendChild(chk);
-      item.appendChild(dot);
-      item.appendChild(lbl);
-
-      // Safe change handler
-      chk.addEventListener('change', function () {
+      types.forEach(function(type){
+        var color = '#888';
+        try { color = typeColor(type); } catch (e) { console.warn('typeColor error', type, e); }
+        var count = 0;
         try {
-          var group = layerGroups[type];
-          if (!group) {
-            // nothing to toggle — but keep UI responsive
-            console.warn('No layer group for', type);
-            // still update visual state so user sees it changed
-            if (chk.checked) {
-              item.classList.remove('inactive');
-              dot.style.opacity = '1';
-            } else {
-              item.classList.add('inactive');
-              dot.style.opacity = '0.25';
-            }
-            return;
-          }
+          if (layerGroups[type] && typeof layerGroups[type].getLayers === 'function')
+            count = layerGroups[type].getLayers().length;
+        } catch (e) { console.warn('count error', type, e); }
 
-          // If map or hasLayer isn't available, just add/remove without checking
-          var canCheck = (typeof map !== 'undefined' && map && typeof map.hasLayer === 'function');
+        var id = 'chk-' + type.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
+        var item = document.createElement('div');
+        item.className = 'layer-item';
+        item.dataset.type = type;
+        item.id = 'item-' + id;
 
-          if (this.checked) {
-            try {
-              if (canCheck) {
-                if (!map.hasLayer(group)) group.addTo(map);
-              } else {
-                group.addTo(map);
-              }
-            } catch (errAdd) {
-              // don't let a failure here break the rest of the page
-              console.warn('Error adding layer', type, errAdd);
-            }
-            item.classList.remove('inactive');
-            dot.style.opacity = '1';
-          } else {
-            try {
-              if (canCheck) {
-                if (map.hasLayer(group)) map.removeLayer(group);
-              } else {
-                if (typeof map !== 'undefined' && map && typeof map.removeLayer === 'function')
-                  map.removeLayer(group);
-              }
-            } catch (errRem) {
-              console.warn('Error removing layer', type, errRem);
-            }
-            item.classList.add('inactive');
-            dot.style.opacity = '0.25';
-          }
-        } catch (e) {
-          console.warn('Toggle handler failed for', type, e);
-          // ensure UI doesn't freeze if something unexpected happens
-          if (chk.checked) {
-            item.classList.remove('inactive');
-            dot.style.opacity = '1';
-          } else {
-            item.classList.add('inactive');
-            dot.style.opacity = '0.25';
-          }
-        }
+        // keep markup simple and deterministic
+        item.innerHTML = ''
+          + '<input type="checkbox" id="' + id + '" checked />'
+          + '<div class="layer-dot" style="background:' + esc(color) + '; opacity:1;"></div>'
+          + '<label for="' + id + '">' + esc(type) + ' (' + count + ')</label>';
+
+        grid.appendChild(item);
       });
 
-      return item;
+      // Attach a single delegated change handler (remove existing to avoid duplicates)
+      // Use removeEventListener then addEventListener so re-calls are safe
+      try {
+        grid.removeEventListener('change', delegatedLayerHandler);
+      } catch(e) { /* ignore if not previously attached */ }
+      grid.addEventListener('change', delegatedLayerHandler);
     }
 
+    /* delegated handler defined once in outer scope so removeEventListener works */
+    function delegatedLayerHandler(e) {
+      try {
+        var tgt = e.target;
+        if (!tgt) return;
+        if (tgt.tagName !== 'INPUT' || tgt.type !== 'checkbox') return;
+
+        var item = tgt.closest('.layer-item');
+        if (!item) return;
+        var type = item.dataset.type;
+        if (!type) return;
+
+        // Special-case marker for salar lines if used
+        var group = layerGroups[type];
+        if (!group) {
+          console.warn('No layer group for', type);
+          // still update UI so user sees change
+          if (tgt.checked) {
+            item.classList.remove('inactive');
+            var dotA = item.querySelector('.layer-dot'); if (dotA) dotA.style.opacity = '1';
+          } else {
+            item.classList.add('inactive');
+            var dotB = item.querySelector('.layer-dot'); if (dotB) dotB.style.opacity = '0.25';
+          }
+          return;
+        }
+
+        var canCheck = (typeof map !== 'undefined' && map && typeof map.hasLayer === 'function');
+
+        if (tgt.checked) {
+          try {
+            if (canCheck) {
+              if (!map.hasLayer(group)) group.addTo(map);
+            } else {
+              if (typeof group.addTo === 'function') group.addTo(map);
+            }
+          } catch (err) {
+            console.warn('Error adding layer', type, err);
+          }
+          item.classList.remove('inactive');
+          var dot3 = item.querySelector('.layer-dot'); if (dot3) dot3.style.opacity = '1';
+        } else {
+          try {
+            if (canCheck) {
+              if (map.hasLayer(group)) map.removeLayer(group);
+            } else {
+              if (typeof map !== 'undefined' && map && typeof map.removeLayer === 'function')
+                map.removeLayer(group);
+            }
+          } catch (errRem) {
+            console.warn('Error removing layer', type, errRem);
+          }
+          item.classList.add('inactive');
+          var dot4 = item.querySelector('.layer-dot'); if (dot4) dot4.style.opacity = '0.25';
+        }
+      } catch (errOuter) {
+        console.error('delegatedLayerHandler failed', errOuter);
+      }
+    }
+
+    /* small helper for addSalarToggle to create same markup and let delegation handle toggle */
     function addSalarToggle(sLayer) {
       var grid = document.getElementById('layer-grid');
+      if (!grid) return;
       var item = document.createElement('div');
-      item.className='layer-item';
-      item.style.cssText='border-left:2px solid #ccc;padding-left:10px;margin-left:4px;';
-      var chk=document.createElement('input');
-      chk.type='checkbox'; chk.checked=true; chk.id='chk-salars';
-      chk.addEventListener('change',function(){
-        if(this.checked) sLayer.addTo(map); else map.removeLayer(sLayer);
-      });
-      var box=document.createElement('div'); box.className='salar-box';
-      var lbl=document.createElement('label');
-      lbl.htmlFor='chk-salars'; lbl.textContent='Salar outlines (USGS)';
-      item.appendChild(chk); item.appendChild(box); item.appendChild(lbl);
+      item.className = 'layer-item';
+      item.style.cssText = 'border-left:2px solid #ccc;padding-left:10px;margin-left:4px;';
+      item.id = 'item-chk-salars';
+      item.dataset.type = '__salar__';
+
+      item.innerHTML = ''
+        + '<input type="checkbox" id="chk-salars" checked />'
+        + '<div class="salar-box"></div>'
+        + '<label for="chk-salars">Salar outlines (USGS)</label>';
+
       grid.appendChild(item);
+
+      // Register the layer group under the special key so the delegated handler can toggle it
+      layerGroups['__salar__'] = sLayer;
     }
+
+    /* --- end replacements --- */
 
   })();
   </script>
