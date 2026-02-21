@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: single
 title: "Lithium Triangle Brine and Water Dataset"
 permalink: /LTdataset/
 author_profile: false
