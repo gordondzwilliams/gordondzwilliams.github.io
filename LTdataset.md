@@ -7,14 +7,14 @@ author_profile: false
 
 <style>
 /* Add spacing so content isn’t flush with screen edges */
-.page-content {
-  max-width: 900px;
+.page__content {
+  max-width: 1000px;      /* adjust width if desired */
   margin: 0 auto;
-  padding: 22px;               /* larger padding so text breathes */
-  box-sizing: border-box;
-  background: #f6f7f9;         /* pale grey background */
-  border: 1px solid #e6e8eb;   /* subtle border */
-  border-radius: 8px;          /* soft corners */
+  padding: 24px;
+  background: #f6f7f9;
+  border: 1px solid #e6e8eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 /* Optional: nicer typography spacing for headings & paragraphs */
