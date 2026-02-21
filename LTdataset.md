@@ -130,6 +130,35 @@ author_profile: false
     white-space: nowrap; padding-right: 8px; min-width: 85px;
   }
   .lt-popup .na { color: #ccc; font-style: italic; }
+
+  /* Force labels/dots to be visible (always black text on labels) */
+#layer-panel,
+#layer-panel .layer-grid,
+#layer-panel .layer-item,
+#layer-panel .layer-item label {
+  color: #000 !important;          /* label text forced to black */
+}
+
+/* Keep dot visible (override dark theme color inversion) */
+#layer-panel .layer-dot {
+  border-color: rgba(0,0,0,0.15) !important;
+}
+
+/* When item is inactive (unchecked) keep it visible but dim */
+#layer-panel .layer-item.inactive {
+  opacity: 0.55;
+  filter: grayscale(0.2);
+  pointer-events: auto;           /* still clickable to re-check label */
+}
+
+/* Make inactive label slightly muted but still readable */
+#layer-panel .layer-item.inactive label {
+  color: #222 !important;
+}
+
+/* If anywhere in theme there's a rule hiding .hidden, make sure it doesn't apply here */
+#layer-panel .layer-item.hidden { display: block !important; opacity: 0.35; }
+  
 </style>
 
 <p>
