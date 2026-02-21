@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: single
 title: "Lithium Triangle Brine and Water Dataset"
 permalink: /LTdataset/
 author_profile: false
@@ -70,21 +70,7 @@ author_profile: false
 .page-content p, .page-content a {
   word-break: break-word;
 }
-</style>
 
-<p>
-Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README.
-&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.xlsx">[Download Excel]</a>
-&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.csv">[Download CSV]</a>
-&nbsp;<a href="/files/data/LT/LiTriangleDataset_README.md">[Download README]</a>
-</p>
-
-<!-- ═══════════════════════════════════════════ LEAFLET MAP ═══ -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
-<style>
   #lt-map {
     height: 580px; width: 100%;
     border: 1px solid #ccc; border-radius: 4px;
@@ -142,6 +128,18 @@ Lithium Triangle Brine and Water Dataset. Information on data compilation is ava
   }
   .lt-popup .na { color: #ccc; font-style: italic; }
 </style>
+
+<p>
+Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README.
+&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.xlsx">[Download Excel]</a>
+&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.csv">[Download CSV]</a>
+&nbsp;<a href="/files/data/LT/LiTriangleDataset_README.md">[Download README]</a>
+</p>
+
+<!-- ═══════════════════════════════════════════ LEAFLET MAP ═══ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 <div id="lt-map"></div>
 <div id="layer-panel">
