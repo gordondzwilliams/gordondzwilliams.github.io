@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Lithium Triangle Brine and Water Dataset"
+title: 
 permalink: /LTdataset/
 author_profile: false
 ---
@@ -131,6 +131,12 @@ author_profile: false
   }
   .lt-popup .na { color: #ccc; font-style: italic; }
 </style>
+
+<p>
+<h1>
+  Lithium Triangle Brine and Water Dataset
+</h1>
+</p>
 
 <p>
 Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README.
