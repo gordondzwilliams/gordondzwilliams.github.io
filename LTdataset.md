@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: archive
 title: "Lithium Triangle Brine and Water Dataset"
 permalink: /LTdataset/
 ---
