@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Lithium Triangle Brine and Water Dataset"
+title: 
 permalink: /LTdataset/
 author_profile: false
 ---
