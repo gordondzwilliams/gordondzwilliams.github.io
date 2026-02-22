@@ -222,7 +222,7 @@ author_profile: false
       buildLayerPanel();
 
       document.getElementById('map-status').textContent =
-        Object.keys(layerGroups).length + ' sample types loaded. Click any point for full data.';
+        Object.keys(layerGroups).length + ' sample types loaded. Click any point for full data. Numbers only refer to samples with geographic information.';
     }
   });
 
