@@ -99,9 +99,15 @@ author_profile: false
 
   <p>
     Lithium Triangle Brine and Water Dataset. Information on data compilation is available in the README.
-    &nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.xlsx">[Download Excel]</a>
-    &nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.csv">[Download CSV]</a>
-    &nbsp;<a href="/files/data/LT/LiTriangleDataset_README.md">[Download README]</a>
+<a href="/files/data/LT/Supplement_LiTriangleDataset.xlsx"
+   onclick="gtag('event', 'file_download', {file_name: 'LT_Dataset.xlsx'})">
+   [Download Excel]</a>
+&nbsp;<a href="/files/data/LT/Supplement_LiTriangleDataset.csv"
+   onclick="gtag('event', 'file_download', {file_name: 'LT_Dataset.csv'})">
+   [Download CSV]</a>
+&nbsp;<a href="/files/data/LT/LiTriangleDataset_README.md"
+   onclick="gtag('event', 'file_download', {file_name: 'LT_Dataset_README.md'})">
+   [Download README]</a>
   </p>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
