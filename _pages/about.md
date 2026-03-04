@@ -16,7 +16,7 @@ I am a geochemist broadly interested in how Earth’s resources form and how ext
 What motivates me is understanding the trade-offs of the energy transition. Lithium is central to renewable energy technologies, but its extraction can create new challenges for water quality. By studying the geochemical processes that control these systems, I aim to better quantify potential impacts and contribute to more sustainable resource development. I approach this through a combination of fieldwork, laboratory analyses, and geochemical modeling.
 </p>
 <p>
-Currently, I am a PhD candidate in the <a href="https://sites.nicholas.duke.edu/avnervengosh" target="_blank" rel="noopener">Vengosh Lab</a> at Duke University.
+Currently, I am wrapping up graduate school in the <a href="https://sites.nicholas.duke.edu/avnervengosh" target="_blank" rel="noopener">Vengosh Lab</a> at Duke University.
 </p>  
 </div>
 
