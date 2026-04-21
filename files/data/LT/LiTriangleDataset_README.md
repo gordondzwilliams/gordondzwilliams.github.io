@@ -21,7 +21,7 @@ Any updates to this dataset will be available at https://gordondzwilliams.github
 
 This dataset forms part of the supplementary material for:
 
-Williams, G.D.Z., and Vengosh, A. (submitted). Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: the relative importance of high- and low-temperature water-rock interactions. Earth-Science Reviews.
+Williams, G.D.Z., and Vengosh, A., 2026. Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: The relative importance of high- and low-temperature water-rock interactions. Earth-Science Reviews, 105516. https://doi.org/10.1016/j.earscirev.2026.105516
 
 If using this dataset, please cite the above article and any of the original data sources listed in the "References" tab. This compilation reflects original reported values; users are encouraged to consult and cite the primary publications for detailed methodological information.
 
