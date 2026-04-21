@@ -1,5 +1,5 @@
 # Supplemental Lithium Triangle Brine and Inflow Dataset for:
-## Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: the relative importance of high- and low-temperature water-rock interactions
+## Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: The relative importance of high- and low-temperature water-rock interactions
 **Gordon D. Z. Williams & Avner Vengosh**  
 Division of Earth and Climate Science, Nicholas School of the Environment, Duke University
 
