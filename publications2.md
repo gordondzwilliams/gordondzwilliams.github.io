@@ -94,7 +94,7 @@ article.page a {
       <a href="https://doi.org/10.1016/j.apgeochem.2026.106890" target="_blank" rel="noopener">
         A simple, field-compatible method for accurate pH measurement in hypersaline brines
       </a>
-      — Paz Nativ, <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Earth-Science Reviews</i>
+      — Paz Nativ, <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Applied Geochemistry</i>
       <a href="files/papers/Nativ et al. - 2026 - A simple, field-compatible method for accurate pH measurement in hypersaline brines.pdf" target="_blank" rel="noopener">[pdf]</a> <a href="https://peel.twix.technion.ac.il/research/resources/" target="_blank" rel="noopener">[WebTool]</a>
     </li>
     
