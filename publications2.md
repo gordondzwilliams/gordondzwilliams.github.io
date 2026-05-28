@@ -103,7 +103,7 @@ article.page a {
         Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: The relative importance of high- and low-temperature water-rock interactions
       </a>
       — <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Earth-Science Reviews</i>
-      <a href="files/papers/Williams and Vengosh - 2026 - Origins of the MgLi ratio in closed-basin brines of the Lithium Triangle The relative importance o.pdf" target="_blank" rel="noopener">[pdf]</a>  <a href="LTdataset/" target="_blank" rel="noopener">[Lithium Triangle Dataset]</a>
+      <a href="files/papers/Williams and Vengosh - 2026 - Origins of the MgLi ratio in closed-basin brines of the Lithium Triangle The relative importance o.pdf" target="_blank" rel="noopener">[pdf]</a>  <a href="/LTdataset/" target="_blank" rel="noopener">[Lithium Triangle Dataset]</a>
     </li>
 
   <li>
