@@ -90,7 +90,7 @@ article.page a {
   <h3>2026</h3>
 
   <ul>
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.apgeochem.2026.106890" target="_blank" rel="noopener">
         A simple, field-compatible method for accurate pH measurement in hypersaline brines
       </a>
@@ -98,15 +98,15 @@ article.page a {
       <a href="files/papers/Nativ et al. - 2026 - A simple, field-compatible method for accurate pH measurement in hypersaline brines.pdf" target="_blank" rel="noopener">[pdf]</a> <a href="https://peel.twix.technion.ac.il/research/resources/" target="_blank" rel="noopener">[WebTool]</a>
     </li>
     
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.earscirev.2026.105516" target="_blank" rel="noopener">
         Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: The relative importance of high- and low-temperature water-rock interactions
       </a>
       — <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Earth-Science Reviews</i>
-      <a href="files/papers/Williams and Vengosh - 2026 - Origins of the MgLi ratio in closed-basin brines of the Lithium Triangle The relative importance o.pdf" target="_blank" rel="noopener">[pdf]</a>
+      <a href="files/papers/Williams and Vengosh - 2026 - Origins of the MgLi ratio in closed-basin brines of the Lithium Triangle The relative importance o.pdf" target="_blank" rel="noopener">[pdf]</a>  <a href="LTdataset/" target="_blank" rel="noopener">[Lithium Triangle Dataset]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.epsl.2026.119849" target="_blank" rel="noopener">
         Geochemical controls on the formation of lithium brines in closed-basins of the Lithium Triangle
       </a>
@@ -114,7 +114,7 @@ article.page a {
       <a href="/files/papers/Williams et al. - 2026 - Geochemical controls on the formation of lithium brines in closed-basins of the Lithium Triangle.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1021/acs.estlett.5c01196" target="_blank" rel="noopener">
         Discrepancies between pH and Corrosive Indices of Hypersaline Effluents
       </a>
@@ -126,7 +126,7 @@ article.page a {
   <h3>2025</h3>
 
   <ul>
-    <li>
+  <li>
       <a href="https://doi.org/10.1021/acs.est.5c13682" target="_blank" rel="noopener">
         The Water Quality Impacts of Legacy Hard-Rock Lithium Mining and Processing
       </a>
@@ -134,7 +134,7 @@ article.page a {
       <a href="/files/papers/2025_Williams_EST_LegacyWaterQualityImpacts.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.apgeochem.2025.106631" target="_blank" rel="noopener">
         Strontium isotopes and Rb/Sr tracers in surface soils for locating subsurface lithium pegmatites
       </a>
@@ -142,7 +142,7 @@ article.page a {
       <a href="/files/papers/Hall_Williams_2025_AppliedGeochem.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.jhazmat.2025.140033" target="_blank" rel="noopener">
         Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fertilizers, and phosphogypsum waste and its potential effect on the environment
       </a>
@@ -150,7 +150,7 @@ article.page a {
       <a href="/files/papers/Hill et al. - 2025 - Radionuclides and the uranium isotope fingerprint of globally produced phosphate rocks, mineral fert.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1039/D5VA00103J" target="_blank" rel="noopener">
         Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis elegans
       </a>
@@ -158,7 +158,7 @@ article.page a {
       <a href="/files/papers/Lopez et al. - 2025 - Lithium nickel manganese cobalt oxide particles cause developmental neurotoxicity in Caenorhabditis.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1126/sciadv.adw3268" target="_blank" rel="noopener">
         The role of boron in controlling the pH of lithium brines
       </a>
@@ -166,7 +166,7 @@ article.page a {
       <a href="/files/papers/Williams-2025-SciAdv.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1021/acs.estlett.4c01124" target="_blank" rel="noopener">
         Quality of Wastewater from Lithium-Brine Mining
       </a>
@@ -178,7 +178,7 @@ article.page a {
   <h3>2024</h3>
 
   <ul>
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.scitotenv.2024.177281" target="_blank" rel="noopener">
         The potential water quality impacts of hard-rock lithium mining: Insights from a legacy pegmatite mine in North Carolina, USA
       </a>
@@ -186,7 +186,7 @@ article.page a {
       <a href="/files/papers/Williams et al. - 2024 - The potential water quality impacts of hard-rock l.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.chemgeo.2024.122214" target="_blank" rel="noopener">
         Reconstructing the depositional environment and diagenetic modification of global phosphate deposits through integration of uranium and strontium isotopes
       </a>
@@ -194,7 +194,7 @@ article.page a {
       <a href="/files/papers/Hill et al. - 2024 - Reconstructing the depositional environment and di.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1021/acs.estlett.4c00170" target="_blank" rel="noopener">
         Tracing the Environmental Effects of Mineral Fertilizer Application with Trace Elements and Strontium Isotope Variations
       </a>
@@ -202,7 +202,7 @@ article.page a {
       <a href="/files/papers/Hill et al. - 2024 - Tracing the Environmental Effects of Mineral Ferti.pdf" target="_blank" rel="noopener">[pdf]</a>
     </li>
 
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.scitotenv.2023.167863" target="_blank" rel="noopener">
         Evidence for the accumulation of toxic metal(loid)s in agricultural soils impacted from long-term application of phosphate fertilizer
       </a>
@@ -214,7 +214,7 @@ article.page a {
   <h3>2023</h3>
 
   <ul>
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.chemgeo.2023.121715" target="_blank" rel="noopener">
         Lead isotopes and rare earth elements geochemistry of global phosphate rocks: Insights into depositional conditions and environmental tracing
       </a>
@@ -226,7 +226,7 @@ article.page a {
   <h3>2022</h3>
 
   <ul>
-    <li>
+  <li>
       <a href="https://doi.org/10.1016/j.scitotenv.2022.157971" target="_blank" rel="noopener">
         The strontium isotope fingerprint of phosphate rocks mining
       </a>
@@ -238,7 +238,7 @@ article.page a {
   <h3>2019</h3>
 
   <ul>
-    <li>
+  <li>
       <a href="https://doi.org/10.1785/0220180298" target="_blank" rel="noopener">
         Seismology with dark data: Image-based processing of analog records using machine learning for the rangely earthquake control experiment
       </a>
