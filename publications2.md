@@ -91,6 +91,20 @@ article.page a {
 
   <ul>
   <li>
+      <a href="https://doi.org/10.1016/j.apgeochem.2026.106973" target="_blank" rel="noopener">
+        Investigating reservoir-scale heterogeneity in Li-enriched oil field brines of the Devonian Leduc and Nisku formations, Alberta Basin, Canada
+      </a>
+      — Madigan R. Blake, Kristina L. Butler, Lee Ann Munk, David F. Boutt, Natasha Morris, Joanie Kennedy, Pritam Saha, Jenna Serotta, Hannah Tompkins, <b>Gordon D.Z. Williams</b>, Avner Vengosh, Jaivime Evaristo, Daniel E. Ibarra — <i>Applied Geochemistry</i>
+  </li>
+    
+  <li>
+      <a href="https://doi.org/10.1016/j.gca.2026.06.025" target="_blank" rel="noopener">
+        Environmental and vital effects on lithium isotopes and trace element ratios in biogenic carbonates: Insights from an estuarine salinity gradient
+      </a>
+      — <b><sup>†</sup></b>Alexandra M. Schaffer, <b>Gordon D.Z. Williams</b>, Gary S. Dwyer, Ethan G. Hyland, Juliet M. Wong, Joshua S. Osterberg, Thomas F. Schultz, Michael A. Kipp — <i>Geochimica et Cosmochimica Acta</i>
+  </li>
+    
+  <li>
       <a href="https://doi.org/10.1016/j.apgeochem.2026.106890" target="_blank" rel="noopener">
         A simple, field-compatible method for accurate pH measurement in hypersaline brines
       </a>
