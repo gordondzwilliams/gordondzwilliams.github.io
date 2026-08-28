@@ -91,10 +91,18 @@ article.page a {
 
   <ul>
   <li>
+      <a href="https://doi.org/10.1016/j.apgeochem.2026.107053" target="_blank" rel="noopener">
+        Baseline water quality and geochemistry of shallow groundwater used by indigenous communities in the vicinity of the Salar de Uyuni, Bolivia
+      </a>
+      — Hannah Wudke, <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Applied Geochemistry</i>
+  </li>
+    
+  <li>
       <a href="https://doi.org/10.1016/j.apgeochem.2026.106973" target="_blank" rel="noopener">
         Investigating reservoir-scale heterogeneity in Li-enriched oil field brines of the Devonian Leduc and Nisku formations, Alberta Basin, Canada
       </a>
       — Madigan R. Blake, Kristina L. Butler, Lee Ann Munk, David F. Boutt, Natasha Morris, Joanie Kennedy, Pritam Saha, Jenna Serotta, Hannah Tompkins, <b>Gordon D.Z. Williams</b>, Avner Vengosh, Jaivime Evaristo, Daniel E. Ibarra — <i>Applied Geochemistry</i>
+     <a href="/files/papers/Blake et al. - 2026 - Investigating reservoir-scale heterogeneity in Li-enriched oil field brines of the Devonian Leduc an.pdf" target="_blank" rel="noopener">[pdf]</a>
   </li>
     
   <li>
@@ -102,6 +110,7 @@ article.page a {
         Environmental and vital effects on lithium isotopes and trace element ratios in biogenic carbonates: Insights from an estuarine salinity gradient
       </a>
       — <b><sup>†</sup></b>Alexandra M. Schaffer, <b>Gordon D.Z. Williams</b>, Gary S. Dwyer, Ethan G. Hyland, Juliet M. Wong, Joshua S. Osterberg, Thomas F. Schultz, Michael A. Kipp — <i>Geochimica et Cosmochimica Acta</i>
+    <a href="/files/papers/Schaffer et al. - 2026 - Environmental and vital effects on lithium isotopes and trace element ratios in biogenic carbonates.pdf" target="_blank" rel="noopener">[pdf]</a>
   </li>
     
   <li>
