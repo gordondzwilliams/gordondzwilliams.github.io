@@ -95,6 +95,7 @@ article.page a {
         Baseline water quality and geochemistry of shallow groundwater used by indigenous communities in the vicinity of the Salar de Uyuni, Bolivia
       </a>
       — Hannah Wudke, <b>Gordon D.Z. Williams</b>, Avner Vengosh — <i>Applied Geochemistry</i>
+      <a href="/files/papers/Wudke et al. - 2026 - Baseline water quality and geochemistry of shallow groundwater used by indigenous communities in the.pdf" target="_blank" rel="noopener">[pdf]</a>
   </li>
     
   <li>
