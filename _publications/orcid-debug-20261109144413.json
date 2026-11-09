@@ -1,0 +1,594 @@
+[
+  {
+    "last-modified-date": {
+      "value": 1793404236670
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.geoderma.2026.118084",
+          "external-id-normalized": {
+            "value": "10.1016/j.geoderma.2026.118084",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.geoderma.2026.118084"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 231783772,
+        "created-date": {
+          "value": 1793404236670
+        },
+        "last-modified-date": {
+          "value": 1793404236670
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Behavior of lithium during soil formation: lithium signatures in soil minerals derived from Li\u2013pegmatites"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.geoderma.2026.118084",
+              "external-id-normalized": {
+                "value": "10.1016/j.geoderma.2026.118084",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.geoderma.2026.118084"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1016/j.geoderma.2026.118084"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "11"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Geoderma"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/231783772",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1787257837222
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.apgeochem.2026.106973",
+          "external-id-normalized": {
+            "value": "10.1016/j.apgeochem.2026.106973",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.apgeochem.2026.106973"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 224414674,
+        "created-date": {
+          "value": 1787257837222
+        },
+        "last-modified-date": {
+          "value": 1787257837222
+        },
+        "source": {
+          "source-orcid": {
+            "uri": "https://orcid.org/0000-0002-9076-9635",
+            "path": "0000-0002-9076-9635",
+            "host": "orcid.org"
+          },
+          "source-client-id": null,
+          "source-name": {
+            "value": "Gordon D.Z. Williams"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Investigating reservoir-scale heterogeneity in Li-enriched oil field brines of the Devonian Leduc and Nisku formations, Alberta Basin, Canada"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.apgeochem.2026.106973",
+              "external-id-normalized": {
+                "value": "10.1016/j.apgeochem.2026.106973",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.apgeochem.2026.106973"
+              },
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "0883-2927",
+              "external-id-normalized": {
+                "value": "0883-2927",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/0883-2927"
+              },
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://dx.doi.org/10.1016/j.apgeochem.2026.106973"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "10"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Applied Geochemistry"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/224414674",
+        "display-index": "0"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1793418174699
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.oregeorev.2026.107648",
+          "external-id-normalized": {
+            "value": "10.1016/j.oregeorev.2026.107648",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.oregeorev.2026.107648"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 231794147,
+        "created-date": {
+          "value": 1793418174699
+        },
+        "last-modified-date": {
+          "value": 1793418174699
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Origin and characteristics of lithium-rich clays in the neogene lithium-borate deposits of Salar de Pastos Grandes, Argentina"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.oregeorev.2026.107648",
+              "external-id-normalized": {
+                "value": "10.1016/j.oregeorev.2026.107648",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.oregeorev.2026.107648"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.1016/j.oregeorev.2026.107648"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "10"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Ore Geology Reviews"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/231794147",
+        "display-index": "1"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1787257877820
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.gca.2026.06.025",
+          "external-id-normalized": {
+            "value": "10.1016/j.gca.2026.06.025",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.gca.2026.06.025"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 224414729,
+        "created-date": {
+          "value": 1787257877820
+        },
+        "last-modified-date": {
+          "value": 1787257877820
+        },
+        "source": {
+          "source-orcid": {
+            "uri": "https://orcid.org/0000-0002-9076-9635",
+            "path": "0000-0002-9076-9635",
+            "host": "orcid.org"
+          },
+          "source-client-id": null,
+          "source-name": {
+            "value": "Gordon D.Z. Williams"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Environmental and vital effects on lithium isotopes and trace element ratios in biogenic carbonates: Insights from an estuarine salinity gradient"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.gca.2026.06.025",
+              "external-id-normalized": {
+                "value": "10.1016/j.gca.2026.06.025",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.gca.2026.06.025"
+              },
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "0016-7037",
+              "external-id-normalized": {
+                "value": "0016-7037",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/0016-7037"
+              },
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://dx.doi.org/10.1016/j.gca.2026.06.025"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "08"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Geochimica et Cosmochimica Acta"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/224414729",
+        "display-index": "0"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1777064094839
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.earscirev.2026.105516",
+          "external-id-normalized": {
+            "value": "10.1016/j.earscirev.2026.105516",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.earscirev.2026.105516"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 212805919,
+        "created-date": {
+          "value": 1777064094839
+        },
+        "last-modified-date": {
+          "value": 1777064094839
+        },
+        "source": {
+          "source-orcid": {
+            "uri": "https://orcid.org/0000-0002-9076-9635",
+            "path": "0000-0002-9076-9635",
+            "host": "orcid.org"
+          },
+          "source-client-id": null,
+          "source-name": {
+            "value": "Gordon D.Z. Williams"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Origins of the Mg/Li ratio in closed-basin brines of the Lithium Triangle: The relative importance of high- and low-temperature water-rock interactions"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.earscirev.2026.105516",
+              "external-id-normalized": {
+                "value": "10.1016/j.earscirev.2026.105516",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.earscirev.2026.105516"
+              },
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "0012-8252",
+              "external-id-normalized": {
+                "value": "0012-8252",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/0012-8252"
+              },
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://dx.doi.org/10.1016/j.earscirev.2026.105516"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "07"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Earth-Science Reviews"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/212805919",
+        "display-index": "0"
+      }
+    ]
+  },
+  {
+    "last-modified-date": {
+      "value": 1779305835616
+    },
+    "external-ids": {
+      "external-id": [
+        {
+          "external-id-type": "doi",
+          "external-id-value": "10.1016/j.apgeochem.2026.106890",
+          "external-id-normalized": {
+            "value": "10.1016/j.apgeochem.2026.106890",
+            "transient": true
+          },
+          "external-id-normalized-error": null,
+          "external-id-url": {
+            "value": "https://doi.org/10.1016/j.apgeochem.2026.106890"
+          },
+          "external-id-relationship": "self"
+        }
+      ]
+    },
+    "work-summary": [
+      {
+        "put-code": 215270460,
+        "created-date": {
+          "value": 1779305835616
+        },
+        "last-modified-date": {
+          "value": 1779305835616
+        },
+        "source": {
+          "source-orcid": {
+            "uri": "https://orcid.org/0000-0002-9076-9635",
+            "path": "0000-0002-9076-9635",
+            "host": "orcid.org"
+          },
+          "source-client-id": null,
+          "source-name": {
+            "value": "Gordon D.Z. Williams"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "A Simple, Field-Compatible Method for Accurate pH Measurement in Hypersaline Brines"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1016/j.apgeochem.2026.106890",
+              "external-id-normalized": {
+                "value": "10.1016/j.apgeochem.2026.106890",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.1016/j.apgeochem.2026.106890"
+              },
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "0883-2927",
+              "external-id-normalized": {
+                "value": "0883-2927",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://portal.issn.org/resource/ISSN/0883-2927"
+              },
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://dx.doi.org/10.1016/j.apgeochem.2026.106890"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "05"
+          },
+          "day": null
+        },
+        "journal-title": {
+          "value": "Applied Geochemistry"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-9076-9635/work/215270460",
+        "display-index": "0"
+      }
+    ]
+  }
+]
