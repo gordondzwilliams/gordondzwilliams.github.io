@@ -91,6 +91,22 @@ article.page a {
 
   <ul>
   <li>
+      <a href="https://doi.org/10.1016/j.oregeorev.2026.107648" target="_blank" rel="noopener">
+        Origin and characteristics of lithium-rich clays in the neogene lithium-borate deposits of Salar de Pastos Grandes, Argentina
+      </a>
+      — Owen F. McCaffrey, Kristina L. Butler, Thomas R. Benson, Daniel E. Ibarra, <b>Gordon D.Z. Williams</b>, David F. Boutt, Frost Gwynn Hutchison, E. Troy Rasbury, Kathleen M. Wooton, LeeAnn Munk — <i>Ore Geology Reviews</i>
+
+  </li>
+    
+  <li>
+      <a href="https://doi.org/10.1016/j.geoderma.2026.118084" target="_blank" rel="noopener">
+        Behavior of lithium during soil formation: lithium signatures in soil minerals derived from Li–pegmatites
+      </a>
+      — P. Louis Lu, Russell S. Harmon, Lamont Leatherman, <b>Gordon D.Z. Williams</b>, Adam C. Curry, Lean Kelly, Gary S. Dwyer, Valerie S. Reynolds, S. Anselme Dossou, Daniel D. Richeter — <i>Geoderma</i>
+      <a href="/files/papers/Lu et al. - 2026 - Behavior of lithium during soil formation lithium signatures in soil minerals derived from Li–pegma.pdf" target="_blank" rel="noopener">[pdf]</a>
+  </li>
+    
+  <li>
       <a href="https://doi.org/10.1016/j.apgeochem.2026.107053" target="_blank" rel="noopener">
         Baseline water quality and geochemistry of shallow groundwater used by indigenous communities in the vicinity of the Salar de Uyuni, Bolivia
       </a>
